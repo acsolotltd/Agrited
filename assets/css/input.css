@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Components */
+@import "./components.css";
+
+/* Animations */
+@import "./animations.css";
+
+/* Gallery */
+@import "./gallery.css";

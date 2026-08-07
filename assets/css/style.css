@@ -1,0 +1,624 @@
+/* =========================================================
+   AGRITED REDESIGN
+   Global Styles
+=========================================================*/
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+    background:#F8FAFC;
+    color:#334155;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+ul{
+    list-style:none;
+}
+
+button{
+    cursor:pointer;
+    border:none;
+    outline:none;
+}
+
+input,
+textarea,
+select{
+    outline:none;
+    border:none;
+    font:inherit;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family:'Poppins',sans-serif;
+    color:#0F172A;
+    line-height:1.2;
+}
+
+/* =========================================================
+   Layout
+=========================================================*/
+
+.container-custom{
+    width:100%;
+    max-width:1280px;
+    margin:auto;
+    padding-inline:1.5rem;
+}
+
+.section{
+    padding:7rem 0;
+}
+
+.section-sm{
+    padding:4rem 0;
+}
+
+.section-title{
+
+    font-size:2.8rem;
+    font-weight:700;
+    margin-bottom:1rem;
+}
+
+.section-subtitle{
+
+    color:#16A34A;
+    text-transform:uppercase;
+    font-weight:700;
+    letter-spacing:.12em;
+    margin-bottom:1rem;
+    display:inline-block;
+}
+
+.section-description{
+
+    max-width:700px;
+    color:#64748B;
+    font-size:1.1rem;
+}
+
+/* =========================================================
+   Buttons
+=========================================================*/
+
+.btn{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.65rem;
+
+    padding:.95rem 2rem;
+
+    border-radius:14px;
+
+    transition:.35s;
+
+    font-weight:600;
+
+}
+
+.btn-primary{
+
+    background:#166534;
+    color:#fff;
+
+    box-shadow:0 10px 25px rgba(22,101,52,.25);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-3px);
+
+    background:#15803D;
+
+}
+
+.btn-outline{
+
+    border:2px solid #166534;
+
+    color:#166534;
+
+}
+
+.btn-outline:hover{
+
+    background:#166534;
+
+    color:#fff;
+
+}
+
+/* =========================================================
+   Cards
+=========================================================*/
+
+.card{
+
+    background:#fff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.06);
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 25px 55px rgba(0,0,0,.12);
+
+}
+
+/* =========================================================
+   Glass Effect
+=========================================================*/
+
+.glass{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(16px);
+
+    -webkit-backdrop-filter:blur(16px);
+
+}
+
+/* =========================================================
+   Gradient Text
+=========================================================*/
+
+.text-gradient{
+
+    background:linear-gradient(90deg,#166534,#22C55E);
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+}
+
+/* =========================================================
+   Hero Background
+=========================================================*/
+
+.hero-bg{
+
+    background:
+
+    radial-gradient(circle at top right,#DCFCE7 0%,transparent 35%),
+
+    radial-gradient(circle at bottom left,#D1FAE5 0%,transparent 30%),
+
+    #F8FAFC;
+
+}
+
+/* =========================================================
+   Floating Cards
+=========================================================*/
+
+.floating{
+
+    animation:float 5s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0px);
+
+}
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+100%{
+
+transform:translateY(0px);
+
+}
+
+}
+
+/* =========================================================
+   Image Hover
+=========================================================*/
+
+.image-zoom{
+
+    overflow:hidden;
+
+}
+
+.image-zoom img{
+
+    transition:.6s;
+
+}
+
+.image-zoom:hover img{
+
+    transform:scale(1.08);
+
+}
+
+/* =========================================================
+   Scrollbar
+=========================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#166534;
+
+    border-radius:50px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#F1F5F9;
+
+}
+
+/* =========================================================
+   Preloader
+=========================================================*/
+
+#preloader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#fff;
+
+    z-index:99999;
+
+    display:none;
+
+}
+
+/* =========================================================
+   Scroll To Top
+=========================================================*/
+
+#scrollTop{
+
+    transition:.3s;
+
+}
+
+#scrollTop:hover{
+
+    transform:translateY(-5px);
+
+}
+
+/* =========================================================
+   Utilities
+=========================================================*/
+
+.shadow-soft{
+
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+
+}
+
+.rounded-xl2{
+
+    border-radius:24px;
+
+}
+
+.max-text{
+
+    max-width:650px;
+
+}
+
+/* =========================================================
+   Responsive
+=========================================================*/
+
+@media(max-width:1024px){
+
+.section{
+
+padding:5rem 0;
+
+}
+
+.section-title{
+
+font-size:2.3rem;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.container-custom{
+
+padding-inline:1rem;
+
+}
+
+.section{
+
+padding:4rem 0;
+
+}
+
+.section-title{
+
+font-size:2rem;
+
+}
+
+.section-description{
+
+font-size:1rem;
+
+}
+
+.btn{
+
+width:100%;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.section-title{
+
+font-size:1.75rem;
+
+}
+
+body{
+
+font-size:.95rem;
+
+}
+
+}
+
+/*
+==================================
+Gallery
+==================================
+*/
+
+.glightbox img{
+
+    transition:.6s;
+
+}
+
+.glightbox:hover img{
+
+    transform:scale(1.05);
+
+}
+
+.glightbox{
+
+    display:block;
+
+}
+
+.loaded{
+
+    animation:fadeImage .5s ease;
+
+}
+
+@keyframes fadeImage{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.98);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+.gallery-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(0,0,0,.45);
+
+    opacity:0;
+
+    transition:.4s;
+
+}
+
+.group:hover .gallery-overlay{
+
+    opacity:1;
+
+}
+
+.floating-card{
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(255,255,255,.92);
+
+    border:1px solid rgba(255,255,255,.4);
+
+}
+
+.thumbnail{
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+}
+
+.thumbnail img{
+
+    transition:.4s;
+
+}
+
+.thumbnail:hover img{
+
+    transform:scale(1.12);
+
+}
+
+.farm-card{
+
+    transition:.45s;
+
+}
+
+.farm-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 30px 80px rgba(15,23,42,.15);
+
+}
+
+.hero-image{
+
+    overflow:hidden;
+
+}
+
+.hero-image img{
+
+    transition:1s;
+
+}
+
+.hero-image:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.farm-image{
+
+    border-radius:32px;
+
+}
+
+.gallery-badge{
+
+    position:absolute;
+
+    top:24px;
+
+    left:24px;
+
+    background:#0B9444;
+
+    color:white;
+
+    padding:.55rem 1rem;
+
+    border-radius:999px;
+
+    font-weight:600;
+
+}
+
+
+@media(max-width:1024px){
+
+    .farm-gallery{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+.header{
+
+    transition:.4s;
+
+}
+
+.header.scrolled{
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 20px 50px rgba(15,23,42,.08);
+
+}
