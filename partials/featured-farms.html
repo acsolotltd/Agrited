@@ -1,1117 +1,204 @@
 <!-- ==========================================================
-FEATURED FARMS
+     ALL FARMS / FACILITIES SECTION (With Image Collages)
+     Requires: Tailwind CSS with darkMode enabled in config
 =========================================================== -->
-
-<section
-    id="farms"
-    class="relative overflow-hidden py-28 bg-gradient-to-b from-slate-50 to-white">
-
-    <!-- Background Decoration -->
-
-    <div
-        class="absolute -left-48 top-0 h-[500px] w-[500px] rounded-full bg-green-100/50 blur-3xl">
-    </div>
-
-    <div
-        class="absolute -right-40 bottom-0 h-[450px] w-[450px] rounded-full bg-amber-100/40 blur-3xl">
-    </div>
-
-    <div class="container-custom relative z-10">
-
-        <!-- Section Heading -->
-
-        <div
-            class="mx-auto max-w-4xl text-center mb-20"
-            data-aos="fade-up">
-
-            <span
-                class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-5 py-2 font-semibold text-primary">
-
-                <svg
-                    class="h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24">
-
-                    <path
-                        d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z"/>
-
-                </svg>
-
-                Our Farms
-
-            </span>
-
-            <h2
-                class="mt-6 font-heading text-5xl font-bold leading-tight text-slate-900">
-
-                World-Class Poultry
-                Farms Built For
-                Excellence
-
+<section class="py-16 md:py-24 bg-slate-50 dark:bg-slate-900 transition-colors duration-300 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-20">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-400 text-xs font-bold tracking-widest uppercase mb-4 shadow-sm border border-emerald-200 dark:border-emerald-800/50">
+                International Standard
+            </div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 md:mb-6 transition-colors duration-300">
+                Our World-Class <span class="text-emerald-700 dark:text-emerald-500">Farms</span>
             </h2>
-
-            <p
-                class="mx-auto mt-8 max-w-3xl text-lg leading-8 text-slate-600">
-
-                Agrited operates modern breeder farms equipped with
-                advanced hatcheries, automated poultry houses,
-                feed mills and biosecurity systems that ensure
-                world-class poultry production.
-
+            <p class="text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed transition-colors duration-300">
+                Producing millions of day-old chicks across highly advanced breeding and pullet farms. Designed for unmatched bio-security, capacity, and quality control.
             </p>
-
         </div>
 
-        <!-- ===================================================
-             WHITE PLAINS FARM
-        ==================================================== -->
+        <!-- Farms Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
 
-        <article
-            class="group mb-32 grid items-center gap-16 lg:grid-cols-2">
-
-            <!-- ==========================================
-                 IMAGE GALLERY
-            =========================================== -->
-
-            <div
-                class="relative"
-                data-aos="fade-right">
-
-                <!-- Hero Image -->
-
-                <a
-                    href="assets/images/farms/white/gallery-01.jpg"
-                    class="glightbox rounded-[34px] block overflow-hidden shadow-2xl"
-                    data-gallery="white-plains"
-                    data-title="White Plains Farm">
-
-                    <img
-                        src="assets/images/farms/white/cover.jpg"
-                        class="h-[520px] w-full object-cover duration-700 group-hover:scale-105"
-                        alt="White Plains Farm">
-
-                    <!-- Overlay -->
-
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 duration-500 group-hover:opacity-100">
-
-                        <div
-                            class="absolute bottom-8 left-8 flex items-center gap-3 rounded-full bg-white px-5 py-3 shadow-lg">
-
-                            <svg
-                                class="h-6 w-6 text-primary"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                viewBox="0 0 24 24">
-
-                                <path
-                                    d="M4 7h3l2-2h6l2 2h3v12H4z"/>
-
-                                <circle
-                                    cx="12"
-                                    cy="13"
-                                    r="3"/>
-
-                            </svg>
-
-                            <span class="font-semibold">
-
-                                View Gallery
-
-                            </span>
-
-                        </div>
-
+            <!-- 1. WHITE PLAINS (4 Images) -->
+            <article class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl dark:shadow-none dark:hover:shadow-emerald-900/20 border border-slate-100 dark:border-slate-700 transition-all duration-300 flex flex-col group">
+                <!-- 2x2 Image Grid -->
+                <div class="relative h-64 sm:h-72 bg-slate-200 dark:bg-slate-700 p-1.5 grid grid-cols-2 grid-rows-2 gap-1.5">
+                    <div class="relative overflow-hidden rounded-tl-xl group/img">
+                        <img src="assets/img/wp/eggs.jpg" alt="Hatchery & Feed Mill" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110">
+                        <div class="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Hatchery</div>
                     </div>
-
-                </a>
-
-                <!-- Hidden Gallery Images -->
-
-                <a
-                    href="assets/images/farms/white/gallery-02.jpg"
-                    class="glightbox hidden"
-                    data-gallery="white-plains"></a>
-
-                <a
-                    href="assets/images/farms/white/gallery-03.jpg"
-                    class="glightbox hidden"
-                    data-gallery="white-plains"></a>
-
-                <a
-                    href="assets/images/farms/white/gallery-04.jpg"
-                    class="glightbox hidden"
-                    data-gallery="white-plains"></a>
-
-                <a
-                    href="assets/images/farms/white/gallery-05.jpg"
-                    class="glightbox hidden"
-                    data-gallery="white-plains"></a>
-
-                <a
-                    href="assets/images/farms/white/gallery-06.jpg"
-                    class="glightbox hidden"
-                    data-gallery="white-plains"></a>
-
-                <!-- Floating Counter -->
-
-                <div
-                    class="absolute -bottom-8 left-8 rounded-3xl bg-white px-7 py-6 shadow-2xl">
-
-                    <div
-                        class="flex items-center gap-4">
-
-                        <div
-                            class="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white">
-
-                            <svg
-                                class="h-7 w-7"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                viewBox="0 0 24 24">
-
-                                <path
-                                    d="M4 7h3l2-2h6l2 2h3v12H4z"/>
-
-                            </svg>
-
-                        </div>
-
+                    <div class="relative overflow-hidden rounded-tr-xl group/img">
+                        <img src="assets/img/wp/archi.jpg" alt="Fertility Test" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110">
+                        <div class="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Fertility Test</div>
+                    </div>
+                    <div class="relative overflow-hidden group/img">
+                        <img src="assets/img/wp/truck.jpg" alt="Delivery Trucks" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110">
+                        <div class="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Logistics</div>
+                    </div>
+                    <div class="relative overflow-hidden group/img">
+                        <!-- Use actual image where available -->
+                        <img src="assets/img/wp/day-old.jpg" alt="Prime Quality Chicks" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110">
+                        <div class="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Quality Chicks</div>
+                    </div>
+                    <!-- Badge -->
+                    <div class="absolute top-4 right-4 z-10 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-slate-800 dark:text-slate-200 text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                        Core Breeding Farm
+                    </div>
+                </div>
+                
+                <div class="p-6 sm:p-8 flex-1 flex flex-col">
+                    <div class="mb-4">
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white transition-colors duration-300">White Plains</h3>
+                        <p class="text-emerald-600 dark:text-emerald-400 text-sm font-semibold flex items-center gap-1.5 mt-1 transition-colors duration-300">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            Alomaja, Ibadan
+                        </p>
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-6 flex-1 transition-colors duration-300 leading-relaxed">
+                        Our core breeding farm featuring a combined Emka and Pasreform hatchery, fully equipped Premix production line, quality control laboratory, and extensive feed mill operations.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-6 border-t border-slate-100 dark:border-slate-700 transition-colors duration-300">
                         <div>
-
-                            <h4
-                                class="text-3xl font-bold text-primary">
-
-                                24+
-
-                            </h4>
-
-                            <p
-                                class="text-sm text-slate-500">
-
-                                Farm Photos
-
-                            </p>
-
+                            <p class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">51k</p>
+                            <p class="text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide mt-0.5">Total Breeders</p>
                         </div>
-
+                        <div>
+                            <p class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">1.6M</p>
+                            <p class="text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide mt-0.5">Hatching Capacity</p>
+                        </div>
                     </div>
-
                 </div>
+            </article>
 
-            </div>
-
-            <!-- ==========================================
-                 CONTENT
-            =========================================== -->
-
-            <div
-                data-aos="fade-left">
-
-                <span
-                    class="font-semibold uppercase tracking-[0.25em] text-primary">
-
-                    White Plains Farm
-
-                </span>
-
-                <h3
-                    class="mt-5 font-heading text-5xl font-bold leading-tight text-slate-900">
-
-                    Our Flagship
-                    Grandparent &
-                    Breeder Farm
-
-                </h3>
-
-                <p
-                    class="mt-8 text-lg leading-8 text-slate-600">
-
-                    White Plains Farm is one of Agrited's flagship
-                    poultry production facilities, integrating breeder
-                    operations, hatchery services, quality control and
-                    modern farm infrastructure to deliver premium
-                    poultry genetics across Nigeria.
-
-                </p>
-
-                                <!-- ======================================
-                     FARM STATISTICS
-                ======================================= -->
-
-                <div class="mt-10 grid grid-cols-2 gap-5">
-
-                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-
-                        <h4 class="text-4xl font-bold text-primary">
-
-                            30+
-
-                        </h4>
-
-                        <p class="mt-2 text-slate-500">
-
-                            Years of Excellence
-
-                        </p>
-
+            <!-- 2. BLUE PLAINS (2 Images) -->
+            <article class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl dark:shadow-none dark:hover:shadow-emerald-900/20 border border-slate-100 dark:border-slate-700 transition-all duration-300 flex flex-col group relative ring-2 ring-transparent hover:ring-emerald-500/50 dark:hover:ring-emerald-400/50">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-emerald-600 z-10"></div>
+                <!-- 1x2 Split Image Layout -->
+                <div class="relative h-64 sm:h-72 bg-slate-200 dark:bg-slate-700 p-1.5 grid grid-cols-2 gap-1.5">
+                    <div class="relative overflow-hidden rounded-tl-xl group/img">
+                        <img src="assets/img/bp/bp1.jpeg" alt="Blue Plains Overhead" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110">
+                        <div class="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Overhead View</div>
                     </div>
-
-                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-
-                        <h4 class="text-4xl font-bold text-primary">
-
-                            24+
-
-                        </h4>
-
-                        <p class="mt-2 text-slate-500">
-
-                            Modern Poultry Houses
-
-                        </p>
-
+                    <div class="relative overflow-hidden rounded-tr-xl group/img">
+                        <img src="assets/img/bp/bp2.jpeg" alt="Blue Plain Internal" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110">
+                        <div class="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Facilities</div>
                     </div>
-
-                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-
-                        <h4 class="text-4xl font-bold text-primary">
-
-                            100%
-
-                        </h4>
-
-                        <p class="mt-2 text-slate-500">
-
-                            Biosecurity Compliance
-
-                        </p>
-
+                    <!-- Badge -->
+                    <div class="absolute top-4 right-4 z-10 bg-emerald-600 dark:bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                        Flagship Breeding Farm
                     </div>
-
-                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-
-                        <h4 class="text-4xl font-bold text-primary">
-
-                            24/7
-
-                        </h4>
-
-                        <p class="mt-2 text-slate-500">
-
-                            Technical Monitoring
-
-                        </p>
-
-                    </div>
-
                 </div>
-
-                <!-- ======================================
-                     FACILITIES
-                ======================================= -->
-
-                <div class="mt-10">
-
-                    <h4
-                        class="text-xl font-heading font-semibold text-slate-900">
-
-                        Key Facilities
-
-                    </h4>
-
-                    <div
-                        class="mt-6 grid gap-4 sm:grid-cols-2">
-
-                        <div class="flex items-center gap-3">
-
-                            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-green-100">
-
-                                ✓
-
-                            </div>
-
-                            <span>Breeder Houses</span>
-
-                        </div>
-
-                        <div class="flex items-center gap-3">
-
-                            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-green-100">
-
-                                ✓
-
-                            </div>
-
-                            <span>Commercial Hatchery</span>
-
-                        </div>
-
-                        <div class="flex items-center gap-3">
-
-                            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-green-100">
-
-                                ✓
-
-                            </div>
-
-                            <span>Feed Storage</span>
-
-                        </div>
-
-                        <div class="flex items-center gap-3">
-
-                            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-green-100">
-
-                                ✓
-
-                            </div>
-
-                            <span>Quality Laboratory</span>
-
-                        </div>
-
-                        <div class="flex items-center gap-3">
-
-                            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-green-100">
-
-                                ✓
-
-                            </div>
-
-                            <span>Cold Chain Facility</span>
-
-                        </div>
-
-                        <div class="flex items-center gap-3">
-
-                            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-green-100">
-
-                                ✓
-
-                            </div>
-
-                            <span>Distribution Centre</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- ======================================
-                     THUMBNAILS
-                ======================================= -->
-
-                <div class="mt-10">
-
-                    <h4
-                        class="mb-5 text-xl font-heading font-semibold">
-
-                        Gallery Preview
-
-                    </h4>
-
-                    <div class="grid grid-cols-4 gap-4">
-
-                        <a
-                            href="assets/images/farms/white/gallery-01.jpg"
-                            class="glightbox overflow-hidden rounded-2xl"
-                            data-gallery="white-plains">
-
-                            <img
-                                src="assets/images/farms/white/gallery-01.jpg"
-                                class="h-24 w-full object-cover transition duration-500 hover:scale-110">
-
-                        </a>
-
-                        <a
-                            href="assets/images/farms/white/gallery-02.jpg"
-                            class="glightbox overflow-hidden rounded-2xl"
-                            data-gallery="white-plains">
-
-                            <img
-                                src="assets/images/farms/white/gallery-02.jpg"
-                                class="h-24 w-full object-cover transition duration-500 hover:scale-110">
-
-                        </a>
-
-                        <a
-                            href="assets/images/farms/white/gallery-03.jpg"
-                            class="glightbox overflow-hidden rounded-2xl"
-                            data-gallery="white-plains">
-
-                            <img
-                                src="assets/images/farms/white/gallery-03.jpg"
-                                class="h-24 w-full object-cover transition duration-500 hover:scale-110">
-
-                        </a>
-
-                        <a
-                            href="assets/images/farms/white/gallery-04.jpg"
-                            class="glightbox overflow-hidden rounded-2xl relative"
-                            data-gallery="white-plains">
-
-                            <img
-                                src="assets/images/farms/white/gallery-04.jpg"
-                                class="h-24 w-full object-cover">
-
-                            <div
-                                class="absolute inset-0 flex items-center justify-center bg-black/55 text-lg font-bold text-white">
-
-                                +20
-
-                            </div>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-                <!-- ======================================
-                     ACTION BUTTONS
-                ======================================= -->
-
-                <div
-                    class="mt-12 flex flex-wrap gap-5">
-
-                    <a
-                        href="#"
-                        class="btn btn-primary">
-
-                        Explore White Plains
-
-                    </a>
-
-                    <a
-                        href="assets/images/farms/white/gallery-01.jpg"
-                        class="btn btn-outline glightbox"
-                        data-gallery="white-plains">
-
-                        View Full Gallery
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </article>
-
-        <!-- =====================================================
-             SECTION DIVIDER
-        ====================================================== -->
-
-        <div
-            class="mb-28 h-px w-full bg-gradient-to-r from-transparent via-slate-300 to-transparent">
-        </div>
-
-        <!-- =====================================================
-             GREEN PLAINS FARM
-             (Starts in Part 3)
-        ====================================================== -->
-
-                <!-- =====================================================
-             GREEN PLAINS FARM
-        ====================================================== -->
-
-        <article
-            class="group mb-32 grid items-center gap-16 lg:grid-cols-2">
-
-            <!-- ==========================================
-                 CONTENT
-            =========================================== -->
-
-            <div
-                data-aos="fade-right"
-                class="order-2 lg:order-1">
-
-                <span
-                    class="font-semibold uppercase tracking-[0.25em] text-primary">
-
-                    Green Plains Farm
-
-                </span>
-
-                <h3
-                    class="mt-5 font-heading text-5xl font-bold leading-tight text-slate-900">
-
-                    Raising Healthy Birds
-                    Through Precision
-                    Farm Management
-
-                </h3>
-
-                <p
-                    class="mt-8 text-lg leading-8 text-slate-600">
-
-                    Green Plains Farm is dedicated to breeder and grow-out
-                    operations using modern poultry housing, environmental
-                    control systems and strict biosecurity practices to
-                    deliver healthy, productive flocks.
-
-                </p>
-
-                <!-- Statistics -->
-
-                <div
-                    class="mt-10 grid grid-cols-2 gap-5">
-
-                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-
-                        <h4 class="text-4xl font-bold text-primary">
-
-                            18
-
-                        </h4>
-
-                        <p class="mt-2 text-slate-500">
-
-                            Poultry Houses
-
+                
+                <div class="p-6 sm:p-8 flex-1 flex flex-col">
+                    <div class="mb-4">
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white transition-colors duration-300">Blue Plains</h3>
+                        <p class="text-emerald-600 dark:text-emerald-400 text-sm font-semibold flex items-center gap-1.5 mt-1 transition-colors duration-300">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            Fiditi, Oyo State
                         </p>
-
                     </div>
-
-                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-
-                        <h4 class="text-4xl font-bold text-primary">
-
-                            365
-
-                        </h4>
-
-                        <p class="mt-2 text-slate-500">
-
-                            Days Monitoring
-
-                        </p>
-
-                    </div>
-
-                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-
-                        <h4 class="text-4xl font-bold text-primary">
-
-                            99%
-
-                        </h4>
-
-                        <p class="mt-2 text-slate-500">
-
-                            Flock Health
-
-                        </p>
-
-                    </div>
-
-                    <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-
-                        <h4 class="text-4xl font-bold text-primary">
-
-                            15+
-
-                        </h4>
-
-                        <p class="mt-2 text-slate-500">
-
-                            Gallery Photos
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <!-- Facilities -->
-
-                <div class="mt-10">
-
-                    <h4
-                        class="text-xl font-heading font-semibold">
-
-                        Farm Highlights
-
-                    </h4>
-
-                    <div
-                        class="mt-6 grid gap-4 sm:grid-cols-2">
-
-                        <div class="flex items-center gap-3">
-                            <div class="h-10 w-10 rounded-xl bg-green-100 flex items-center justify-center">✓</div>
-                            <span>Automated Feeding</span>
-                        </div>
-
-                        <div class="flex items-center gap-3">
-                            <div class="h-10 w-10 rounded-xl bg-green-100 flex items-center justify-center">✓</div>
-                            <span>Climate Control</span>
-                        </div>
-
-                        <div class="flex items-center gap-3">
-                            <div class="h-10 w-10 rounded-xl bg-green-100 flex items-center justify-center">✓</div>
-                            <span>Water Treatment</span>
-                        </div>
-
-                        <div class="flex items-center gap-3">
-                            <div class="h-10 w-10 rounded-xl bg-green-100 flex items-center justify-center">✓</div>
-                            <span>Veterinary Support</span>
-                        </div>
-
-                        <div class="flex items-center gap-3">
-                            <div class="h-10 w-10 rounded-xl bg-green-100 flex items-center justify-center">✓</div>
-                            <span>Modern Storage</span>
-                        </div>
-
-                        <div class="flex items-center gap-3">
-                            <div class="h-10 w-10 rounded-xl bg-green-100 flex items-center justify-center">✓</div>
-                            <span>Biosecurity Zones</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <!-- Buttons -->
-
-                <div class="mt-12 flex flex-wrap gap-5">
-
-                    <a
-                        href="#"
-                        class="btn btn-primary">
-
-                        Explore Green Plains
-
-                    </a>
-
-                    <a
-                        href="assets/images/farms/green/gallery-01.jpg"
-                        class="btn btn-outline glightbox"
-                        data-gallery="green-plains">
-
-                        View Gallery
-
-                    </a>
-
-                </div>
-
-            </div>
-
-            <!-- ==========================================
-                 IMAGE GALLERY
-            =========================================== -->
-
-            <div
-                class="relative order-1 lg:order-2"
-                data-aos="fade-left">
-
-                <!-- Main Image -->
-
-                <a
-                    href="assets/images/farms/green/gallery-01.jpg"
-                    class="glightbox block overflow-hidden rounded-[34px] shadow-2xl"
-                    data-gallery="green-plains"
-                    data-title="Green Plains Farm">
-
-                    <img
-                        src="assets/images/farms/green/cover.jpg"
-                        alt="Green Plains Farm"
-                        class="h-[520px] w-full object-cover duration-700 group-hover:scale-105">
-
-                </a>
-
-                <!-- Hidden Images -->
-
-                <a href="assets/images/farms/green/gallery-02.jpg" class="glightbox hidden" data-gallery="green-plains"></a>
-                <a href="assets/images/farms/green/gallery-03.jpg" class="glightbox hidden" data-gallery="green-plains"></a>
-                <a href="assets/images/farms/green/gallery-04.jpg" class="glightbox hidden" data-gallery="green-plains"></a>
-                <a href="assets/images/farms/green/gallery-05.jpg" class="glightbox hidden" data-gallery="green-plains"></a>
-                <a href="assets/images/farms/green/gallery-06.jpg" class="glightbox hidden" data-gallery="green-plains"></a>
-
-                <!-- Floating Card -->
-
-                <div
-                    class="absolute -top-8 -left-8 rounded-3xl bg-white p-6 shadow-2xl">
-
-                    <h4 class="text-4xl font-bold text-primary">
-
-                        18+
-
-                    </h4>
-
-                    <p class="mt-2 text-slate-500">
-
-                        Gallery Images
-
+                    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-6 flex-1 transition-colors duration-300 leading-relaxed">
+                        Our world-class, most advanced facility housing Ross 308 parent stock. Built in 2018, it features a state-of-the-art Pasreform hatchery and fully equipped Premix line.
                     </p>
-
-                </div>
-
-                <!-- Thumbnail Strip -->
-
-                <div
-                    class="absolute -bottom-8 left-1/2 w-[90%] -translate-x-1/2 rounded-3xl bg-white p-4 shadow-2xl">
-
-                    <div class="grid grid-cols-4 gap-3">
-
-                        <a href="assets/images/farms/green/gallery-01.jpg"
-                           class="glightbox"
-                           data-gallery="green-plains">
-
-                            <img
-                                src="assets/images/farms/green/gallery-01.jpg"
-                                class="h-20 w-full rounded-xl object-cover hover:scale-105 transition">
-
-                        </a>
-
-                        <a href="assets/images/farms/green/gallery-02.jpg"
-                           class="glightbox"
-                           data-gallery="green-plains">
-
-                            <img
-                                src="assets/images/farms/green/gallery-02.jpg"
-                                class="h-20 w-full rounded-xl object-cover hover:scale-105 transition">
-
-                        </a>
-
-                        <a href="assets/images/farms/green/gallery-03.jpg"
-                           class="glightbox"
-                           data-gallery="green-plains">
-
-                            <img
-                                src="assets/images/farms/green/gallery-03.jpg"
-                                class="h-20 w-full rounded-xl object-cover hover:scale-105 transition">
-
-                        </a>
-
-                        <a href="assets/images/farms/green/gallery-04.jpg"
-                           class="glightbox relative"
-                           data-gallery="green-plains">
-
-                            <img
-                                src="assets/images/farms/green/gallery-04.jpg"
-                                class="h-20 w-full rounded-xl object-cover">
-
-                            <div
-                                class="absolute inset-0 flex items-center justify-center rounded-xl bg-black/55 text-sm font-bold text-white">
-
-                                +12
-
-                            </div>
-
-                        </a>
-
+                    <div class="grid grid-cols-2 gap-4 pt-6 border-t border-slate-100 dark:border-slate-700 transition-colors duration-300">
+                        <div>
+                            <p class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">110k</p>
+                            <p class="text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide mt-0.5">Parent Stock</p>
+                        </div>
+                        <div>
+                            <p class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">2M+</p>
+                            <p class="text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide mt-0.5">Hatching Capacity</p>
+                        </div>
                     </div>
-
                 </div>
+            </article>
 
-            </div>
+            <!-- 3. GREEN PLAINS (2 Images) -->
+            <article class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl dark:shadow-none dark:hover:shadow-emerald-900/20 border border-slate-100 dark:border-slate-700 transition-all duration-300 flex flex-col group">
+                <!-- 1x2 Split Image Layout -->
+                <div class="relative h-64 sm:h-72 bg-slate-200 dark:bg-slate-700 p-1.5 grid grid-cols-2 gap-1.5">
+                    <div class="relative overflow-hidden rounded-tl-xl group/img">
+                        <img src="assets/img/gp/gp1.jpg" alt="Pullets House" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110">
+                        <div class="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Pullets House</div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-tr-xl group/img">
+                        <img src="assets/img/gp/gp2.jpg" alt="Pullets Farm Overview" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110">
+                        <div class="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Farm Overview</div>
+                    </div>
+                    <!-- Badge -->
+                    <div class="absolute top-4 right-4 z-10 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-slate-800 dark:text-slate-200 text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                        Core Pullets Farm
+                    </div>
+                </div>
+                
+                <div class="p-6 sm:p-8 flex-1 flex flex-col">
+                    <div class="mb-4">
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white transition-colors duration-300">Green Plains</h3>
+                        <p class="text-emerald-600 dark:text-emerald-400 text-sm font-semibold flex items-center gap-1.5 mt-1 transition-colors duration-300">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            Ibuso-Gboro, Oyo State
+                        </p>
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-6 flex-1 transition-colors duration-300 leading-relaxed">
+                        Our dedicated pullets farm designed for extensive rearing operations. It includes specialized housing for breeding heavy male broilers for spiking and large-scale equipment storage.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-6 border-t border-slate-100 dark:border-slate-700 transition-colors duration-300">
+                        <div>
+                            <p class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">38k+</p>
+                            <p class="text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide mt-0.5">Rearing Capacity</p>
+                        </div>
+                        <div>
+                            <p class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">1.2k m²</p>
+                            <p class="text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide mt-0.5">Grain Storage</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
 
-        </article>
-
-        <!-- Divider -->
-
-        <div
-            class="mb-28 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent">
-        </div>
-
-        <!-- =====================================================
-             BLUE PLAINS FARM
-             (Starts in Part 4)
-        ====================================================== -->
-
-        <!-- ============================================
-     OTHER PRODUCTION FACILITIES
-============================================= -->
-
-<div class="mb-16 text-center" data-aos="fade-up">
-
-    <span class="inline-flex rounded-full bg-green-100 px-5 py-2 font-semibold text-primary">
-        More Locations
-    </span>
-
-    <h3 class="mt-6 text-4xl font-heading font-bold text-slate-900">
-
-        Additional Production Facilities
-
-    </h3>
-
-    <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-
-        Beyond our flagship farms, Agrited operates additional
-        production facilities strategically positioned to support
-        nationwide poultry production and distribution.
-
-    </p>
-
-</div>
-
-<div class="grid gap-10 lg:grid-cols-2">
-
-    <!-- ===================================
-         BLUE PLAINS
-    ==================================== -->
-
-    <article
-        class="group overflow-hidden rounded-[34px] border border-slate-200 bg-white shadow-sm transition duration-500 hover:-translate-y-2 hover:shadow-2xl">
-
-        <div class="relative overflow-hidden">
-
-            <a
-                href="assets/images/farms/blue/gallery-01.jpg"
-                class="glightbox"
-                data-gallery="blue-plains">
-
-                <img
-                    src="assets/images/farms/blue/cover.jpg"
-                    class="h-80 w-full object-cover duration-700 group-hover:scale-105"
-                    alt="Blue Plains">
-
-            </a>
-
-            <span
-                class="absolute left-6 top-6 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white">
-
-                📷 18 Photos
-
-            </span>
+            <!-- 4. SILVER PLAINS (2 Images) -->
+            <article class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl dark:shadow-none dark:hover:shadow-emerald-900/20 border border-slate-100 dark:border-slate-700 transition-all duration-300 flex flex-col group">
+                <!-- 1x2 Split Image Layout -->
+                <div class="relative h-64 sm:h-72 bg-slate-200 dark:bg-slate-700 p-1.5 grid grid-cols-2 gap-1.5">
+                    <div class="relative overflow-hidden rounded-tl-xl group/img">
+                        <img src="assets/img/sp/sp1.jpg" alt="Heavy Breeder Houses" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110">
+                        <div class="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Heavy Breeders</div>
+                    </div>
+                    <div class="relative overflow-hidden rounded-tr-xl group/img">
+                        <img src="assets/img/sp/sp2.jpg" alt="Breeders Internal" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110">
+                        <div class="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded">Internal Housing</div>
+                    </div>
+                    <!-- Badge -->
+                    <div class="absolute top-4 right-4 z-10 bg-white/95 dark:bg-slate-900/95 backdrop-blur text-slate-800 dark:text-slate-200 text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                        Heavy Breeding Farm
+                    </div>
+                </div>
+                
+                <div class="p-6 sm:p-8 flex-1 flex flex-col">
+                    <div class="mb-4">
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white transition-colors duration-300">Silver Plains</h3>
+                        <p class="text-emerald-600 dark:text-emerald-400 text-sm font-semibold flex items-center gap-1.5 mt-1 transition-colors duration-300">
+                            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            Obafemi Owode, Ogun State
+                        </p>
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 mb-6 flex-1 transition-colors duration-300 leading-relaxed">
+                        A modern breeding facility constructed in 2015, specifically engineered for housing heavy breeders alongside robust grain and animal feed storage infrastructure.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-6 border-t border-slate-100 dark:border-slate-700 transition-colors duration-300">
+                        <div>
+                            <p class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">66k</p>
+                            <p class="text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide mt-0.5">Total Heavy Breeders</p>
+                        </div>
+                        <div>
+                            <p class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">1.2k m²</p>
+                            <p class="text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide mt-0.5">Feed Storage</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
 
         </div>
-
-        <div class="p-8">
-
-            <h3 class="text-3xl font-heading font-bold">
-
-                Blue Plains Farm
-
-            </h3>
-
-            <p class="mt-5 leading-8 text-slate-600">
-
-                Blue Plains Farm features modern poultry housing,
-                environmental control systems, breeder management,
-                and quality production facilities supporting
-                Agrited's nationwide operations.
-
-            </p>
-
-            <div class="mt-8 grid grid-cols-3 gap-4">
-
-                <div class="rounded-xl bg-slate-50 p-4 text-center">
-
-                    <h4 class="text-2xl font-bold text-primary">
-
-                        18+
-
-                    </h4>
-
-                    <p class="text-sm text-slate-500">
-
-                        Images
-
-                    </p>
-
-                </div>
-
-                <div class="rounded-xl bg-slate-50 p-4 text-center">
-
-                    <h4 class="text-2xl font-bold text-primary">
-
-                        24/7
-
-                    </h4>
-
-                    <p class="text-sm text-slate-500">
-
-                        Monitoring
-
-                    </p>
-
-                </div>
-
-                <div class="rounded-xl bg-slate-50 p-4 text-center">
-
-                    <h4 class="text-2xl font-bold text-primary">
-
-                        100%
-
-                    </h4>
-
-                    <p class="text-sm text-slate-500">
-
-                        Biosecure
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="mt-8 flex gap-4">
-
-                <a
-                    href="#"
-                    class="btn btn-primary">
-
-                    Learn More
-
-                </a>
-
-                <a
-                    href="assets/images/farms/blue/gallery-01.jpg"
-                    class="btn btn-outline glightbox"
-                    data-gallery="blue-plains">
-
-                    Gallery
-
-                </a>
-
-            </div>
-
-        </div>
-
-        <!-- Hidden Images -->
-
-        <a href="assets/images/farms/blue/gallery-02.jpg" class="hidden glightbox" data-gallery="blue-plains"></a>
-        <a href="assets/images/farms/blue/gallery-03.jpg" class="hidden glightbox" data-gallery="blue-plains"></a>
-        <a href="assets/images/farms/blue/gallery-04.jpg" class="hidden glightbox" data-gallery="blue-plains"></a>
-        <a href="assets/images/farms/blue/gallery-05.jpg" class="hidden glightbox" data-gallery="blue-plains"></a>
-
-    </article>
-
-    <!-- ===================================
-         SILVER PLAINS
-    ==================================== -->
-
-    <article
-        class="group overflow-hidden rounded-[34px] border border-slate-200 bg-white shadow-sm transition duration-500 hover:-translate-y-2 hover:shadow-2xl">
-
-        <div class="relative overflow-hidden">
-
-            <a
-                href="assets/images/farms/silver/gallery-01.jpg"
-                class="glightbox"
-                data-gallery="silver-plains">
-
-                <img
-                    src="assets/images/farms/silver/cover.jpg"
-                    class="h-80 w-full object-cover duration-700 group-hover:scale-105"
-                    alt="Silver Plains">
-
-            </a>
-
-            <span
-                class="absolute left-6 top-6 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white">
-
-                📷 22 Photos
-
-            </span>
-
-        </div>
-
-        <div class="p-8">
-
-            <h3 class="text-3xl font-heading font-bold">
-
-                Silver Plains Farm
-
-            </h3>
-
-            <p class="mt-5 leading-8 text-slate-600">
-
-                Silver Plains Farm supports breeder operations,
-                poultry production and farm expansion using modern
-                agricultural technologies and strict operational
-                standards.
-
-            </p>
-
-            <div class="mt-8 grid grid-cols-3 gap-4">
-
-                <div class="rounded-xl bg-slate-50 p-4 text-center">
-
-                    <h4 class="text-2xl font-bold text-primary">
-
-                        22+
-
-                    </h4>
-
-                    <p class="text-sm text-slate-500">
-
-                        Images
-
-                    </p>
-
-                </div>
-
-                <div class="rounded-xl bg-slate-50 p-4 text-center">
-
-                    <h4 class="text-2xl font-bold text-primary">
-
-                        ISO
-
-                    </h4>
-
-                    <p class="text-sm text-slate-500">
-
-                        Standards
-
-                    </p>
-
-                </div>
-
-                <div class="rounded-xl bg-slate-50 p-4 text-center">
-
-                    <h4 class="text-2xl font-bold text-primary">
-
-                        24/7
-
-                    </h4>
-
-                    <p class="text-sm text-slate-500">
-
-                        Support
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="mt-8 flex gap-4">
-
-                <a
-                    href="#"
-                    class="btn btn-primary">
-
-                    Learn More
-
-                </a>
-
-                <a
-                    href="assets/images/farms/silver/gallery-01.jpg"
-                    class="btn btn-outline glightbox"
-                    data-gallery="silver-plains">
-
-                    Gallery
-
-                </a>
-
-            </div>
-
-        </div>
-
-        <!-- Hidden Gallery -->
-
-        <a href="assets/images/farms/silver/gallery-02.jpg" class="hidden glightbox" data-gallery="silver-plains"></a>
-        <a href="assets/images/farms/silver/gallery-03.jpg" class="hidden glightbox" data-gallery="silver-plains"></a>
-        <a href="assets/images/farms/silver/gallery-04.jpg" class="hidden glightbox" data-gallery="silver-plains"></a>
-        <a href="assets/images/farms/silver/gallery-05.jpg" class="hidden glightbox" data-gallery="silver-plains"></a>
-
-    </article>
-
-</div>
+    </div>
+</section>

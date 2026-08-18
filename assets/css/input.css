@@ -1,10 +1,17 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+@custom-variant dark (&:where(.dark, .dark *));
 /* Components */
-@import "./components.css";
+/*@import "./components.css";*/
 
 /* Animations */
-@import "./animations.css";
+/*@import "./animations.css";*/
 
 /* Gallery */
-@import "./gallery.css";
+/*@import "./gallery.css";*/
+
+
+
