@@ -5,13 +5,26 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 /* Components */
-/*@import "./components.css";*/
+@import "./style.css";
 
+@layer base {
+  :root {
+    /* Safe fallback estimate based on a standard desktop header */
+    --header-height: 80px; 
+  };
+   html {
+    scroll-behavior: smooth;
+  }
+}
+
+@property --num {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: true;
+}
 /* Animations */
 /*@import "./animations.css";*/
 
 /* Gallery */
 /*@import "./gallery.css";*/
-
-
 
