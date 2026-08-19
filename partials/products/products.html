@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products & Solutions | Agrited Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'media',
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: { 50: '#ecfdf5', 100: '#d1fae5', 400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857', 900: '#064e3b', 950: '#022c22' },
+                        teal: { 500: '#14b8a6', },
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white antialiased selection:bg-emerald-500/30">
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden border-b border-slate-100 dark:border-slate-800">
+        <!-- Ambient Background -->
+        <div class="absolute inset-0 bg-slate-50 dark:bg-slate-950 -z-10"></div>
+        <div class="absolute top-0 left-1/2 w-[800px] h-[400px] bg-emerald-500/20 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider mb-6">
+                Agricultural Excellence
+            </span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+                Comprehensive <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">Solutions</span> for Modern Farming
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                Empowering Nigerian farmers with world-class genetics, precision nutrition, veterinary security, and state-of-the-art farm infrastructure backed by decades of proven pedigree.
+            </p>
+        </div>
+    </section>
+
+    <!-- Interactive Product & Solutions Showcase -->
+    <section class="py-24 bg-white dark:bg-slate-900" x-data="{ 
+        activeCategory: 'chicks',
+        categories: {
+            chicks: {
+                title: 'Day-Old Chicks (DOC)',
+                subtitle: 'Superior Genetics & High Livability',
+                desc: 'Hatched under strict biosecurity protocols across our specialized breeding farms in Oyo and Ogun states. Our broiler and layer chicks exhibit exceptional vitality, uniform growth, and maximum yield.',
+                features: ['Rigorous parental vaccination screening', 'High feed-to-meat conversion ratio', 'Robust immunity against regional stressors', 'Prompt dispatch across nationwide booking schedules'],
+                image: 'https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=1000'
+            },
+            nutrition: {
+                title: 'Premixes & Feed Additives',
+                subtitle: 'Scientifically Balanced Nutrition',
+                desc: 'Formulated to meet the precise physiological needs of poultry at every growth stage. Our vitamin-mineral premixes enhance egg shell quality, skeletal strength, and metabolic efficiency.',
+                features: ['Optimized vitamin and trace mineral matrices', 'Mycotoxin binders for gut health', 'Custom blends for broilers, breeders, and layers', 'Enhanced nutrient bioavailability'],
+                image: 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=1000'
+            },
+            health: {
+                title: 'Animal Health & Vaccines',
+                subtitle: 'Preventative Biosecurity Solutions',
+                desc: 'Protecting flock investments with cold-chain verified vaccines and effective therapeutic medications sourced from globally recognized pharmaceutical partners.',
+                features: ['Strict cold-chain logistics preservation', 'Comprehensive range of viral and bacterial vaccines', 'Expert veterinary advisory support on administration', 'Disinfectants and biosecurity sanitizers'],
+                image: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&q=80&w=1000'
+            },
+            equipment: {
+                title: 'Modern Farm Equipment',
+                subtitle: 'Infrastructure & Automation',
+                desc: 'Transforming traditional setups into automated, high-efficiency production hubs. We supply durable automatic feeding lines, nipple drinking systems, and climate control units.',
+                features: ['Automatic feeding and drinking configurations', 'Ventilation and cooling pad systems', 'Heavy-duty battery cages and housing accessories', 'Installation and maintenance engineering backup'],
+                image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1000'
+            }
+        }
+    }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Category Navigation Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-16">
+                <template x-for="(cat, key) in categories" :key="key">
+                    <button @click="activeCategory = key"
+                        :class="activeCategory === key ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/25 scale-105' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'"
+                        class="px-6 py-3 rounded-2xl font-semibold text-sm transition-all duration-200"
+                        x-text="cat.title">
+                    </button>
+                </template>
+            </div>
+
+            <!-- Active Category Display Panel -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-50 dark:bg-slate-950 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800">
+                
+                <!-- Content Side -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest" x-text="categories[activeCategory].subtitle"></span>
+                        <h3 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1" x-text="categories[activeCategory].title"></h3>
+                    </div>
+                    
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg" x-text="categories[activeCategory].desc"></p>
+                    
+                    <ul class="space-y-3 pt-2">
+                        <template x-for="feature in categories[activeCategory].features">
+                            <li class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
+                                <div class="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span x-text="feature"></span>
+                            </li>
+                        </template>
+                    </ul>
+
+                    <div class="pt-4">
+                        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all shadow-md shadow-emerald-600/20">
+                            Inquire About This Solution
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image Side -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] border border-slate-200 dark:border-slate-800">
+                        <img :src="categories[activeCategory].image" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" alt="Product Visual">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Context & Heritage Section (Incorporating Company History) -->
+    <section class="py-24 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5">
+                    <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest">Our Heritage</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1 mb-4">Decades of Agricultural Leadership</h2>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                        Since our establishment, Agrited Limited has remained at the vanguard of commercial agriculture in Nigeria. From pioneering high-grade poultry genetics to operating expansive advanced facilities like White Plain, Green Plain, and Blue Plain farms, our journey is defined by an uncompromising commitment to quality and food security.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 pt-4 border-t border-slate-200 dark:border-slate-800">
+                        <div>
+                            <span class="block text-3xl font-extrabold text-emerald-600 dark:text-emerald-400">30+</span>
+                            <span class="text-sm font-medium text-slate-500">Years of Experience</span>
+                        </div>
+                        <div>
+                            <span class="block text-3xl font-extrabold text-emerald-600 dark:text-emerald-400">6+</span>
+                            <span class="text-sm font-medium text-slate-500">Strategic Farm Hubs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline / Milestones Cards -->
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold mb-4">01</div>
+                        <h4 class="font-bold text-lg mb-2">Foundation & Growth</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Establishing core operations with rigorous biosecurity standards and elite hatchery infrastructure in Western Nigeria.</p>
+                    </div>
+
+                    <div class="p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm sm:translate-y-6">
+                        <div class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-950 text-teal-600 dark:text-teal-400 flex items-center justify-center font-bold mb-4">02</div>
+                        <h4 class="font-bold text-lg mb-2">Nationwide Expansion</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Scaling up production across White Plain, Green Plain, Blue Plain, and Silver Plain farms to serve farmers nationwide.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Teams Context Section -->
+    <section class="py-24 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest">Our People</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1 mb-4">Backed by Multidisciplinary Experts</h2>
+                <p class="text-slate-600 dark:text-slate-400">Our solutions are engineered and supported by specialized teams dedicated to agricultural innovation, veterinary care, and operational excellence.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Team Card 1 -->
+                <div class="bg-slate-50 dark:bg-slate-950 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 text-center group">
+                    <div class="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 border-4 border-emerald-500/20">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400" alt="Veterinary Team" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h4 class="font-bold text-lg">Veterinary & Biosecurity</h4>
+                    <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 block mt-1">Animal Health Division</span>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-3">Ensuring strict flock health protocols, vaccination oversight, and disease prevention management.</p>
+                </div>
+
+                <!-- Team Card 2 -->
+                <div class="bg-slate-50 dark:bg-slate-950 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 text-center group">
+                    <div class="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 border-4 border-emerald-500/20">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" alt="Technical Engineering" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h4 class="font-bold text-lg">Technical & Farm Operations</h4>
+                    <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 block mt-1">Infrastructure & IT Support</span>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-3">Managing automated environmental controls, farm machinery, and enterprise infrastructure.</p>
+                </div>
+
+                <!-- Team Card 3 -->
+                <div class="bg-slate-50 dark:bg-slate-950 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 text-center group">
+                    <div class="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 border-4 border-emerald-500/20">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="Customer Support" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <h4 class="font-bold text-lg">Customer Dispatch & Sales</h4>
+                    <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 block mt-1">Client Relations</span>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-3">Coordinating seamless bookings, order fulfillment, and responsive customer assistance.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

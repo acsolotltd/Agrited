@@ -1,0 +1,112 @@
+<!-- About Us Page Container -->
+<div class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 min-h-screen font-sans">
+    
+    <!-- 1. Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-emerald-900">
+        <div class="absolute inset-0 opacity-40">
+            <!-- Replace with an actual farm or facility image -->
+            <img src="https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?q=80&w=2070&auto=format&fit=crop" alt="Agrited Facility Overview" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-emerald-900 to-transparent"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
+                Rooted in Excellence, Growing for the Future
+            </h1>
+            <p class="mt-4 text-xl text-emerald-100 max-w-3xl mx-auto leading-relaxed">
+                Pioneering advanced commercial poultry, aquaculture, and modern farm management across Nigeria.
+            </p>
+        </div>
+    </section>
+
+    <!-- 2. Our History Section -->
+    <section class="py-24 bg-slate-50 dark:bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-widest text-sm mb-3">Our Journey</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">A Legacy of Agricultural Innovation</h3>
+            </div>
+
+            <!-- History Timeline / Alternating Grid -->
+            <div class="space-y-20 lg:space-y-32">
+                
+                <!-- History Block 1: Foundation -->
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    <div class="lg:w-1/2 w-full">
+                        <div class="aspect-video rounded-3xl overflow-hidden shadow-2xl relative group">
+                            <img src="https://images.unsplash.com/photo-1595841696677-6489ff3f8cd1?auto=format&fit=crop&w=800&q=80" alt="Early Beginnings" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                            <div class="absolute inset-0 ring-1 ring-inset ring-slate-900/10 rounded-3xl"></div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 lg:pl-8">
+                        <span class="text-6xl lg:text-7xl font-black text-slate-200 dark:text-slate-700/50 block mb-6 -ml-1">01</span>
+                        <h4 class="text-2xl lg:text-3xl font-bold mb-5 text-slate-900 dark:text-white">Setting the Standard</h4>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg mb-6">
+                            <!-- Insert your homepage history text here -->
+                            We recognized the incredible outlook for Nigerian farming and food production growth early on. Agrited responded to this prospect by offering investors the opportunity to establish and meticulously set up advanced commercial poultry and aquaculture farms.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- History Block 2: Expansion & Support -->
+                <div class="flex flex-col lg:flex-row-reverse items-center gap-12 lg:gap-20">
+                    <div class="lg:w-1/2 w-full">
+                        <div class="aspect-video rounded-3xl overflow-hidden shadow-2xl relative group">
+                            <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=800&q=80" alt="Expansion and Operations" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                            <div class="absolute inset-0 ring-1 ring-inset ring-slate-900/10 rounded-3xl"></div>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 lg:pr-8">
+                        <span class="text-6xl lg:text-7xl font-black text-slate-200 dark:text-slate-700/50 block mb-6 -ml-1">02</span>
+                        <h4 class="text-2xl lg:text-3xl font-bold mb-5 text-slate-900 dark:text-white">Turn-Key Management</h4>
+                        <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg mb-6">
+                            <!-- Insert expansion text from homepage here -->
+                            Our team of experts professionally run, train, and commission local staff in modern farm management. From Broilers and Layers to Processing Plants and Feed Mills, we provide efficient, highly profitable operations and continue to oversee and support them after handover.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Leadership Team Section -->
+    <section class="py-24 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800" 
+        x-data="{
+            team: [
+                { name: 'Executive Name 1', role: 'Managing Director', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&h=400&q=80' },
+                { name: 'Executive Name 2', role: 'Head of Poultry Operations', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=400&q=80' },
+                { name: 'Executive Name 3', role: 'Chief Technical Officer', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&h=400&q=80' },
+                { name: 'Executive Name 4', role: 'Lead Veterinarian', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&h=400&q=80' }
+            ]
+        }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-widest text-sm mb-3">Our People</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">Meet the Experts Behind Agrited</h3>
+                <p class="mt-4 text-slate-600 dark:text-slate-400 text-lg">
+                    The national and international agricultural specialists driving our vision forward.
+                </p>
+            </div>
+
+            <!-- Dynamic Team Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <template x-for="member in team" :key="member.name">
+                    <div class="group relative bg-slate-50 dark:bg-slate-800/80 rounded-3xl p-8 text-center hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 border border-slate-200 dark:border-slate-700">
+                        <div class="relative w-36 h-36 mx-auto mb-6">
+                            <img :src="member.image" :alt="member.name" class="w-full h-full object-cover rounded-full ring-4 ring-white dark:ring-slate-900 group-hover:ring-emerald-100 dark:group-hover:ring-emerald-900/50 transition-all duration-300 shadow-lg">
+                            
+                            <!-- Optional Social/LinkedIn Icon overlay on hover -->
+                            <div class="absolute inset-0 bg-emerald-900/40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                                <a href="#" class="text-white hover:text-emerald-200 transform hover:scale-110 transition-transform">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2" x-text="member.name"></h4>
+                        <p class="text-emerald-600 dark:text-emerald-400 font-semibold text-sm" x-text="member.role"></p>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+</div>
