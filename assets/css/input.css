@@ -17,6 +17,38 @@
   }
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* For Chrome, Safari, and Opera */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+  }
+ 
+  ::-webkit-scrollbar-thumb {
+    background: #009966; /* Tailwind indigo-500 */
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #009966; /* Tailwind indigo-600 */
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: medium;
+    scrollbar-color: #009966 #f1f1f1;
+  }
+}
+
 @property --num {
   syntax: '<integer>';
   initial-value: 0;
