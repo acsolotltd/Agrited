@@ -1,0 +1,8 @@
+ @property --num1 { syntax: '<integer>'; initial-value: 0; inherits: false; }
+  @property --num2 { syntax: '<integer>'; initial-value: 0; inherits: false; }
+  @property --num3 { syntax: '<integer>'; initial-value: 0; inherits: false; }
+
+    /* 2. Define unique target milestones */
+    @keyframes countTo30  { from { --num1: 0; } to { --num1: 50; } }
+    @keyframes countTo75  { from { --num2: 0; } to { --num2: 75; } }
+    @keyframes countTo100 { from { --num3: 0; } to { --num3: 100; } }

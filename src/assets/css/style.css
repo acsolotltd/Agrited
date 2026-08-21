@@ -1,0 +1,35 @@
+  @keyframes count {
+      from { --num: 0; }
+      to { --num: 100; }
+    }
+@keyframes count-up { from { --num: 0; } to { --num: var(--target); } }
+.animate-count { --target: 100; animation: count-up 2s ease-out forwards; }
+
+.nav-link {
+  @apply relative text-sm font-medium text-slate-400 transition-colors duration-300 hover:text-emerald-400;
+}
+
+/* The active class styling */
+.nav-link.active {
+  @apply text-emerald-400;
+}
+
+/* Optional: Underline animation for the active link */
+.nav-link.active::after {
+  content: "";
+  @apply absolute -bottom-1 left-0 w-full h-0.5 bg-emerald-400 scale-x-100 transition-transform duration-300;
+}
+
+    /* Enable smooth scrolling across the whole page */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Prevents the fixed navbar from overlapping section titles when scrolling */
+    section {
+        scroll-margin-top: 100px; /* Adjust based on navbar height */
+    }
+
+
+
+
