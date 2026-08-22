@@ -27,21 +27,28 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ 
     <script>
-        (function () {
-
-            const saved = localStorage.getItem("theme");
-
-            if (
-                saved === "dark" ||
-                (!saved &&
-                    window.matchMedia("(prefers-color-scheme: dark)").matches)
-            ) {
-                document.documentElement.classList.add("dark");
-                document.getElementById('dynamic-theme-color').setAttribute('content', '#0f172a');
-            }
-
-        })();
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('appLayout', () => ({
+                darkMode: document.documentElement.classList.contains('dark'),
+                toggleTheme() {
+                    this.darkMode = !this.darkMode;
+                    if (this.darkMode) {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('theme', 'dark');
+                        console.log("hinnnnn")
+                        document.getElementById('dynamic-theme-color').setAttribute('content', '#0f172a');
+                        console.log("hinnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn")
+                    } else {
+                        console.log("hinnnnn")
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('theme', 'light');
+                        document.getElementById('dynamic-theme-color').setAttribute('content', '#f8fafc');
+                    }
+                }
+            }));
+        });
     </script>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
@@ -63,7 +70,7 @@
     </div>
     {% include "src/partials/header.html" %}
     <!-- Content Injection Point -->
-    <main>
+    <main id="appLayout">
         {{ content | safe }}
     </main>
     <!-- Footer -->
