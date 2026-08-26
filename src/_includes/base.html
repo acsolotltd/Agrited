@@ -2,7 +2,6 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta id="dynamic-theme-color" name="theme-color" content="#f8fafc">
@@ -22,12 +21,11 @@
     <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
     <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <!--link rel="manifest" href="/assets/favicon/site.webmanifest" /-->
     <!-- Google Fonts -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- 
     <script>
         document.addEventListener('alpine:init', () => {
             Alpine.data('appLayout', () => ({
@@ -75,7 +73,7 @@
     </main>
     <!-- Footer -->
     {% include "src/partials/footer.html" %}
-
+     {% include "src/partials/booking-modal.html" %}
     
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 

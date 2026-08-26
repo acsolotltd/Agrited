@@ -18,16 +18,32 @@
 }
 
 
+
+@layer utilities {
+  /* Hides slider scrollbars but keeps functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Add this if it's not already in your global CSS */
+[x-cloak] {
+  display: none !important;
+}
 @layer utilities {
   /* For Chrome, Safari, and Opera */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 4px;
+    height: 4px;
   }
 
   ::-webkit-scrollbar-track {
     background: #f1f1f1; 
-    border-radius: 10px;
+    border-radius: 6px;
   }
  
   ::-webkit-scrollbar-thumb {

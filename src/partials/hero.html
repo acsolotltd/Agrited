@@ -65,14 +65,14 @@
 
                 <!-- Action Buttons -->
                 <div class="mt-6 lg:mt-8 flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto">
-                    <button @click="$dispatch('open-booking-modal', { agent: 'Headquarters Dispatch' })" class="group relative inline-flex w-full sm:w-auto items-center justify-center gap-2 overflow-hidden rounded-full bg-emerald-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-emerald-900/20 dark:shadow-emerald-950/40 transition-all duration-300 hover:bg-emerald-500 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-slate-950">
+                    <button  @click="$dispatch('open-booking', 'Headquarters Dispatch')"  class="group relative inline-flex w-full sm:w-auto items-center justify-center gap-2 overflow-hidden rounded-full bg-emerald-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-emerald-900/20 dark:shadow-emerald-950/40 transition-all duration-300 hover:bg-emerald-500 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-slate-950">
                         <span>Book Orders Now</span>
                         <svg class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                     </button>
-                    <a href="#products" class="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-slate-300 dark:border-white/20 bg-white/50 dark:bg-white/10 px-7 py-3.5 text-sm font-semibold text-slate-800 dark:text-white backdrop-blur-md transition-all duration-300 hover:bg-slate-200 dark:hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-950">
-                        View Products
+                    <a href="/products" class="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-slate-300 dark:border-white/20 bg-white/50 dark:bg-white/10 px-7 py-3.5 text-sm font-semibold text-slate-800 dark:text-white backdrop-blur-md transition-all duration-300 hover:bg-slate-200 dark:hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-950">
+                        View All Products
                     </a>
                 </div>
 
