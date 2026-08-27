@@ -1,5 +1,5 @@
-  <!-- Products Gallery & Filtering -->
-    <section class="py-10 relative bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800" x-data="{
+<!-- Products Gallery & Filtering -->
+<section class="py-10 relative bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800" x-data="{
         activeFilter: 'equipment',
         isModalOpen: false,
         selectedProduct: null,
@@ -15,8 +15,8 @@
         },
         categories: [
              { id: 'equipment', name: 'Modern Farm Equipment' },
+              { id: 'nutrition', name: 'Premix & Additives' },
             { id: 'chicks', name: 'Day Old Chicks' },
-            { id: 'nutritionn', name: 'Premix & Additives' },
             { id: 'vaccines', name: 'Vaccines' },
              { id: 'all', name: 'All Solutions' },
         ],
@@ -99,7 +99,7 @@
                 ]
             },
             {
-                id: 8, category: 'equipment', badge: 'Hardware', title: 'STAFAC 500',
+                id: 8, category: 'vaccines', badge: 'Hardware', title: 'STAFAC 500',
                 description: 'Virginiamycin is an antibiotic used as a feed additive in poultry feed against enteric infections. Stafac improves feed efficiency, and growth rate in poultry.',
                 img: '/assets/img/solutions/sta-500.png',
                 specs: [
@@ -110,7 +110,7 @@
                 ]
             },
             {
-                id: 9, category: 'equipment', badge: 'Hardware', title: 'DOXITED',
+                id: 9, category: 'vaccines', badge: 'Hardware', title: 'DOXITED',
                 description: 'A potent Tetracycline, extremely efficient against Mycoplasma species infections, and E.coli infections in poultry.',
                 img: '/assets/img/solutions/Artboard-5-1.png',
                 specs: [
@@ -121,7 +121,7 @@
                 ]
             },
             {
-                id: 10, category: 'equipment', badge: 'Hardware', title: 'AMOXITED',
+                id: 10, category: 'vaccines', badge: 'Hardware', title: 'AMOXITED',
                 description: 'A broad spectrum beta-lactam antibiotics. Amoxicillin is used against a wide range of pathogens, Staphylococcus, Pasteurella, Salmonella, and many more.',
                 img: '/assets/img/solutions/Artboard-6.png',
                 specs: [
@@ -132,7 +132,7 @@
                 ]
             },
             {
-                id: 11, category: 'equipment', badge: 'Hardware', title: 'STERIFUM',
+                id: 11, category: 'vaccines', badge: 'Hardware', title: 'STERIFUM',
                 description: 'Total elimination of pathogen microorganisms and high reduction of environmental bacteria. Sterilizing effect',
                 img: '/assets/img/solutions/sterifum-1.png',
                 specs: [
@@ -441,243 +441,168 @@
             },
         ]
     }" class="dark:bg-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <!-- Filter Controls -->
-            <div class="flex flex-wrap items-center justify-center gap-3 mb-16">
-                <template x-for="category in categories" :key="category.id">
-                    <button 
-                        @click="activeFilter = category.id"
-                        :class="activeFilter === category.id 
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Filter Controls -->
+        <div class="flex flex-wrap items-center justify-center gap-3 mb-16">
+            <template x-for="category in categories" :key="category.id">
+                <button @click="activeFilter = category.id"
+                    :class="activeFilter === category.id 
                             ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30 border-emerald-600' 
                             : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400'"
-                        class="px-6 py-2.5 rounded-full border text-sm font-semibold transition-all duration-300"
-                        x-text="category.name">
-                    </button>
-                </template>
-            </div>
+                    class="px-6 py-2.5 rounded-full border text-sm font-semibold transition-all duration-300"
+                    x-text="category.name">
+                </button>
+            </template>
+        </div>
 
-            <!-- Products Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <template x-for="product in products" :key="product.id">
-                    <div 
-                        x-show="activeFilter === 'all' || activeFilter === product.category"
-                        x-transition:enter="transition ease-out duration-300"
-                        x-transition:enter-start="opacity-0 translate-y-4"
-                        x-transition:enter-end="opacity-100 translate-y-0"
-                        class="group bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-emerald-900/10 dark:hover:shadow-emerald-900/20 transition-all duration-300 flex flex-col cursor-pointer"
-                        @click="openModal(product)">
-                        
-                        <!-- Product Image Area -->
-                        <div class="relative h-64 overflow-hidden bg-slate-100 dark:bg-slate-800">
-                            <img :src="product.img" :alt="product.title" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            
-                            <!-- Badge -->
-                            <div class="absolute top-4 left-4">
-                                <span class="px-3 py-1 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm text-emerald-600 dark:text-emerald-400 text-xs font-extrabold uppercase tracking-wider rounded-lg shadow-sm" x-text="product.badge"></span>
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <template x-for="product in products" :key="product.id">
+                <div x-show="activeFilter === 'all' || activeFilter === product.category"
+                    x-transition:enter="transition ease-out duration-300"
+                    x-transition:enter-start="opacity-0 translate-y-4"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    class="group bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-emerald-900/10 dark:hover:shadow-emerald-900/20 transition-all duration-300 flex flex-col cursor-pointer"
+                    @click="openModal(product)">
+
+                    <!-- Product Image Area -->
+                    <div class="relative h-64 overflow-hidden bg-slate-100 dark:bg-slate-800">
+                        <img :src="product.img" :alt="product.title"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        </div>
+
+                        <!-- Badge -->
+                        <div class="absolute top-4 left-4">
+                            <span
+                                class="px-3 py-1 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm text-emerald-600 dark:text-emerald-400 text-xs font-extrabold uppercase tracking-wider rounded-lg shadow-sm"
+                                x-text="product.badge"></span>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Content Area -->
+                    <div class="p-6 flex-1 flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors"
+                            x-text="product.title"></h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed flex-1 line-clamp-2"
+                            x-text="product.description"></p>
+
+                        <!-- Action Button -->
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800 mt-auto">
+                            <button type="button"
+                                class="inline-flex items-center justify-between w-full text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                                View Specifications
+                                <span
+                                    class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center group-hover:bg-emerald-50 dark:group-hover:bg-emerald-900/30 transition-colors">
+                                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <!-- Empty State -->
+        <div x-show="products.filter(p => activeFilter === 'all' || activeFilter === p.category).length === 0"
+            style="display: none;" class="text-center py-20">
+            <p class="text-slate-500 dark:text-slate-400">No products found in this category.</p>
+        </div>
+    </div>
+
+    <!-- Detail Modal Wrapper -->
+    <div x-show="isModalOpen" style="display: none;" x-trap.inert.noscroll="isModalOpen"
+        @keydown.escape.window="closeModal" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title"
+        role="dialog" aria-modal="true">
+
+        <!-- Backdrop -->
+        <div x-show="isModalOpen" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200"
+            x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="closeModal"
+            class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"></div>
+
+        <!-- Modal Panel Container -->
+        <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+            <div x-show="isModalOpen" x-transition:enter="ease-out duration-300"
+                x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave="ease-in duration-200"
+                x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
+                x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                class="relative transform overflow-hidden rounded-3xl bg-white dark:bg-slate-900 text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-2xl border border-slate-200 dark:border-slate-800">
+
+                <!-- Close Button -->
+                <button @click="closeModal"
+                    class="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white backdrop-blur-md transition-colors focus:outline-none">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+
+                <template x-if="selectedProduct">
+                    <div>
+                        <!-- Header Image -->
+                        <div class="h-64 sm:h-72 w-full relative">
+                            <img :src="selectedProduct.img" :alt="selectedProduct.title"
+                                class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6 text-white">
+                                <span
+                                    class="px-2.5 py-1 mb-3 inline-block bg-emerald-500 rounded-md text-xs font-bold uppercase tracking-wide"
+                                    x-text="selectedProduct.badge"></span>
+                                <h2 class="text-3xl font-extrabold" id="modal-title" x-text="selectedProduct.title">
+                                </h2>
                             </div>
                         </div>
 
-                        <!-- Product Content Area -->
-                        <div class="p-6 flex-1 flex flex-col">
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors" x-text="product.title"></h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 leading-relaxed flex-1 line-clamp-2" x-text="product.description"></p>
-                            
-                            <!-- Action Button -->
-                            <div class="pt-4 border-t border-slate-100 dark:border-slate-800 mt-auto">
-                                <button type="button" class="inline-flex items-center justify-between w-full text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                                    View Specifications
-                                    <span class="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center group-hover:bg-emerald-50 dark:group-hover:bg-emerald-900/30 transition-colors">
-                                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                                    </span>
+                        <!-- Content & Specs Table -->
+                        <div class="p-6 sm:p-8">
+                            <p class="text-slate-600 dark:text-slate-300 text-base mb-8 leading-relaxed"
+                                x-text="selectedProduct.description"></p>
+
+                            <h4
+                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">
+                                Technical Specifications</h4>
+
+                            <div
+                                class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/50">
+                                <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-700/50">
+                                    <tbody class="divide-y divide-slate-200 dark:divide-slate-700/50">
+                                        <template x-for="(spec, index) in selectedProduct.specs" :key="index">
+                                            <tr :class="index % 2 === 0 ? 'bg-white/50 dark:bg-slate-900/50' : ''">
+                                                <td class="py-3.5 pl-4 pr-3 text-sm font-semibold text-slate-900 dark:text-white w-1/3"
+                                                    x-text="spec.label"></td>
+                                                <td class="px-3 py-3.5 text-sm text-slate-600 dark:text-slate-400"
+                                                    x-text="spec.value"></td>
+                                            </tr>
+                                        </template>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                                <a href="#contact"
+                                    class="flex-1 inline-flex justify-center items-center px-6 py-3.5 border border-transparent text-sm font-bold rounded-xl text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-colors">
+                                    Request Quote
+                                </a>
+                                <button @click="closeModal" type="button"
+                                    class="flex-1 inline-flex justify-center items-center px-6 py-3.5 border border-slate-300 dark:border-slate-700 text-sm font-bold rounded-xl text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 focus:outline-none transition-colors">
+                                    Close Details
                                 </button>
                             </div>
                         </div>
                     </div>
                 </template>
             </div>
-
-            <!-- Empty State -->
-            <div x-show="products.filter(p => activeFilter === 'all' || activeFilter === p.category).length === 0" 
-                 style="display: none;" 
-                 class="text-center py-20">
-                <p class="text-slate-500 dark:text-slate-400">No products found in this category.</p>
-            </div>
         </div>
+    </div>
 
-        <!-- Detail Modal Wrapper -->
-        <div x-show="isModalOpen" 
-             style="display: none;"
-             x-trap.inert.noscroll="isModalOpen"
-             @keydown.escape.window="closeModal"
-             class="fixed inset-0 z-50 overflow-y-auto" 
-             aria-labelledby="modal-title" 
-             role="dialog" 
-             aria-modal="true">
-             
-            <!-- Backdrop -->
-            <div x-show="isModalOpen"
-                 x-transition:enter="ease-out duration-300"
-                 x-transition:enter-start="opacity-0"
-                 x-transition:enter-end="opacity-100"
-                 x-transition:leave="ease-in duration-200"
-                 x-transition:leave-start="opacity-100"
-                 x-transition:leave-end="opacity-0"
-                 @click="closeModal"
-                 class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"></div>
-
-            <!-- Modal Panel Container -->
-            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-                <div x-show="isModalOpen"
-                     x-transition:enter="ease-out duration-300"
-                     x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                     x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
-                     x-transition:leave="ease-in duration-200"
-                     x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
-                     x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                     class="relative transform overflow-hidden rounded-3xl bg-white dark:bg-slate-900 text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-2xl border border-slate-200 dark:border-slate-800">
-                    
-                    <!-- Close Button -->
-                    <button @click="closeModal" class="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/20 hover:bg-black/40 text-white backdrop-blur-md transition-colors focus:outline-none">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                    </button>
-
-                    <template x-if="selectedProduct">
-                        <div>
-                            <!-- Header Image -->
-                            <div class="h-64 sm:h-72 w-full relative">
-                                <img :src="selectedProduct.img" :alt="selectedProduct.title" class="w-full h-full object-cover">
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
-                                <div class="absolute bottom-6 left-6 right-6 text-white">
-                                    <span class="px-2.5 py-1 mb-3 inline-block bg-emerald-500 rounded-md text-xs font-bold uppercase tracking-wide" x-text="selectedProduct.badge"></span>
-                                    <h2 class="text-3xl font-extrabold" id="modal-title" x-text="selectedProduct.title"></h2>
-                                </div>
-                            </div>
-                            
-                            <!-- Content & Specs Table -->
-                            <div class="p-6 sm:p-8">
-                                <p class="text-slate-600 dark:text-slate-300 text-base mb-8 leading-relaxed" x-text="selectedProduct.description"></p>
-                                
-                                <h4 class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4 border-b border-slate-200 dark:border-slate-700 pb-2">Technical Specifications</h4>
-                                
-                                <div class="bg-slate-50 dark:bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/50">
-                                    <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-700/50">
-                                        <tbody class="divide-y divide-slate-200 dark:divide-slate-700/50">
-                                            <template x-for="(spec, index) in selectedProduct.specs" :key="index">
-                                                <tr :class="index % 2 === 0 ? 'bg-white/50 dark:bg-slate-900/50' : ''">
-                                                    <td class="py-3.5 pl-4 pr-3 text-sm font-semibold text-slate-900 dark:text-white w-1/3" x-text="spec.label"></td>
-                                                    <td class="px-3 py-3.5 text-sm text-slate-600 dark:text-slate-400" x-text="spec.value"></td>
-                                                </tr>
-                                            </template>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <!-- Action Buttons -->
-                                <div class="mt-8 flex flex-col sm:flex-row gap-4">
-                                    <a href="#contact" class="flex-1 inline-flex justify-center items-center px-6 py-3.5 border border-transparent text-sm font-bold rounded-xl text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-colors">
-                                        Request Quote
-                                    </a>
-                                    <button @click="closeModal" type="button" class="flex-1 inline-flex justify-center items-center px-6 py-3.5 border border-slate-300 dark:border-slate-700 text-sm font-bold rounded-xl text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 focus:outline-none transition-colors">
-                                        Close Details
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </template>
-                </div>
-            </div>
-        </div>
-
-    </section>
- 
- <!-- Interactive Product & Solutions Showcase -->
-    <section class="py-24 bg-white dark:bg-slate-900" x-data="{ 
-        activeCategory: 'chicks',
-        categories: {
-            chicks: {
-                title: 'Day-Old Chicks (DOC)',
-                subtitle: 'Superior Genetics & High Livability',
-                desc: 'Hatched under strict biosecurity protocols across our specialized breeding farms in Oyo and Ogun states. Our broiler and layer chicks exhibit exceptional vitality, uniform growth, and maximum yield.',
-                features: ['Rigorous parental vaccination screening', 'High feed-to-meat conversion ratio', 'Robust immunity against regional stressors', 'Prompt dispatch across nationwide booking schedules'],
-                image: 'https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=1000'
-            },
-            nutrition: {
-                title: 'Premixes & Feed Additives',
-                subtitle: 'Scientifically Balanced Nutrition',
-                desc: 'Formulated to meet the precise physiological needs of poultry at every growth stage. Our vitamin-mineral premixes enhance egg shell quality, skeletal strength, and metabolic efficiency.',
-                features: ['Optimized vitamin and trace mineral matrices', 'Mycotoxin binders for gut health', 'Custom blends for broilers, breeders, and layers', 'Enhanced nutrient bioavailability'],
-                image: 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=1000'
-            },
-            health: {
-                title: 'Animal Health & Vaccines',
-                subtitle: 'Preventative Biosecurity Solutions',
-                desc: 'Protecting flock investments with cold-chain verified vaccines and effective therapeutic medications sourced from globally recognized pharmaceutical partners.',
-                features: ['Strict cold-chain logistics preservation', 'Comprehensive range of viral and bacterial vaccines', 'Expert veterinary advisory support on administration', 'Disinfectants and biosecurity sanitizers'],
-                image: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&q=80&w=1000'
-            },
-            equipment: {
-                title: 'Modern Farm Equipment',
-                subtitle: 'Infrastructure & Automation',
-                desc: 'Transforming traditional setups into automated, high-efficiency production hubs. We supply durable automatic feeding lines, nipple drinking systems, and climate control units.',
-                features: ['Automatic feeding and drinking configurations', 'Ventilation and cooling pad systems', 'Heavy-duty battery cages and housing accessories', 'Installation and maintenance engineering backup'],
-                image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1000'
-            }
-        }
-    }">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <!-- Category Navigation Tabs -->
-            <div class="flex flex-wrap justify-center gap-3 mb-16">
-                <template x-for="(cat, key) in categories" :key="key">
-                    <button @click="activeCategory = key"
-                        :class="activeCategory === key ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/25 scale-105' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'"
-                        class="px-6 py-3 rounded-2xl font-semibold text-sm transition-all duration-200"
-                        x-text="cat.title">
-                    </button>
-                </template>
-            </div>
-
-            <!-- Active Category Display Panel -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-50 dark:bg-slate-950 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800">
-                
-                <!-- Content Side -->
-                <div class="lg:col-span-6 space-y-6">
-                    <div>
-                        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest" x-text="categories[activeCategory].subtitle"></span>
-                        <h3 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1" x-text="categories[activeCategory].title"></h3>
-                    </div>
-                    
-                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg" x-text="categories[activeCategory].desc"></p>
-                    
-                    <ul class="space-y-3 pt-2">
-                        <template x-for="feature in categories[activeCategory].features">
-                            <li class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
-                                <div class="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
-                                </div>
-                                <span x-text="feature"></span>
-                            </li>
-                        </template>
-                    </ul>
-
-                    <div class="pt-4">
-                        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all shadow-md shadow-emerald-600/20">
-                            Inquire About This Solution
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Image Side -->
-                <div class="lg:col-span-6 relative">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] border border-slate-200 dark:border-slate-800">
-                        <img :src="categories[activeCategory].image" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" alt="Product Visual">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
+</section>

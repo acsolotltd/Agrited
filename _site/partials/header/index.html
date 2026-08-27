@@ -83,9 +83,12 @@
                         </a>
                     </div>
                     <div class="flex items-center gap-4">
-                        <a href="https://www.facebook.com/p/Agrited-Nigeria-Limited-100078469555381/" class="hover:text-emerald-400 transition">Facebook</a>
-                        <a href="https://www.instagram.com/agritednigeria/" class="hover:text-emerald-400 transition">Instagram</a>
-                        <a href="https://ng.linkedin.com/company/agrited" class="hover:text-emerald-400 transition">LinkedIn</a>
+                        <a href="https://www.facebook.com/p/Agrited-Nigeria-Limited-100078469555381/"
+                            class="hover:text-emerald-400 transition">Facebook</a>
+                        <a href="https://www.instagram.com/agritednigeria/"
+                            class="hover:text-emerald-400 transition">Instagram</a>
+                        <a href="https://ng.linkedin.com/company/agrited"
+                            class="hover:text-emerald-400 transition">LinkedIn</a>
                     </div>
                 </div>
             </div>
@@ -103,27 +106,30 @@
                         onerror="this.style.display='none'">
                     <span class="text-white font-bold text-xl hidden">A</span>
                     <div>
-                        <h2 class="font-serif text-[1.375rem] lg:text-[1.75rem] font-extrabold text-slate-900 dark:text-white tracking-tight">AGRITED</h2>
-                        <p class="text-[10px] lg:text-xs text-emerald-600 dark:text-emerald-400 font-semibold uppercase tracking-widest">Keep Breeding</p>
+                        <h2
+                            class="font-serif text-[1.375rem] lg:text-[1.75rem] font-extrabold text-slate-900 dark:text-white tracking-tight">
+                            AGRITED</h2>
+                        <p
+                            class="text-[10px] lg:text-xs text-emerald-600 dark:text-emerald-400 font-semibold uppercase tracking-widest">
+                            Keep Breeding</p>
                     </div>
                 </a>
 
                 <!-- DESKTOP MENU -->
                 <ul class="hidden lg:flex items-center gap-8 font-semibold text-sm text-slate-600 dark:text-slate-300">
                     <li>
-                        <a href="/#home" @click="activeSection = 'home'"
-                            class="transition-colors pb-1"
+                        <a href="/#home" @click="activeSection = 'home'" class="transition-colors pb-1"
                             :class="activeSection === 'home' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'">Home</a>
                     </li>
                     <li>
-                        <a href="/#about" @click="activeSection = 'about'"
-                            class="transition-colors pb-1"
-                            :class="activeSection === 'about' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'">About Us</a>
+                        <a href="/#about" @click="activeSection = 'about'" class="transition-colors pb-1"
+                            :class="activeSection === 'about' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'">About
+                            Us</a>
                     </li>
                     <li>
-                        <a href="/#products" @click="activeSection = 'products'"
-                            class="transition-colors pb-1"
-                            :class="activeSection === 'products' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'">Our Products</a>
+                        <a href="/#products" @click="activeSection = 'products'" class="transition-colors pb-1"
+                            :class="activeSection === 'products' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'">Our
+                            Products</a>
                     </li>
                     <li>
                         <a href="/#featured-farms" @click="activeSection = 'featured-farms'"
@@ -131,35 +137,34 @@
                             :class="activeSection === 'featured-farms' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'">Farms</a>
                     </li>
                     <li>
-                        <a href="/#booking" @click="activeSection = 'booking'"
-                            class="transition-colors pb-1"
+                        <a href="/#booking" @click="activeSection = 'booking'" class="transition-colors pb-1"
                             :class="activeSection === 'booking' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'">Booking</a>
                     </li>
                     <li>
-                        <a href="/#contact" @click="activeSection = 'contact'"
-                            class="transition-colors pb-1"
+                        <a href="/#contact" @click="activeSection = 'contact'" class="transition-colors pb-1"
                             :class="activeSection === 'contact' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'">Contact</a>
                     </li>
 
                     <!-- SITE MAP DROPDOWN BUTTON (DESKTOP) -->
-                    <li class="relative" x-data="{ open: false }" @click.outside="open = false" @keydown.escape.window="open = false">
-                        <button @click="open = !open" 
+                    <li class="relative" x-data="{ open: false }" @click.outside="open = false"
+                        @keydown.escape.window="open = false">
+                        <button @click="open = !open"
                             class="flex items-center gap-1.5 transition-colors pb-1 hover:text-emerald-600 dark:hover:text-emerald-400 focus:outline-none"
                             :class="['about', 'contact', 'booking', 'solutions'].includes(activeSection) ? 'text-emerald-600 dark:text-emerald-400' : ''">
                             <span>Site Map</span>
-                            <svg class="w-4 h-4 transition-transform duration-200" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            <svg class="w-4 h-4 transition-transform duration-200" :class="open ? 'rotate-180' : ''"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
 
-                        <div x-show="open"
-                            x-transition:enter="transition ease-out duration-200"
+                        <div x-show="open" x-transition:enter="transition ease-out duration-200"
                             x-transition:enter-start="opacity-0 translate-y-1 scale-95"
                             x-transition:enter-end="opacity-100 translate-y-0 scale-100"
                             x-transition:leave="transition ease-in duration-150"
                             x-transition:leave-start="opacity-100 translate-y-0 scale-100"
-                            x-transition:leave-end="opacity-0 translate-y-1 scale-95"
-                            style="display: none;"
+                            x-transition:leave-end="opacity-0 translate-y-1 scale-95" style="display: none;"
                             class="absolute left-0 mt-3 w-48 rounded-xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700/60 py-2 z-50">
                             <a href="/about" @click="activeSection = 'about'; open = false"
                                 class="flex items-center px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-900/40 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
@@ -169,13 +174,14 @@
                                 class="flex items-center px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-900/40 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                                 Our Products
                             </a>
-                            <a href="/#booking" @click="activeSection = 'booking'; open = false"
-                                class="flex items-center px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-900/40 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                                Booking
-                            </a>
+                           
                             <a href="/contact" @click="activeSection = 'contact'; open = false"
                                 class="flex items-center px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-900/40 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                                 Contact Us
+                            </a>
+                             <a href="/careers" @click="activeSection = 'booking'; open = false"
+                                class="flex items-center px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-emerald-900/40 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                                Booking
                             </a>
                         </div>
                     </li>
@@ -200,10 +206,9 @@
                         </svg>
                     </button>
 
-                    <a href="/contact/"
-                       @click="activeSection = 'contact'"
-                       class="bg-emerald-600 text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:bg-emerald-700 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 border-b-2"
-                       :class="activeSection === 'contact' ? 'border-emerald-800' : 'border-transparent'">Contact Us</a>
+                    <button @click="$dispatch('open-booking', 'Headquarters Dispatch')"
+                        class="bg-emerald-600 text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:bg-emerald-700 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 border-b-2">Order
+                        Booking</button>
                 </div>
 
                 <!-- MOBILE TOGGLE AREA -->
@@ -213,11 +218,13 @@
                         class="p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
                         <svg x-show="darkMode" style="display: none;" class="w-5 h-5" fill="none" stroke="currentColor"
                             stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                         </svg>
                         <svg x-show="!darkMode" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
                             viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
                         </svg>
                     </button>
 
@@ -247,12 +254,15 @@
         class="fixed right-0 top-0 h-screen w-full max-w-sm bg-white dark:bg-slate-900 shadow-2xl z-50 overflow-y-auto flex flex-col translate-x-full peer-checked:translate-x-0 transition-transform duration-300 lg:hidden">
 
         <!-- Header -->
-        <div class="flex items-center justify-between px-6 py-5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
+        <div
+            class="flex items-center justify-between px-6 py-5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold">A</div>
+                <div class="w-10 h-10 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold">A
+                </div>
                 <div>
                     <h2 class="font-serif font-bold text-lg text-slate-900 dark:text-white">AGRITED</h2>
-                    <p class="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold uppercase">Premium Poultry Solutions</p>
+                    <p class="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold uppercase">Premium
+                        Poultry Solutions</p>
                 </div>
             </div>
             <!-- Close Button -->
@@ -268,89 +278,103 @@
         <nav class="flex-1 px-4 py-6 overflow-y-auto">
             <ul class="space-y-2 font-medium text-slate-700 dark:text-slate-300">
                 <li>
-                    <a href="/#home" 
-                       @click="activeSection = 'home'; document.getElementById('mobile-menu-toggle').checked = false;"
-                       class="block rounded-xl px-4 py-3.5 transition"
-                       :class="activeSection === 'home' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400' : 'hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-700 dark:hover:text-emerald-400'">Home</a>
+                    <a href="/#home"
+                        @click="activeSection = 'home'; document.getElementById('mobile-menu-toggle').checked = false;"
+                        class="block rounded-xl px-4 py-3.5 transition"
+                        :class="activeSection === 'home' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400' : 'hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-700 dark:hover:text-emerald-400'">Home</a>
                 </li>
                 <li>
-                    <a href="/#about" 
-                       @click="activeSection = 'about'; document.getElementById('mobile-menu-toggle').checked = false;"
-                       class="block rounded-xl px-4 py-3.5 transition"
-                       :class="activeSection === 'about' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400' : 'hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-700 dark:hover:text-emerald-400'">About Us</a>
+                    <a href="/#about"
+                        @click="activeSection = 'about'; document.getElementById('mobile-menu-toggle').checked = false;"
+                        class="block rounded-xl px-4 py-3.5 transition"
+                        :class="activeSection === 'about' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400' : 'hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-700 dark:hover:text-emerald-400'">About
+                        Us</a>
                 </li>
                 <li>
-                    <a href="/#featured-farms" 
-                       @click="activeSection = 'featured-farms'; document.getElementById('mobile-menu-toggle').checked = false;"
-                       class="block rounded-xl px-4 py-3.5 transition"
-                       :class="activeSection === 'featured-farms' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400' : 'hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-700 dark:hover:text-emerald-400'">Farms</a>
+                    <a href="/#featured-farms"
+                        @click="activeSection = 'featured-farms'; document.getElementById('mobile-menu-toggle').checked = false;"
+                        class="block rounded-xl px-4 py-3.5 transition"
+                        :class="activeSection === 'featured-farms' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400' : 'hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-700 dark:hover:text-emerald-400'">Farms</a>
                 </li>
                 <li>
-                    <a href="/#product" 
-                       @click="activeSection = 'products'; document.getElementById('mobile-menu-toggle').checked = false;"
-                       class="block rounded-xl px-4 py-3.5 transition"
-                       :class="activeSection === 'products' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400' : 'hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-700 dark:hover:text-emerald-400'">Our Products</a>
+                    <a href="/#product"
+                        @click="activeSection = 'products'; document.getElementById('mobile-menu-toggle').checked = false;"
+                        class="block rounded-xl px-4 py-3.5 transition"
+                        :class="activeSection === 'products' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400' : 'hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-700 dark:hover:text-emerald-400'">Our
+                        Products</a>
                 </li>
                 <li>
-                    <a href="/#booking" 
-                       @click="activeSection = 'booking'; document.getElementById('mobile-menu-toggle').checked = false;"
-                       class="block rounded-xl px-4 py-3.5 transition"
-                       :class="activeSection === 'booking' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400' : 'hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-700 dark:hover:text-emerald-400'">Booking</a>
+                    <a href="/#booking"
+                        @click="activeSection = 'booking'; document.getElementById('mobile-menu-toggle').checked = false;"
+                        class="block rounded-xl px-4 py-3.5 transition"
+                        :class="activeSection === 'booking' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400' : 'hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-700 dark:hover:text-emerald-400'">Booking</a>
                 </li>
-                
+
                 <li>
-                    <a href="/contact/" 
-                       @click="activeSection = 'contact'; document.getElementById('mobile-menu-toggle').checked = false;"
-                       class="block rounded-xl px-4 py-3.5 transition"
-                       :class="activeSection === 'contact' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400' : 'hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-700 dark:hover:text-emerald-400'">Contact Us</a>
+                    <a href="/contact/"
+                        @click="activeSection = 'contact'; document.getElementById('mobile-menu-toggle').checked = false;"
+                        class="block rounded-xl px-4 py-3.5 transition"
+                        :class="activeSection === 'contact' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400' : 'hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-700 dark:hover:text-emerald-400'">Contact
+                        Us</a>
                 </li>
 
                 <!-- SITE MAP ACCORDION (MOBILE) -->
                 <li x-data="{ open: false }">
-                    <button @click="open = !open" 
+                    <button @click="open = !open"
                         class="w-full flex items-center justify-between rounded-xl px-4 py-3.5 transition hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-700 dark:hover:text-emerald-400">
                         <span>Site Map</span>
-                        <svg class="w-4 h-4 transition-transform duration-200" :class="open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 transition-transform duration-200" :class="open ? 'rotate-180' : ''"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div x-show="open" 
-                        x-transition:enter="transition ease-out duration-200"
-                        x-transition:enter-start="opacity-0 max-h-0"
-                        x-transition:enter-end="opacity-100 max-h-40"
+                    <div x-show="open" x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 max-h-0" x-transition:enter-end="opacity-100 max-h-40"
                         class="pl-4 space-y-1 mt-1">
-                        <a href="/#about" 
-                           @click="activeSection = 'about'; document.getElementById('mobile-menu-toggle').checked = false;"
-                           class="block rounded-lg px-4 py-2 text-sm text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-600">About Us</a>
-                        <a href="/#solutions" 
-                           @click="activeSection = 'solutions'; document.getElementById('mobile-menu-toggle').checked = false;"
-                           class="block rounded-lg px-4 py-2 text-sm text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-600">Our Products</a>
-                        <a href="/#booking" 
-                           @click="activeSection = 'booking'; document.getElementById('mobile-menu-toggle').checked = false;"
-                           class="block rounded-lg px-4 py-2 text-sm text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-600">Booking</a>
-                        <a href="/#contact" 
-                           @click="activeSection = 'contact'; document.getElementById('mobile-menu-toggle').checked = false;"
-                           class="block rounded-lg px-4 py-2 text-sm text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-600">Contact Us</a>
+                        <a href="/about"
+                            @click="activeSection = 'about'; document.getElementById('mobile-menu-toggle').checked = false;"
+                            class="block rounded-lg px-4 py-2 text-sm text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-600">About
+                            Us</a>
+                        <a href="/products"
+                            @click="activeSection = 'solutions'; document.getElementById('mobile-menu-toggle').checked = false;"
+                            class="block rounded-lg px-4 py-2 text-sm text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-600">Our
+                            Products</a>
+                        <a href="/contact"
+                            @click="activeSection = 'contact'; document.getElementById('mobile-menu-toggle').checked = false;"
+                            class="block rounded-lg px-4 py-2 text-sm text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-600">Contact
+                            Us</a>
+                        <a href="/careers"
+                            @click="activeSection = 'booking'; document.getElementById('mobile-menu-toggle').checked = false;"
+                            class="block rounded-lg px-4 py-2 text-sm text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-600">Careers</a>
+                        
                     </div>
                 </li>
             </ul>
 
             <!-- Contact Box & Social Media -->
-            <div class="mt-8 rounded-2xl bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-900/50 p-5">
+            <div
+                class="mt-8 rounded-2xl bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-900/50 p-5">
                 <h3 class="font-bold text-emerald-900 dark:text-emerald-400 mb-4">Contact HQ</h3>
-                
+
                 <div class="space-y-3 text-sm text-slate-600 dark:text-slate-400 pb-5">
                     <p>📍 5, Agoro Odiyan Street, VI, Lagos</p>
-                    <p>☎ <a href="tel:+2348106071512" class="hover:text-emerald-700 dark:hover:text-emerald-300">+234 (0) 810 607 1512</a></p>
-                    <p>✉ <a href="mailto:info@agrited.net" class="hover:text-emerald-700 dark:hover:text-emerald-300">info@agrited.net</a></p>
+                    <p>☎ <a href="tel:+2348106071512" class="hover:text-emerald-700 dark:hover:text-emerald-300">+234
+                            (0) 810 607 1512</a></p>
+                    <p>✉ <a href="mailto:info@agrited.net"
+                            class="hover:text-emerald-700 dark:hover:text-emerald-300">info@agrited.net</a></p>
                 </div>
 
                 <div class="pt-5 border-t border-emerald-200 dark:border-emerald-800">
-                    <h4 class="text-xs font-semibold text-emerald-800 dark:text-emerald-500 mb-3 uppercase tracking-wider">Follow Us</h4>
+                    <h4
+                        class="text-xs font-semibold text-emerald-800 dark:text-emerald-500 mb-3 uppercase tracking-wider">
+                        Follow Us</h4>
                     <div class="flex items-center gap-5">
-                        <a href="https://www.facebook.com/p/Agrited-Nigeria-Limited-100078469555381/" class="text-sm font-medium text-slate-600 hover:text-emerald-700 dark:text-slate-400 dark:hover:text-emerald-400 transition">Facebook</a>
-                        <a href="https://www.instagram.com/agritednigeria/" class="text-sm font-medium text-slate-600 hover:text-emerald-700 dark:text-slate-400 dark:hover:text-emerald-400 transition">Instagram</a>
-                        <a href="https://ng.linkedin.com/company/agrited" class="text-sm font-medium text-slate-600 hover:text-emerald-700 dark:text-slate-400 dark:hover:text-emerald-400 transition">LinkedIn</a>
+                        <a href="https://www.facebook.com/p/Agrited-Nigeria-Limited-100078469555381/"
+                            class="text-sm font-medium text-slate-600 hover:text-emerald-700 dark:text-slate-400 dark:hover:text-emerald-400 transition">Facebook</a>
+                        <a href="https://www.instagram.com/agritednigeria/"
+                            class="text-sm font-medium text-slate-600 hover:text-emerald-700 dark:text-slate-400 dark:hover:text-emerald-400 transition">Instagram</a>
+                        <a href="https://ng.linkedin.com/company/agrited"
+                            class="text-sm font-medium text-slate-600 hover:text-emerald-700 dark:text-slate-400 dark:hover:text-emerald-400 transition">LinkedIn</a>
                     </div>
                 </div>
             </div>
