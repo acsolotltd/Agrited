@@ -459,25 +459,23 @@
     <main id="appLayout">
         
   <!-- Hero Section -->
-    <section id="contact" class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden border-b border-slate-100 dark:border-slate-800">
+    <section id="NaN" class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden border-b border-slate-100 dark:border-slate-800">
         <!-- Ambient Background -->
         <div class="absolute inset-0 bg-slate-50 dark:bg-slate-950 -z-10"></div>
         <div class="absolute top-0 left-1/2 w-[800px] h-[400px] bg-emerald-500/20 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6"> Get In
-                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">Touch</span>
-            </h1>
+             <span class="text-emerald-600 dark:text-emerald-400 font-bold tracking-wider uppercase text-sm mb-4 block">Products &amp; Solutions</span>
+             
             <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
                 From our Head Office in Lagos to our expansive plains across Oyo and Ogun states, we are positioned to serve your agricultural needs.
                
             </p>
         </div>
     </section>
-
-    <!-- Products Gallery & Filtering -->
-    <section class="py-20 relative" x-data="{
-        activeFilter: 'all',
+  <!-- Products Gallery & Filtering -->
+    <section class="py-10 relative bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800" x-data="{
+        activeFilter: 'equipment',
         isModalOpen: false,
         selectedProduct: null,
         openModal(product) {
@@ -491,11 +489,11 @@
             document.body.classList.remove('overflow-hidden');
         },
         categories: [
-            { id: 'all', name: 'All Solutions' },
+             { id: 'equipment', name: 'Modern Farm Equipment' },
             { id: 'chicks', name: 'Day Old Chicks' },
             { id: 'nutritionn', name: 'Premix & Additives' },
             { id: 'vaccines', name: 'Vaccines' },
-            { id: 'equipment', name: 'Farm Equipment' }
+             { id: 'all', name: 'All Solutions' },
         ],
         products: [
             {
@@ -917,7 +915,7 @@
                 ]
             },
         ]
-    }">
+    }" class="dark:bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Filter Controls -->
@@ -1068,6 +1066,98 @@
         </div>
 
     </section>
+ 
+ <!-- Interactive Product & Solutions Showcase -->
+    <section class="py-24 bg-white dark:bg-slate-900" x-data="{ 
+        activeCategory: 'chicks',
+        categories: {
+            chicks: {
+                title: 'Day-Old Chicks (DOC)',
+                subtitle: 'Superior Genetics & High Livability',
+                desc: 'Hatched under strict biosecurity protocols across our specialized breeding farms in Oyo and Ogun states. Our broiler and layer chicks exhibit exceptional vitality, uniform growth, and maximum yield.',
+                features: ['Rigorous parental vaccination screening', 'High feed-to-meat conversion ratio', 'Robust immunity against regional stressors', 'Prompt dispatch across nationwide booking schedules'],
+                image: 'https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=1000'
+            },
+            nutrition: {
+                title: 'Premixes & Feed Additives',
+                subtitle: 'Scientifically Balanced Nutrition',
+                desc: 'Formulated to meet the precise physiological needs of poultry at every growth stage. Our vitamin-mineral premixes enhance egg shell quality, skeletal strength, and metabolic efficiency.',
+                features: ['Optimized vitamin and trace mineral matrices', 'Mycotoxin binders for gut health', 'Custom blends for broilers, breeders, and layers', 'Enhanced nutrient bioavailability'],
+                image: 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=1000'
+            },
+            health: {
+                title: 'Animal Health & Vaccines',
+                subtitle: 'Preventative Biosecurity Solutions',
+                desc: 'Protecting flock investments with cold-chain verified vaccines and effective therapeutic medications sourced from globally recognized pharmaceutical partners.',
+                features: ['Strict cold-chain logistics preservation', 'Comprehensive range of viral and bacterial vaccines', 'Expert veterinary advisory support on administration', 'Disinfectants and biosecurity sanitizers'],
+                image: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&q=80&w=1000'
+            },
+            equipment: {
+                title: 'Modern Farm Equipment',
+                subtitle: 'Infrastructure & Automation',
+                desc: 'Transforming traditional setups into automated, high-efficiency production hubs. We supply durable automatic feeding lines, nipple drinking systems, and climate control units.',
+                features: ['Automatic feeding and drinking configurations', 'Ventilation and cooling pad systems', 'Heavy-duty battery cages and housing accessories', 'Installation and maintenance engineering backup'],
+                image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=1000'
+            }
+        }
+    }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Category Navigation Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-16">
+                <template x-for="(cat, key) in categories" :key="key">
+                    <button @click="activeCategory = key"
+                        :class="activeCategory === key ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/25 scale-105' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'"
+                        class="px-6 py-3 rounded-2xl font-semibold text-sm transition-all duration-200"
+                        x-text="cat.title">
+                    </button>
+                </template>
+            </div>
+
+            <!-- Active Category Display Panel -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-slate-50 dark:bg-slate-950 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-slate-800">
+                
+                <!-- Content Side -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div>
+                        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest" x-text="categories[activeCategory].subtitle"></span>
+                        <h3 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1" x-text="categories[activeCategory].title"></h3>
+                    </div>
+                    
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg" x-text="categories[activeCategory].desc"></p>
+                    
+                    <ul class="space-y-3 pt-2">
+                        <template x-for="feature in categories[activeCategory].features">
+                            <li class="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-300">
+                                <div class="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <span x-text="feature"></span>
+                            </li>
+                        </template>
+                    </ul>
+
+                    <div class="pt-4">
+                        <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all shadow-md shadow-emerald-600/20">
+                            Inquire About This Solution
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image Side -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] border border-slate-200 dark:border-slate-800">
+                        <img :src="categories[activeCategory].image" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" alt="Product Visual">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+  
+
     </main>
     <!-- Footer -->
     <!-- Footer Section -->
