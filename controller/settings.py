@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     "apps.accounts.apps.AccountsConfig",
     "apps.orders.apps.OrdersConfig",
     "apps.subscribe.apps.SubscribeConfig",
@@ -33,6 +34,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -40,6 +42,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CORS_ALLOWED_ORIGINS = [
+    "localhost:8080", # Replace with your actual HTML host URL
+    "https://itsupport1-agrited.netlify.app/",            # Good to keep for local frontend testing
+]
 ROOT_URLCONF = 'controller.urls'
 
 TEMPLATES = [
