@@ -1,0 +1,44 @@
+/* static/admin/css/agrited_theme.css */
+:root {
+    /* Brand Colors - Agrited Emerald/Forest Green Palette */
+    --primary: #059669;          /* Emerald 600 - Main headers, standard buttons */
+    --secondary: #047857;        /* Emerald 700 - Subtitles, secondary accents */
+    --link-fg: #10b981;          /* Emerald 500 - Standard links */
+    --link-hover-color: #047857; /* Emerald 700 - Hover states */
+    --link-selected-fg: #064e3b; /* Emerald 900 - Active links */
+    
+    /* Header & Breadcrumbs */
+    --header-color: #ffffff;
+    --header-bg: #064e3b;        /* Deep Forest Green */
+    --header-link-color: #ffffff;
+    --breadcrumbs-fg: #a7f3d0;   /* Light mint */
+    --breadcrumbs-link-fg: #ffffff;
+    --breadcrumbs-bg: #059669;
+    
+    /* Buttons */
+    --button-fg: #ffffff;
+    --button-bg: #059669;
+    --button-hover-bg: #047857;
+    --default-button-bg: #047857;
+    --default-button-hover-bg: #064e3b;
+    
+    /* Tables & Highlights */
+    --selected-bg: #d1fae5;      /* Mint background for selected rows */
+    --selected-row: #ecfdf5;     /* Lighter mint for hover */
+    
+    /* Overrides for a modern, rounded look */
+    --border-radius: 8px;
+}
+
+/* Custom rounded corners for inputs and buttons */
+input[type=text], input[type=password], input[type=email], input[type=url], 
+input[type=number], input[type=tel], textarea, select, .vTextField {
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    padding: 6px 10px;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    border-radius: 6px;
+    font-weight: 600;
+}

@@ -1,437 +1,221 @@
 <!-- =========================================================
-     NEWSLETTER SECTION
+     MOBILE-FIRST NEWSLETTER SECTION
 ========================================================= -->
-<section
-    id="newsletter"
-    class="relative overflow-hidden bg-emerald-700 py-16 transition-colors duration-300 dark:bg-emerald-950 md:py-24"
->
-    <!-- Decorative background -->
-    <div class="pointer-events-none absolute inset-0 overflow-hidden">
-        <div
-            class="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-emerald-400/20 blur-3xl"
-        ></div>
-
-        <div
-            class="absolute -bottom-40 -left-32 h-96 w-96 rounded-full bg-emerald-950/30 blur-3xl"
-        ></div>
+<section id="newsletter" class="relative overflow-hidden bg-emerald-800 py-12 transition-colors duration-300 dark:bg-emerald-950 sm:py-16 md:py-24">
+    
+    <!-- Decorative background glow (safely clipped for mobile) -->
+    <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div class="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-emerald-400/20 blur-3xl sm:-right-32 sm:-top-32 sm:h-96 sm:w-96"></div>
+        <div class="absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-emerald-950/40 blur-3xl sm:-left-32 sm:h-96 sm:w-96"></div>
     </div>
 
-
     <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-        <div
-            class="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-white/10 shadow-2xl backdrop-blur-xl"
-        >
-
-            <div class="grid lg:grid-cols-2">
-
+        
+        <!-- Glassmorphism Container (Compact corner radius on mobile) -->
+        <div class="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-white/15 bg-white/10 shadow-2xl backdrop-blur-xl sm:rounded-3xl">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
 
                 <!-- =================================================
-                     LEFT SIDE
+                     LEFT COLUMN: Copy & Value Proposition
                 ================================================== -->
-                <div class="p-8 sm:p-10 lg:p-14">
-
+                <div class="p-6 sm:p-10 lg:col-span-7 lg:p-12">
+                    
                     <!-- Badge -->
-                    <div
-                        class="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-emerald-100"
-                    >
-
-                        <svg
-                            class="h-4 w-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                            />
+                    <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-100 sm:mb-5">
+                        <svg class="h-3.5 w-3.5 sm:h-4 sm:w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-
-                        Stay Connected
-
+                        <span>Stay Connected</span>
                     </div>
-
 
                     <!-- Heading -->
-                    <h2
-                        class="text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl"
-                    >
+                    <h2 class="text-2xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-4xl">
                         Subscribe to Our
-                        <span class="text-emerald-200">
-                            Newsletter
-                        </span>
+                        <span class="block text-emerald-200 sm:inline">Newsletter</span>
                     </h2>
 
-
                     <!-- Description -->
-                    <p
-                        class="mt-5 max-w-xl text-sm leading-7 text-emerald-50/80 sm:text-base"
-                    >
-                        Stay informed with the latest updates from our farms,
-                        poultry operations, products, industry insights,
-                        and company news.
+                    <p class="mt-3 text-sm leading-relaxed text-emerald-50/90 sm:mt-4 sm:text-base sm:leading-7">
+                        Receive monthly updates on poultry operations, products, farming techniques, and agribusiness insights directly to your inbox.
                     </p>
 
-
-                    <!-- Benefits -->
-                    <div class="mt-7 grid gap-3 sm:grid-cols-2">
-
-                        <div
-                            class="flex items-center gap-3 text-sm text-emerald-50"
-                        >
-                            <span
-                                class="flex h-7 w-7 items-center justify-center rounded-full bg-white/10"
-                            >
-                                ✓
+                    <!-- Feature Checkmarks -->
+                    <div class="mt-6 grid grid-cols-2 gap-3 sm:mt-8 sm:gap-4">
+                        <div class="flex items-center gap-2 text-xs font-medium text-emerald-50 sm:text-sm">
+                            <span class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-200 sm:h-6 sm:w-6">
+                                <svg class="h-3 w-3 sm:h-3.5 sm:w-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
                             </span>
-
-                            Farm updates
+                            <span>Farm updates</span>
                         </div>
 
-
-                        <div
-                            class="flex items-center gap-3 text-sm text-emerald-50"
-                        >
-                            <span
-                                class="flex h-7 w-7 items-center justify-center rounded-full bg-white/10"
-                            >
-                                ✓
+                        <div class="flex items-center gap-2 text-xs font-medium text-emerald-50 sm:text-sm">
+                            <span class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-200 sm:h-6 sm:w-6">
+                                <svg class="h-3 w-3 sm:h-3.5 sm:w-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
                             </span>
-
-                            Industry insights
+                            <span>Industry insights</span>
                         </div>
 
-
-                        <div
-                            class="flex items-center gap-3 text-sm text-emerald-50"
-                        >
-                            <span
-                                class="flex h-7 w-7 items-center justify-center rounded-full bg-white/10"
-                            >
-                                ✓
+                        <div class="flex items-center gap-2 text-xs font-medium text-emerald-50 sm:text-sm">
+                            <span class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-200 sm:h-6 sm:w-6">
+                                <svg class="h-3 w-3 sm:h-3.5 sm:w-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
                             </span>
-
-                            Company news
+                            <span>Company news</span>
                         </div>
 
-
-                        <div
-                            class="flex items-center gap-3 text-sm text-emerald-50"
-                        >
-                            <span
-                                class="flex h-7 w-7 items-center justify-center rounded-full bg-white/10"
-                            >
-                                ✓
+                        <div class="flex items-center gap-2 text-xs font-medium text-emerald-50 sm:text-sm">
+                            <span class="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-200 sm:h-6 sm:w-6">
+                                <svg class="h-3 w-3 sm:h-3.5 sm:w-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
                             </span>
-
-                            Product updates
+                            <span>Product updates</span>
                         </div>
-
                     </div>
-
                 </div>
 
-
                 <!-- =================================================
-                     RIGHT SIDE
+                     RIGHT COLUMN: Form Panel
                 ================================================== -->
-                <div
-                    class="flex items-center bg-black/10 p-8 sm:p-10 lg:p-14"
-                >
-
+                <div class="flex items-center border-t border-white/10 bg-black/20 p-6 sm:p-10 lg:col-span-5 lg:border-l lg:border-t-0 lg:p-12">
                     <div class="w-full">
-
-                        <div
-                            id="newsletter-form-container"
+                        
+                        <form 
+                            id="newsletter-form" 
+                            class="space-y-4 sm:space-y-5"
+                            data-netlify="true"
+                            name="newsletter"
+                            method="POST"
                         >
-
-                            <!-- =================================================
-                                 NEWSLETTER FORM
-                            ================================================== -->
-                            <form
-                                id="newsletter-form"
-                                class="space-y-4"
-                                hx-post="/api/newsletter/subscribe"
-                                hx-target="#newsletter-response"
-                                hx-swap="innerHTML"
-                                hx-indicator="#newsletter-loading"
-                            >
-
-                                <!-- Email -->
-                                <div>
-
-                                    <label
-                                        for="newsletter-email"
-                                        class="mb-2 block text-sm font-semibold text-white"
-                                    >
-                                        Email address
-                                    </label>
-
-
-                                    <div class="relative">
-
-                                        <svg
-                                            class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                            />
+                            <input type="hidden" name="form-name" value="newsletter" />
+                            
+                            <!-- Full Name -->
+                            <div>
+                                <label for="newsletter-name" class="mb-1.5 block text-xs font-semibold text-white sm:text-sm">
+                                    Full Name <span class="text-emerald-300">*</span>
+                                </label>
+                                <div class="relative">
+                                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5">
+                                        <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                         </svg>
-
-
-                                        <input
-                                            id="newsletter-email"
-                                            name="email"
-                                            type="email"
-                                            required
-                                            autocomplete="email"
-                                            placeholder="you@example.com"
-                                            class="w-full rounded-xl border border-white/10 bg-white px-12 py-4 text-sm text-slate-900 shadow-lg outline-none transition placeholder:text-slate-400 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-400/20"
-                                        />
-
                                     </div>
-
+                                    <input 
+                                        id="newsletter-name" 
+                                        name="name" 
+                                        type="text" 
+                                        required 
+                                        autocomplete="name" 
+                                        placeholder="Ibraheem Abdulsalam" 
+                                        class="block w-full rounded-xl border border-white/20 bg-white pl-11 pr-4 py-3 text-base text-slate-900 shadow-sm transition placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/30 sm:py-3.5 sm:text-sm" 
+                                    />
                                 </div>
+                            </div>
 
-
-                                <!-- Submit -->
-                                <button
-                                    type="submit"
-                                    class="group flex w-full items-center justify-center gap-3 rounded-xl bg-slate-950 px-6 py-4 text-sm font-bold text-white shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-900 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-white/30"
-                                >
-
-                                    <!-- Normal -->
-                                    <span class="submit-text">
-                                        Subscribe Now
-                                    </span>
-
-
-                                    <svg
-                                        class="submit-icon h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M14 5l7 7m0 0l-7 7m7-7H3"
-                                        />
-                                    </svg>
-
-
-                                    <!-- Loading -->
-                                    <span
-                                        id="newsletter-loading"
-                                        class="htmx-indicator hidden items-center gap-2"
-                                    >
-
-                                        <svg
-                                            class="h-5 w-5 animate-spin"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <circle
-                                                class="opacity-25"
-                                                cx="12"
-                                                cy="12"
-                                                r="10"
-                                                stroke="currentColor"
-                                                stroke-width="4"
-                                            ></circle>
-
-                                            <path
-                                                class="opacity-75"
-                                                fill="currentColor"
-                                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                                            ></path>
+                            <!-- Email -->
+                            <div>
+                                <label for="newsletter-email" class="mb-1.5 block text-xs font-semibold text-white sm:text-sm">
+                                    Email address <span class="text-emerald-300">*</span>
+                                </label>
+                                <div class="relative">
+                                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5">
+                                        <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                         </svg>
+                                    </div>
+                                    <input 
+                                        id="newsletter-email" 
+                                        name="email" 
+                                        type="email" 
+                                        required 
+                                        autocomplete="email" 
+                                        placeholder="name@company.com" 
+                                        class="block w-full rounded-xl border border-white/20 bg-white pl-11 pr-4 py-3 text-base text-slate-900 shadow-sm transition placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/30 sm:py-3.5 sm:text-sm" 
+                                    />
+                                </div>
+                            </div>
 
-                                        Subscribing...
-
-                                    </span>
-
-                                </button>
-
-                            </form>
-
-
-                            <!-- AJAX RESPONSE -->
-                            <div
-                                id="newsletter-response"
-                                class="mt-4"
-                                aria-live="polite"
-                            ></div>
-
-
-                            <!-- Privacy -->
-                            <p
-                                class="mt-5 text-center text-[11px] leading-relaxed text-emerald-100/60"
+                            <!-- Submit Button -->
+                            <button 
+                                type="submit" 
+                                class="group flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-slate-950 px-6 py-3.5 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:bg-slate-900 active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-white/30"
                             >
-                                By subscribing, you agree to receive updates
-                                from us. You can unsubscribe at any time.
-                            </p>
+                                <span>Subscribe Now</span>
+                                <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </button>
+                        </form>
 
-                        </div>
+                        <!-- Dynamic Response Container -->
+                        <div id="newsletter-response" class="mt-4" aria-live="polite"></div>
+
+                        <!-- Privacy Notice -->
+                        <p class="mt-4 text-center text-[11px] leading-relaxed text-emerald-100/70 sm:text-xs">
+                            We respect your privacy. Unsubscribe at any time.
+                        </p>
 
                     </div>
-
                 </div>
 
             </div>
-
         </div>
-
     </div>
 </section>
 
-
 <!-- =========================================================
-
-
-
-<!-- =========================================================
-     DEMO AJAX HANDLER
+     JAVASCRIPT INTERACTION (Netlify / AJAX Handler)
 ========================================================= -->
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("newsletter-form");
+    if (!form) return;
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-        const form =
-            document.getElementById(
-                "newsletter-form"
-            );
+        const nameInput = document.getElementById("newsletter-name").value.trim();
+        const emailInput = document.getElementById("newsletter-email").value.trim();
+        const responseContainer = document.getElementById("newsletter-response");
+        const submitBtn = form.querySelector('button[type="submit"]');
 
+        if (!nameInput || !emailInput) {
+            responseContainer.innerHTML = `
+                <div class="rounded-lg border border-red-200 bg-red-500/20 p-3 text-xs text-red-100">
+                    Please provide both your name and email.
+                </div>
+            `;
+            return;
+        }
 
-        /*
-         * IMPORTANT:
-         *
-         * Remove this block when you connect
-         * the form to your real backend.
-         *
-         * This allows you to test the UI now.
-         */
-        form.addEventListener(
-            "submit",
-            function (event) {
+        // Show Loading state
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-75');
+        responseContainer.innerHTML = `
+            <div class="flex items-center justify-center gap-2 rounded-lg bg-white/10 p-3 text-xs text-white">
+                <svg class="h-4 w-4 animate-spin text-white" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                </svg>
+                <span>Subscribing...</span>
+            </div>
+        `;
 
-                /*
-                 * Don't actually submit to
-                 * /api/newsletter/subscribe yet.
-                 */
-                event.preventDefault();
-
-
-                const email =
-                    document.getElementById(
-                        "newsletter-email"
-                    ).value.trim();
-
-
-                const response =
-                    document.getElementById(
-                        "newsletter-response"
-                    );
-
-
-                if (!email) {
-
-                    response.innerHTML = `
-                        <div class="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
-                            Please enter your email address.
-                        </div>
-                    `;
-
-                    return;
-                }
-
-
-                /*
-                 * Show loading state
-                 */
-                response.innerHTML = `
-                    <div class="flex items-center gap-3 rounded-xl border border-white/10 bg-white/10 p-4 text-sm text-white">
-                        <svg
-                            class="h-5 w-5 animate-spin"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                        >
-                            <circle
-                                class="opacity-25"
-                                cx="12"
-                                cy="12"
-                                r="10"
-                                stroke="currentColor"
-                                stroke-width="4"
-                            ></circle>
-
-                            <path
-                                class="opacity-75"
-                                fill="currentColor"
-                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                            ></path>
-                        </svg>
-
-                        Subscribing...
+        // Simulate Netlify / Server AJAX response
+        setTimeout(function () {
+            responseContainer.innerHTML = `
+                <div class="flex items-start gap-2.5 rounded-xl border border-emerald-300/30 bg-emerald-500/20 p-3.5 text-xs text-emerald-50">
+                    <svg class="h-5 w-5 flex-shrink-0 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <div>
+                        <p class="font-bold text-white">Thanks for subscribing, ${nameInput.split(' ')[0]}!</p>
+                        <p class="mt-0.5 text-emerald-100/80">We've added <strong>${emailInput}</strong> to our updates list.</p>
                     </div>
-                `;
+                </div>
+            `;
 
-
-                /*
-                 * Simulate AJAX request
-                 */
-                setTimeout(
-                    function () {
-
-                        response.innerHTML = `
-                            <div class="flex items-start gap-3 rounded-xl border border-emerald-300/20 bg-emerald-400/10 p-4 text-sm text-emerald-100">
-
-                                <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-emerald-400 text-white">
-                                    ✓
-                                </span>
-
-                                <div>
-                                    <p class="font-bold">
-                                        You're subscribed!
-                                    </p>
-
-                                    <p class="mt-1 text-xs text-emerald-100/70">
-                                        We've successfully added
-                                        ${email}
-                                        to our newsletter.
-                                    </p>
-                                </div>
-
-                            </div>
-                        `;
-
-
-                        /*
-                         * Reset form
-                         */
-                        form.reset();
-
-
-                    },
-                    1200
-                );
-
-            }
-        );
-
-    }
-);
-
+            form.reset();
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('opacity-75');
+        }, 1000);
+    });
+});
 </script>

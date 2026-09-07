@@ -1,0 +1,76 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <style>
+        /* Agrited Emerald Theme Overrides */
+        :root {
+            --primary: #059669 !important;
+            --secondary: #047857 !important;
+            --link-fg: #10b981 !important;
+            --link-hover-color: #047857 !important;
+            --header-bg: #064e3b !important;
+            --breadcrumbs-bg: #059669 !important;
+            --button-bg: #059669 !important;
+            --button-hover-bg: #047857 !important;
+            --default-button-bg: #047857 !important;
+            --default-button-hover-bg: #064e3b !important;
+            --selected-bg: #d1fae5 !important;
+            --selected-row: #ecfdf5 !important;
+        }
+
+        /* Direct element fallbacks for robust coloring */
+        #header {
+            background: #064e3b !important;
+            color: #ffffff !important;
+            border-bottom: 2px solid #047857;
+        }
+        
+        #header a:link, #header a:visited {
+            color: #ffffff !important;
+        }
+
+        #branding h1 a {
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+        
+        div.breadcrumbs {
+            background: #059669 !important;
+            color: #a7f3d0 !important;
+        }
+        
+        div.breadcrumbs a {
+            color: #ffffff !important;
+        }
+
+        .button, input[type=submit], input[type=button], .submit-row input {
+            background: #059669 !important;
+            color: #ffffff !important;
+            border-radius: 6px !important;
+            border: none !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .button:hover, input[type=submit]:hover {
+            background: #047857 !important;
+        }
+
+        /* Rounded Inputs & Clean Tables */
+        input[type=text], input[type=password], input[type=email], input[type=url], 
+        input[type=number], input[type=tel], textarea, select {
+            border-radius: 6px !important;
+            border: 1px solid #cbd5e1 !important;
+            padding: 6px 10px !important;
+        }
+    </style>
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}">Agrited Administration</a>
+</h1>
+{% endblock %}
