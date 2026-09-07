@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "apps.accounts.apps.AccountsConfig",
     "apps.orders.apps.OrdersConfig",
-    #"apps.subscribe.apps.SubscribeConfig",
+    "apps.subscribe.apps.SubscribeConfig",
 ]
 
 MIDDLEWARE = [

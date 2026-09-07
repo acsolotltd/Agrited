@@ -80,12 +80,12 @@
                         <form 
                             id="newsletter-form" 
                             class="space-y-4 sm:space-y-5"
-                            data-netlify="true"
                             name="newsletter"
-                            method="POST"
+                            hx-post="http://127.0.0.1:8000/news/subscribe/"
+                            hx-target="#newsletter-response"
+                            hx-swap="innerHTML"
+                            hx-indicator="#loading-state"
                         >
-                            <input type="hidden" name="form-name" value="newsletter" />
-                            
                             <!-- Full Name -->
                             <div>
                                 <label for="newsletter-name" class="mb-1.5 block text-xs font-semibold text-white sm:text-sm">
@@ -144,6 +144,15 @@
                             </button>
                         </form>
 
+                        <!-- HTMX Loading Indicator (Hidden by default by HTMX) -->
+                        <div id="loading-state" class="htmx-indicator mt-4 flex items-center justify-center gap-2 rounded-lg bg-white/10 p-3 text-xs text-white">
+                            <svg class="h-4 w-4 animate-spin text-white" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                            </svg>
+                            <span>Subscribing...</span>
+                        </div>
+
                         <!-- Dynamic Response Container -->
                         <div id="newsletter-response" class="mt-4" aria-live="polite"></div>
 
@@ -159,63 +168,3 @@
         </div>
     </div>
 </section>
-
-<!-- =========================================================
-     JAVASCRIPT INTERACTION (Netlify / AJAX Handler)
-========================================================= -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("newsletter-form");
-    if (!form) return;
-
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        const nameInput = document.getElementById("newsletter-name").value.trim();
-        const emailInput = document.getElementById("newsletter-email").value.trim();
-        const responseContainer = document.getElementById("newsletter-response");
-        const submitBtn = form.querySelector('button[type="submit"]');
-
-        if (!nameInput || !emailInput) {
-            responseContainer.innerHTML = `
-                <div class="rounded-lg border border-red-200 bg-red-500/20 p-3 text-xs text-red-100">
-                    Please provide both your name and email.
-                </div>
-            `;
-            return;
-        }
-
-        // Show Loading state
-        submitBtn.disabled = true;
-        submitBtn.classList.add('opacity-75');
-        responseContainer.innerHTML = `
-            <div class="flex items-center justify-center gap-2 rounded-lg bg-white/10 p-3 text-xs text-white">
-                <svg class="h-4 w-4 animate-spin text-white" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
-                </svg>
-                <span>Subscribing...</span>
-            </div>
-        `;
-
-        // Simulate Netlify / Server AJAX response
-        setTimeout(function () {
-            responseContainer.innerHTML = `
-                <div class="flex items-start gap-2.5 rounded-xl border border-emerald-300/30 bg-emerald-500/20 p-3.5 text-xs text-emerald-50">
-                    <svg class="h-5 w-5 flex-shrink-0 text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <div>
-                        <p class="font-bold text-white">Thanks for subscribing, ${nameInput.split(' ')[0]}!</p>
-                        <p class="mt-0.5 text-emerald-100/80">We've added <strong>${emailInput}</strong> to our updates list.</p>
-                    </div>
-                </div>
-            `;
-
-            form.reset();
-            submitBtn.disabled = false;
-            submitBtn.classList.remove('opacity-75');
-        }, 1000);
-    });
-});
-</script>

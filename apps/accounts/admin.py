@@ -11,16 +11,30 @@ admin.site.index_title = "Welcome to the Operations Dashboard"
 class AgritedAdmin(admin.ModelAdmin):
     class Media:
         css = {
-            'all': ('admin/css/agrited_theme.css',)
+            'all': ('apps/admin/css/agrited_theme.css',)
         }
 
 @admin.register(EmailBasedUser)
 class CustomAccountAdmin(UserAdmin, AgritedAdmin):
+    fieldsets = (
+        (None, {'fields': ('email', 'password')}),
+        ('Personal Info', {'fields': ('full_name', 'phone_number')}),
+        ('Permissions & Roles', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
+        ('Important Dates', {'fields': ('last_login', 'date_joined')}),
+    )
+    
+    # 2. Add User Page: Configure fields for creation
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email', 'full_name', 'phone_number', 'password1', 'password2'),
+        }),
+    )
     list_display = ('email', 'full_name', 'role_badge', 'is_active', 'date_joined')
-    list_filter = ('is_active', 'is_staff', 'date_joined') # Add custom roles here
+    list_filter = ('is_active', 'is_staff', 'date_joined')
     search_fields = ('email', 'full_name', 'phone_number')
     ordering = ('-date_joined',)
-    
+    filter_horizontal = ('groups', 'user_permissions',)
     def role_badge(self, obj):
         if obj.is_superuser:
             return format_html('<span style="background: #e0e7ff; color: #3730a3; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold;">Admin</span>')

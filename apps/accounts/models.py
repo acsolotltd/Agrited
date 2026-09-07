@@ -1,3 +1,4 @@
+
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
 
@@ -21,7 +22,6 @@ class CustomUserManager(BaseUserManager):
 
 
 class EmailBasedUser(AbstractBaseUser, PermissionsMixin):
-    # No username field at all
     email = models.EmailField(unique=True, max_length=255)
     full_name = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=15, blank=True)
