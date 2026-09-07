@@ -4,11 +4,11 @@ from django.views import View
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 from django.utils.html import format_html
 
 
-@method_decorator(ensure_csrf_cookie, name='dispatch')
+@method_decorator(csrf_exempt, name='dispatch')
 class SubscribeNewsletterAPIView(View):
     def post(self, request, *args, **kwargs):
         is_htmx = request.headers.get('HX-Request') == 'true'

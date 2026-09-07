@@ -81,8 +81,7 @@
                             id="newsletter-form" 
                             class="space-y-4 sm:space-y-5"
                             name="newsletter"
-                            hx-post="https://agrited.pythonanywhere.com/news/subscribe/"
-                            hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+                            hx-post="http://127.0.0.1:8000/news/Subscribe/"
                             hx-target="#newsletter-response"
                             hx-swap="innerHTML"
                             hx-indicator="#loading-state"

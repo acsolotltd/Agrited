@@ -41,10 +41,19 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+from corsheaders.defaults import default_headers
 
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    "hx-request",
+    "hx-target",
+    "hx-current-url",
+    "hx-trigger",
+    "hx-prompt",
+]
 CORS_ALLOWED_ORIGINS = [
-    "localhost:8080", # Replace with your actual HTML host URL
-    "https://itsupport1-agrited.netlify.app/",            # Good to keep for local frontend testing
+    "http://localhost:8080", # Replace with your actual HTML host URL
+    "http://127.0.0.1:8000",
+    "https://itsupport1-agrited.netlify.app",            # Good to keep for local frontend testing
 ]
 ROOT_URLCONF = 'controller.urls'
 
