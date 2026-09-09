@@ -27,8 +27,6 @@
     <link href="https://fonts.googleapis.com/css?family=Bebas-Neue&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    {% tailwind_css %}
-    {% htmx_script %}
 
     <script>
         document.addEventListener('alpine:init', () => {
@@ -58,10 +56,10 @@
     <!-- Alpine -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
 
-    <script src="https://unpkg.com/htmx.org@2.0.7"></script>
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/output.css' %}" />
+     {% tailwind_css %}
+    {% htmx_script %}
 </head>
 
 <body class="bg-light text-slate-700 font-body" x-data="{ isBookingOpen: false }" @open-booking.window="isBookingOpen = true; console.log($event.detail)" hx-headers='{"x-csrftoken": "{{ csrf_token }}"}'>
@@ -88,7 +86,6 @@
             once: true,
 
             duration: 800
-s/
         })
 
     </script>
