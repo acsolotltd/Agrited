@@ -7,6 +7,15 @@ def home(request):
     """Renders the main home page with the contact section."""
     return render(request, 'index.html')
 
+def contact(request):
+    return render(request, 'contact.html')
+
+def about(request):
+    return render(request, 'about.html')
+
+def products(request):
+    return render(request, 'products.html')
+
 def contact_submit(request):
     """Handles the HTMX POST request for the contact form."""
     if request.method == 'POST' and request.headers.get('HX-Request'):

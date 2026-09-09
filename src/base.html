@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta id="dynamic-theme-color" name="theme-color" content="#f8fafc">
 
-    <title>Agrited | {{ title }} </title>
+    <title>Agrited | {% block title %}{% endblock %} </title>
 
     <meta name="description"
         content="Nigeria's trusted poultry & aquaculture partner since 1991. We supply premium day-old chicks, animal nutrition, veterinary vaccines, and turnkey farm solutions nationwide.">
@@ -18,11 +18,11 @@
     <meta property="og:image" content="{{ socialImage|default:"/assets/favicon/favicon-96x96.png" }}">
     <meta property="og:url" content="https://agrited.net{{ page }}">
     <link rel="canonical" href="https://agrited.net{{ pageLoc }}">
-    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+    <link rel="icon" type="image/png" href="{% static 'favicon/favicon-96x96.png' %}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{% static 'favicon/favicon.svg' %}" />
     <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}" />
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Bebas-Neue&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,7 +73,6 @@
     {% include "partials/header.html" %}
     <!-- Content Injection Point -->
     <main id="appLayout">
-        {{ content | safe }}
         {% block content %} {% endblock %}
     </main>
     <!-- Footer -->

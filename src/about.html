@@ -1,27 +1,8 @@
----
-layout: base.html
-title: About Us
-page-id: about
-pageLoc: about
-headerImage: /assets/img/headers/about-page.jpg
-headerTitle: Pioneering Nigeria's
-headerHighlight: Agricultural Future
-headerSubtitle: From our headquarters in Lagos to our world-class facilities in Oyo and Ogun states, we are setting the gold standard for breeding and biosecurity in West Africa.
----
+{% extends "base.html" %}
+{% block headerImage %}/static/img/headers/about-page.jpg{% endblock %}
+{% block content %}
+{% include "_includes/page-header.html" with title="About Us" pageLoc="about" headerHighlight="Agricultural Future" headerSubtitle="From our headquarters in Lagos to our world-class facilities in Oyo and Ogun states, we are setting the gold standard for breeding and biosecurity in West Africa." headerImage='/static/img/headers/about-page.jpg' headerTitle="Pioneering Nigeria's" %}
 
-{% include "page-header.html" %}
-{% include "src/partials/about/index.html" %}
-       
-        <!--div hx-get="src/partials/trusted.html"
-             hx-trigger="load"></div>
-
-       <div hx-get="src/partials/teams.html"
-             hx-trigger="load"></div>
-
-        <div hx-get="src/partials/featured-farms.html"
-             hx-trigger="load"></div>
-        <div hx-get="src/partials/contact.html"
-             hx-trigger="load"></div-->
-
-
-    
+{% include "partials/about/index.html" %}
+{% endblock %}
+      

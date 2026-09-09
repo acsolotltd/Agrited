@@ -1,14 +1,5 @@
----
-layout: base.html
-title: Products & Solutions
-page-id: products
-pageLoc: products
-headerImage: /assets/img/headers/products-page.jpg
-headerTitle: Premium Agricultural 
-headerHighlight: Solutions
-headerSubtitle: From high-yield day-old chicks to advanced nutritional premixes, we supply the foundations for your agricultural success across Nigeria.
----
-
-{% include "page-header.html" %}
-{% include "src/partials/products/index.html" %}
-  
+{% extends "base.html" %}
+{% block content %}
+{% include "_includes/page-header.html" with title="Products & Solutions" page_id="products" pageLoc="products" headerImages="/static/img/headers/products-page.jpg" headerTitle="Premium Agricultural" headerHighlight="Solutions" headerSubtitle="From high-yield day-old chicks to advanced nutritional premixes, we supply the foundations for your agricultural success across Nigeria." %}
+{% include "partials/products/index.html" %}
+{% endblock %}
