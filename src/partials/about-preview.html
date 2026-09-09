@@ -1,3 +1,4 @@
+{% load static %}
 <section id="about" class="relative overflow-hidden bg-white dark:bg-[#0a0a0a] py-10 lg:py-20 transition-colors duration-500">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-24 items-center">
@@ -12,7 +13,7 @@
                     <div class="col-span-1 pt-8 sm:pt-12">
                         <div class="overflow-hidden rounded-3xl bg-slate-100 dark:bg-slate-800 shadow-xl dark:shadow-none">
                             <img 
-                                src="assets/img/30/about.jpg" 
+                                src="{% static 'img/30/about.jpg' %}" 
                                 alt="Agrited modern poultry facility" 
                                 class="h-64 w-full object-cover sm:h-80 transition-transform duration-700 hover:scale-105"
                                 loading="lazy" decoding="async"
@@ -23,7 +24,7 @@
                     <div class="col-span-1 pb-8 sm:pb-12">
                         <div class="overflow-hidden rounded-3xl bg-slate-100 dark:bg-slate-800 shadow-xl dark:shadow-none">
                             <img 
-                                src="assets/img/30/about2.jpg"
+                                src="{% static 'img/30/about2.jpg' %}"
                                 alt="Premium Ross 308 Broilers" 
                                 class="h-64 w-full object-cover sm:h-80 transition-transform duration-700 hover:scale-105"
                                 loading="lazy" decoding="async"

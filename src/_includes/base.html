@@ -17,11 +17,11 @@
     <!--meta property="og:image" content="{{ socialImage | default("/assets/favicon/favicon-96x96.png") }}"-->
     <meta property="og:url" content="https://agrited.net{{ page }}">
     <link rel="canonical" href="https://agrited.net{{ pageLoc }}">
-    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <link rel="icon" type="image/png" href="{% static 'favicon/favicon-96x96.png' %}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{% static 'favicon/favicon.svg' %}" />
+    <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}" />
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}" />
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Bebas-Neue&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,7 +58,7 @@
     <script src="https://unpkg.com/htmx.org@2.0.7"></script>
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/output.css" />
+    <link rel="stylesheet" href="{% static 'css/output.css' %}" />
 </head>
 
 <body class="bg-light text-slate-700 font-body" x-data="{ isBookingOpen: false }" @open-booking.window="isBookingOpen = true; console.log($event.detail)">
