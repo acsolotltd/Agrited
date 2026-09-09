@@ -26,6 +26,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+     "tailwind",
+      "django_htmx",
+      "theme",
+    "apps.core.apps.CoreConfig",
     "apps.accounts.apps.AccountsConfig",
     "apps.orders.apps.OrdersConfig",
     "apps.subscribe.apps.SubscribeConfig",
@@ -34,6 +38,8 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+        "django_htmx.middleware.HtmxMiddleware",
+
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -50,6 +56,7 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
     "hx-trigger",
     "hx-prompt",
 ]
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080", # Replace with your actual HTML host URL
     "http://127.0.0.1:8000",
@@ -60,7 +67,7 @@ ROOT_URLCONF = 'controller.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR/"apps/templates"],
+        'DIRS': [BASE_DIR/"templates/", BASE_DIR/"src/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,4 +141,12 @@ MAILERS = {
 
 AUTH_USER_MODEL="accounts.EmailBasedUser"
 STATIC_URL="/static/"
-STATICFILES_DIRS = [BASE_DIR / "apps/css",]
+STATICFILES_DIRS = [BASE_DIR / "apps/css", BASE_DIR / "src/assets",]
+TAILWIND_APP_NAME = "theme"
+if DEBUG:
+    INSTALLED_APPS += ["django_browser_reload"]
+    MIDDLEWARE += [
+        "django_browser_reload.middleware.BrowserReloadMiddleware",
+    ]
+
+NPM_BIN_PATH = "npm.cmd"

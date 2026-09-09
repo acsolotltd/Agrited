@@ -8,14 +8,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ebuild": "npx @11ty/eleventy",
-    "start": "npx @11ty/eleventy --serve",
     "dev": "npx @tailwindcss/cli -i ./src/assets/css/input.css -o ./src/assets/css/output.css --watch",
     "build": "npx @tailwindcss/cli -i ./src/assets/css/input.css -o ./src/assets/css/output.css --minify"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.6",
     "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/postcss": "^4.3.3",
+    "postcss": "^8.5.28",
+    "postcss-cli": "^12.0.0",
     "tailwindcss": "^4.3.3"
   }
 }
