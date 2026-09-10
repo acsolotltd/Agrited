@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends request.htmx|yesno:"_includes/base_ajax.html,_includes/base.html" %}
 {% block content %}
 {% include "partials/hero.html" %}
 {% include "partials/about-preview.html" %}

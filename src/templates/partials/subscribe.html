@@ -81,7 +81,7 @@
                             id="newsletter-form" 
                             class="space-y-4 sm:space-y-5"
                             name="newsletter"
-                            hx-post="http://127.0.0.1:8000/news/Subscribe/"
+                            hx-post="{% url 'subscribe' %}"
                             hx-target="#newsletter-response"
                             hx-swap="innerHTML"
                             hx-indicator="#loading-state"

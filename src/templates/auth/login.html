@@ -1,0 +1,121 @@
+{% extends request.htmx|yesno:"_includes/base_ajax.html,_includes/base.html" %}
+{% block content %}
+<!-- =========================================================
+     MOBILE-FIRST LOGIN PAGE
+========================================================= -->
+<section class="relative flex min-h-screen items-center justify-center overflow-hidden bg-emerald-950 p-4 sm:p-6 lg:p-8">
+    
+    <!-- Decorative background glow -->
+    <div class="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div class="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-emerald-400/10 blur-3xl lg:-right-32 lg:-top-32 lg:h-[40rem] lg:w-[40rem]"></div>
+        <div class="absolute -bottom-32 -left-20 h-96 w-96 rounded-full bg-emerald-900/40 blur-3xl lg:-left-32 lg:h-[40rem] lg:w-[40rem]"></div>
+    </div>
+
+    <!-- Glassmorphism Main Container -->
+    <div class="relative flex w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl backdrop-blur-xl sm:rounded-3xl lg:flex-row">
+        
+        <!-- Left Side: Branding (Hidden on Mobile) -->
+        <div class="hidden w-full flex-col justify-between border-r border-white/10 bg-emerald-900/30 p-12 lg:flex lg:w-5/12">
+            <div>
+                <!-- Replace with Agrited Logo SVG/IMG -->
+                <div class="flex items-center gap-3 text-white">
+                    <svg class="h-8 w-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    <span class="text-xl font-bold tracking-wider">AGRITED</span>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <h1 class="text-4xl font-extrabold tracking-tight text-white">
+                    Farm operations, <br>
+                    <span class="text-emerald-300">simplified.</span>
+                </h1>
+                <p class="text-sm leading-relaxed text-emerald-100/80">
+                    Access your dashboard to manage infrastructure, view surveillance feeds, and track technical operations.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Side: Form Panel -->
+        <div class="w-full p-6 sm:p-10 lg:w-7/12 lg:p-16">
+            <div class="mx-auto w-full max-w-md">
+                
+                <!-- Mobile Logo (Visible only on mobile) -->
+                <div class="mb-8 flex items-center justify-center gap-2 text-white lg:hidden">
+                    <svg class="h-6 w-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    <span class="text-lg font-bold tracking-wider">AGRITED</span>
+                </div>
+
+                <div class="mb-8 sm:mb-10 lg:text-left text-center">
+                    <h2 class="text-2xl font-bold text-white sm:text-3xl">Welcome back</h2>
+                    <p class="mt-2 text-sm text-emerald-100/70">Please enter your details to sign in.</p>
+                </div>
+
+                <form 
+                    id="login-form"
+                    class="space-y-5"
+                    hx-post="https://agrited.pythonanywhere.com/auth/login/"
+                    hx-target="#auth-response"
+                    hx-swap="innerHTML"
+                    hx-indicator="#login-loading"
+                >
+                    <!-- Email -->
+                    <div>
+                        <label for="login-email" class="mb-1.5 block text-xs font-semibold text-white sm:text-sm">Email address</label>
+                        <input 
+                            id="login-email" 
+                            name="email" 
+                            type="email" 
+                            required 
+                            autocomplete="email" 
+                            placeholder="name@company.com" 
+                            class="block w-full rounded-xl border border-white/20 bg-white px-4 py-3 text-base text-slate-900 shadow-sm transition placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/30 sm:py-3.5 sm:text-sm" 
+                        />
+                    </div>
+
+                    <!-- Password -->
+                    <div>
+                        <div class="mb-1.5 flex items-center justify-between">
+                            <label for="login-password" class="block text-xs font-semibold text-white sm:text-sm">Password</label>
+                            <a href="#" class="text-xs font-medium text-emerald-300 hover:text-emerald-200">Forgot password?</a>
+                        </div>
+                        <input 
+                            id="login-password" 
+                            name="password" 
+                            type="password" 
+                            required 
+                            autocomplete="current-password"
+                            placeholder="••••••••" 
+                            class="block w-full rounded-xl border border-white/20 bg-white px-4 py-3 text-base text-slate-900 shadow-sm transition placeholder:text-slate-400 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-400/30 sm:py-3.5 sm:text-sm" 
+                        />
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button 
+                        type="submit" 
+                        class="group mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-500 px-6 py-3.5 text-sm font-bold text-white shadow-lg transition-all duration-200 hover:bg-emerald-400 active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-emerald-500/30"
+                    >
+                        <span>Sign In</span>
+                        <svg class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    </button>
+
+                    <!-- HTMX Loading Indicator -->
+                    <div id="login-loading" class="htmx-indicator mt-4 flex items-center justify-center gap-2 text-xs text-emerald-200">
+                        <svg class="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                        </svg>
+                        <span>Authenticating...</span>
+                    </div>
+                </form>
+
+                <p class="mt-8 text-center text-sm text-emerald-100/70">
+                    Don't have an account? 
+                    <a href="/signup.html" class="font-semibold text-white hover:text-emerald-300">Request access</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dynamic Toast Target -->
+    <div id="auth-response" aria-live="polite"></div>
+</section>
+{% endblock %}

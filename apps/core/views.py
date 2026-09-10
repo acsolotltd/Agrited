@@ -16,6 +16,7 @@ def about(request):
 def products(request):
     return render(request, 'products.html')
 
+
 def contact_submit(request):
     """Handles the HTMX POST request for the contact form."""
     if request.method == 'POST' and request.headers.get('HX-Request'):

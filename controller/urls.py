@@ -5,7 +5,8 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("apps.core.urls")),
-    path('booking/', include("apps.orders.urls")),
+    path('user/', include("apps.orders.urls")),
+    path('auth/', include("apps.accounts.urls")),
     path('subscribe/', include("apps.subscribe.urls")),
 ]
 

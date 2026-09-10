@@ -1,4 +1,4 @@
-{% extends request.htmx|yesno:"base_ajax.html,base.html" %}
+{% extends request.htmx|yesno:"_includes/base_ajax.html,_includes/base.html" %}
 {% block headerImage %}/static/img/headers/about-page.jpg{% endblock %}
 {% block content %}
 {% include "_includes/page-header.html" with title="About Us" pageLoc="about" headerHighlight="Agricultural Future" headerSubtitle="From our headquarters in Lagos to our world-class facilities in Oyo and Ogun states, we are setting the gold standard for breeding and biosecurity in West Africa." headerImage='/static/img/headers/about-page.jpg' headerTitle="Pioneering Nigeria's" %}

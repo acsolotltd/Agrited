@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import NewsletterSubscriber
 from apps.accounts.admin import AgritedAdmin
+#from django.utils.html import format_html
+from django.utils.safestring import mark_safe 
 
 @admin.register(NewsletterSubscriber)
 class SubscriberAdmin(AgritedAdmin):
@@ -11,10 +13,10 @@ class SubscriberAdmin(AgritedAdmin):
     
     def status_badge(self, obj):
         if obj.is_active:
-            return format_html(
+            return mark_safe(
                 '<span style="background-color: #d1fae5; color: #065f46; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold;">Active</span>'
             )
-        return format_html(
+        return mark_safe(
             '<span style="background-color: #fee2e2; color: #991b1b; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold;">Unsubscribed</span>'
         )
     status_badge.short_description = 'Subscription Status'

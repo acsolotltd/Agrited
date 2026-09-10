@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import SubscribeNewsletterAPIView
+from .views import subscribe_newsletter
 
 urlpatterns = [
     # Ensure this matches the hx-post url or JS fetch url
-    path('news/', SubscribeNewsletterAPIView.as_view(), name='api_newsletter_subscribe'),
+    path('news/', subscribe_newsletter, name='subscribe'),
 ]

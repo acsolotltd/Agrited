@@ -1,6 +1,6 @@
 # admin.py
 from django.contrib import admin
-from django.utils.html import format_html
+from django.utils.safestring import mark_safe 
 from django.contrib.auth.admin import UserAdmin
 from .models import EmailBasedUser
 
@@ -37,8 +37,8 @@ class CustomAccountAdmin(UserAdmin, AgritedAdmin):
     filter_horizontal = ('groups', 'user_permissions',)
     def role_badge(self, obj):
         if obj.is_superuser:
-            return format_html('<span style="background: #e0e7ff; color: #3730a3; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold;">Admin</span>')
+            return mark_safe('<span style="background: #e0e7ff; color: #3730a3; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold;">Admin</span>')
         elif obj.is_staff:
-            return format_html('<span style="background: #f3e8ff; color: #6b21a8; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold;">Agent</span>')
-        return format_html('<span style="background: #f3f4f6; color: #4b5563; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold;">Customer</span>')
+            return mark_safe('<span style="background: #f3e8ff; color: #6b21a8; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold;">Agent</span>')
+        return mark_safe('<span style="background: #f3f4f6; color: #4b5563; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold;">Customer</span>')
     role_badge.short_description = 'Account Role'

@@ -14,7 +14,7 @@ class BookingRequest(models.Model):
         ('confirmed', 'Confirmed'),
         ('cancelled', 'Cancelled'),
     ]
-    user = models.ForeignKey(EmailBasedUser, on_delete=models.CASCADE,)# default='Headquarters Dispatch')
+    user = models.ForeignKey(EmailBasedUser, on_delete=models.CASCADE,)
     agent = models.CharField(max_length=150, default='Headquarters Dispatch')
     name = models.CharField(max_length=200, verbose_name="Full / Farm Name")
     phone = models.CharField(max_length=30)

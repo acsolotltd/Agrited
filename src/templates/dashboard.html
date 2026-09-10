@@ -1,0 +1,169 @@
+{% extends request.htmx|yesno:"_includes/base_ajax.html,_includes/base.html" %}
+{% block content %}
+    <!-- Mobile Sidebar Backdrop -->
+    <div x-show="sidebarOpen" x-cloak class="fixed inset-0 z-40 bg-slate-950/80 backdrop-blur-sm lg:hidden" @click="sidebarOpen = false"></div>
+
+    <!-- Sidebar -->
+    <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" class=".fixed .inset-y-0 left-0 z-50 w-64 transform border-r border-white/10 bg-slate-900/50 backdrop-blur-xl transition-transform duration-300 lg:static lg:translate-x-0 lg:flex-shrink-0">
+        <div class="flex h-16 items-center border-b border-white/10 px-6">
+            <div class="flex items-center gap-3">
+                <div class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-tr from-emerald-600 to-emerald-400 text-white">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 3v18m9-9H3" /></svg>
+                </div>
+                <span class="text-lg font-bold text-white">Portal</span>
+            </div>
+        </div>
+        <nav class="flex-1 space-y-1 px-4 py-6">
+            <a href="#" class="flex items-center gap-3 rounded-xl bg-emerald-500/10 px-4 py-3 text-sm font-medium text-emerald-400">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                Overview
+            </a>
+            <button hx-post="{% url 'logout' %}" class="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-slate-400 transition-colors hover:bg-white/5 hover:text-white">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+                Log out
+            </button>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex min-w-0 flex-1 flex-col overflow-hidden">
+        <!-- Topbar -->
+        <header class="flex h-16 items-center justify-between border-b border-white/10 bg-slate-900/30 px-6 sm:px-8">
+            <button @click="sidebarOpen = true" class="text-slate-400 hover:text-white lg:hidden">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+            </button>
+            <div class="ml-auto flex items-center gap-4">
+                <span class="hidden text-sm font-medium text-slate-300 sm:block">{{ request.user.email }}</span>
+                <div class="h-8 w-8 overflow-hidden rounded-full bg-emerald-600 border border-emerald-400/30 flex items-center justify-center text-sm font-bold text-white">
+                    {{ request.user.full_name|make_list|first|upper }}
+                </div>
+            </div>
+        </header>
+
+        <!-- Scrollable Content -->
+        <div class="flex-1 overflow-y-auto p-6 sm:p-8">
+            <div class="mx-auto max-w-6xl space-y-8">
+                
+                <!-- Page Header -->
+                <div>
+                    <h1 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Welcome back, {{ request.user.full_name|title }}</h1>
+                    <p class="mt-2 text-sm text-slate-400">Here is an overview of your account and recent activities.</p>
+                </div>
+
+                <!-- Stats & Profile Grid -->
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+                    
+                    <!-- Profile Card -->
+                    <div class="col-span-1 overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm md:col-span-2">
+                        <h2 class="text-lg font-semibold text-white">Profile Information</h2>
+                        <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+                            <div>
+                                <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Full Name</p>
+                                <p class="mt-1 text-base font-medium text-slate-200">{{ request.user.full_name }}</p>
+                            </div>
+                            <div>
+                                <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Email Address</p>
+                                <p class="mt-1 text-base font-medium text-slate-200">{{ request.user.email }}</p>
+                            </div>
+                            <div>
+                                <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Phone Number</p>
+                                <p class="mt-1 text-base font-medium text-slate-200">{{ request.user.phone_number|default:"Not provided" }}</p>
+                            </div>
+                            <div>
+                                <p class="text-xs font-medium text-slate-400 uppercase tracking-wider">Account Status</p>
+                                <div class="mt-1 flex items-center gap-2">
+                                    <span class="relative flex h-2.5 w-2.5">
+                                      {% if request.user.is_active %}
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                                      {% else %}
+                                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
+                                      {% endif %}
+                                    </span>
+                                    <span class="text-base font-medium text-slate-200">
+                                        {% if request.user.is_active %}Active{% else %}Pending Approval{% endif %}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="col-span-1 flex flex-col gap-4">
+                        <div class="flex-1 rounded-2xl border border-white/10 bg-emerald-500/10 p-6 flex flex-col justify-center">
+                            <p class="text-sm font-medium text-emerald-400">Total Bookings</p>
+                            <p class="mt-2 text-4xl font-extrabold text-white">{{ total_bookings }}</p>
+                        </div>
+                        <div class="flex-1 rounded-2xl border border-white/10 bg-white/5 p-6 flex flex-col justify-center">
+                            <p class="text-sm font-medium text-slate-400">Active Tasks</p>
+                            <p class="mt-2 text-4xl font-extrabold text-white">{{ active_bookings }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking History Table -->
+                <div class="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden">
+                    <div class="border-b border-white/10 px-6 py-5">
+                        <h3 class="text-base font-semibold leading-6 text-white">Booking History</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-white/10 text-left text-sm whitespace-nowrap">
+                            <thead class="bg-white/5 text-slate-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-4 font-semibold">Reference</th>
+                                    <th scope="col" class="px-6 py-4 font-semibold">Service</th>
+                                    <th scope="col" class="px-6 py-4 font-semibold">Date & Time</th>
+                                    <th scope="col" class="px-6 py-4 font-semibold">Status</th>
+                                    <th scope="col" class="px-6 py-4 font-semibold text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/5">
+                                {% for booking in bookings %}
+                                <tr class="hover:bg-white/[0.02] transition-colors">
+                                    <td class="px-6 py-4 font-medium text-slate-300">#{{ booking.reference_id }}</td>
+                                    <td class="px-6 py-4 text-slate-300">{{ booking.service_name }}</td>
+                                    <td class="px-6 py-4 text-slate-400">{{ booking.booking_date|date:"M d, Y h:i A" }}</td>
+                                    <td class="px-6 py-4" id="status-container-{{ booking.id }}">
+                                        {% if booking.status == 'CONFIRMED' %}
+                                            <span class="inline-flex items-center rounded-full bg-emerald-500/10 px-2 py-1 text-xs font-medium text-emerald-400 ring-1 ring-inset ring-emerald-500/20">Confirmed</span>
+                                        {% elif booking.status == 'PENDING' %}
+                                            <span class="inline-flex items-center rounded-full bg-amber-500/10 px-2 py-1 text-xs font-medium text-amber-400 ring-1 ring-inset ring-amber-500/20">Pending</span>
+                                        {% elif booking.status == 'COMPLETED' %}
+                                            <span class="inline-flex items-center rounded-full bg-blue-500/10 px-2 py-1 text-xs font-medium text-blue-400 ring-1 ring-inset ring-blue-500/20">Completed</span>
+                                        {% else %}
+                                            <span class="inline-flex items-center rounded-full bg-red-500/10 px-2 py-1 text-xs font-medium text-red-400 ring-1 ring-inset ring-red-500/20">Cancelled</span>
+                                        {% endif %}
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        {% if booking.status == 'PENDING' or booking.status == 'CONFIRMED' %}
+                                            <button 
+                                                hx-post="{% url 'htmx_cancel_booking' booking.id %}" 
+                                                hx-target="#status-container-{{ booking.id }}"
+                                                hx-swap="innerHTML"
+                                                hx-confirm="Are you sure you want to cancel this booking?"
+                                                class="text-xs font-semibold text-red-400 hover:text-red-300 transition-colors"
+                                            >
+                                                Cancel
+                                            </button>
+                                        {% else %}
+                                            <span class="text-xs text-slate-600 cursor-not-allowed">Cancel</span>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="5" class="px-6 py-12 text-center text-slate-500">
+                                        <svg class="mx-auto h-12 w-12 text-slate-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+                                        No bookings found.
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+{% endblock %}

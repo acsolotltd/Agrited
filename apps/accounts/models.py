@@ -1,4 +1,3 @@
-
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
 
@@ -20,7 +19,6 @@ class CustomUserManager(BaseUserManager):
 
         return self.create_user(email, password, **extra_fields)
 
-
 class EmailBasedUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True, max_length=255)
     full_name = models.CharField(max_length=255)
@@ -30,7 +28,6 @@ class EmailBasedUser(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
-
     # Link the Custom Manager
     objects = CustomUserManager()
 
