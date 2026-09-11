@@ -3,6 +3,9 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe 
 from django.contrib.auth.admin import UserAdmin
 from .models import EmailBasedUser
+from django.contrib.auth.models import Group
+
+admin.site.unregister(Group)
 
 admin.site.site_header = "Agrited Administration"
 admin.site.site_title = "Agrited Admin Portal"
