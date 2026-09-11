@@ -20,9 +20,9 @@ class CustomAccountAdmin(UserAdmin, AgritedAdmin):
         (None, {'fields': ('email', 'password')}),
         ('Personal Info', {'fields': ('full_name', 'phone_number')}),
         ('Permissions & Roles', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
-        ('Important Dates', {'fields': ('last_login', 'date_joined')}),
+        ('Important Dates', {'fields': ('last_login', )}),
     )
-    
+    readonly_fields = ('date_joined',)
     # 2. Add User Page: Configure fields for creation
     add_fieldsets = (
         (None, {
