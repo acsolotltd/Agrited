@@ -7,6 +7,10 @@ from .models import BookingRequest
 @require_POST
 def submit_booking(request):
     full_name = request.POST.get('full_name', '').strip()
+    product = request.POST.get('product', '').strip()
+    quantity = request.POST.get('quantity', '').strip()
+    phonev= request.POST.get('phone', '').strip()
+    notes =  request.POST.get('notes', '').strip()
     email = request.POST.get('email', '').strip()
     phone = request.POST.get('phone', '').strip()
     service_type = request.POST.get('service_type', 'consultation')
@@ -79,12 +83,11 @@ def submit_booking(request):
     # 3. Save to Database
     try:
         BookingRequest.objects.create(
+            user = request.user,
             full_name=full_name,
-            email=email,
             phone=phone,
-            service_type=service_type,
-            preferred_date=preferred_date,
-            additional_notes=additional_notes
+            product=product,
+            notes=notes
         )
         return HttpResponse(render_toast(f"Success! Your booking for {preferred_date} has been received.", "success"))
     except Exception as e:
@@ -189,8 +192,6 @@ from django.http import HttpResponse
 
 @login_required
 def dashboard(request):
-    """Renders the main user dashboard."""
-    # Fetch user's bookings, ordered by most recent
     bookings = request.user.bookingrequest_set.all().order_by('-created_at')
     
     # Calculate some quick stats

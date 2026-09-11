@@ -2,16 +2,7 @@
 <div x-data="{
         open: false,
         submitted: false,
-        selectedAgent: 'Headquarters Dispatch',
-        form: { name: '', phone: '', product: 'Day Old Chicks', quantity: '', notes: '' },
-        submitBooking() {
-            this.submitted = true;
-            setTimeout(() => {
-                this.open = false;
-                this.submitted = false;
-                this.form = { name: '', phone: '', product: 'Day Old Chicks', quantity: '', notes: '' };
-            }, 2500);
-        }
+        selectedAgent: 'Headquarters Dispatch'
     }"
     @open-booking.window="open = true; selectedAgent = $event.detail || 'Headquarters Dispatch'"
     x-effect="document.body.classList.toggle('overflow-hidden', open)"
@@ -65,27 +56,27 @@
                             </p>
                         </div>
 
-                        <form x-show="!submitted" @submit.prevent="submitBooking()" class="space-y-5"                             
-                        hx-post="{% url 'booking' %}"
+                        <form  class="space-y-5"                             
+                        hx-post="{% url 'submit_booking' %}"
                             hx-target="#newsletter-response"
                             hx-swap="innerHTML"
                             hx-indicator="#loading-state">
                             <!-- Form Fields (Updated with modern focus rings and padding) -->
                             <div class="space-y-1.5">
                                 <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest">Full Name / Farm Name</label>
-                                <input type="text" x-model="form.name" required placeholder="e.g. Abdulsalam Ibraheem"
+                                <input type="text" name="full_name" required placeholder="e.g. Abdulsalam Ibraheem"
                                     class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all text-sm placeholder:text-slate-400">
                             </div>
 
                             <div class="space-y-1.5">
                                 <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest">Phone Number</label>
-                                <input type="tel" x-model="form.phone" required placeholder="08100482341"
+                                <input type="tel" name="phone" required placeholder="08100482341"
                                     class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all text-sm placeholder:text-slate-400">
                             </div>
 
                             <div class="space-y-1.5">
                                 <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest">Product Category</label>
-                                <select x-model="form.product"
+                                <select name="product"
                                     class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all text-sm">
                                     <option value="Day Old Chicks">Day Old Chicks (Broiler / Layer)</option>
                                     <option value="Premix & Feed">Premix & Feed Additives</option>
@@ -96,13 +87,13 @@
 
                             <div class="space-y-1.5">
                                 <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest">Quantity / Batch Size</label>
-                                <input type="text" x-model="form.quantity" placeholder="e.g. 500 cartons or 20 bags"
+                                <input type="text" required name="quantity" placeholder="e.g. 500 cartons or 20 bags"
                                     class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all text-sm placeholder:text-slate-400">
                             </div>
 
                             <div class="space-y-1.5">
                                 <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-widest">Additional Notes</label>
-                                <textarea x-model="form.notes" rows="4" placeholder="Target delivery location, preferred breeds..."
+                                <textarea name="notes" rows="4" placeholder="Target delivery location, preferred breeds..."
                                     class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all text-sm placeholder:text-slate-400 resize-none"></textarea>
                             </div>
                         </form>
@@ -110,7 +101,7 @@
 
                     <!-- Panel Footer -->
                     <div class="p-6 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 shrink-0">
-                        <button type="button" @click="submitBooking()" x-show="!submitted"
+                        <button type="button" x-show="!submitted"
                             class="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3.5 px-4 rounded-xl shadow-lg shadow-emerald-600/25 active:scale-[0.98] transition-all">
                             <span>Submit Booking</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>

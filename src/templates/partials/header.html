@@ -33,7 +33,9 @@
             if (path.includes('/contact') || hash === '#contact') {
                 return 'contact';
             }
-
+             if (path.includes('/subscribe') || hash === '#subscribe') {
+                return 'subscribe';
+            }
             if (path.includes('/about') || hash === '#about') {
                 return 'about';
             }
@@ -79,7 +81,8 @@
                 'featured-farms',
                 'farms',
                 'booking',
-                'contact'
+                'contact',
+                'subscribe'
             ];
 
             const updateActiveSection = () => {
@@ -765,7 +768,9 @@
                         ================================================== -->
 
                         <a
-                            href="{% if request.user.is_authenticated %}'/booking/'{% else %}'/auth/' {% endif %}"
+                              @click="{% if request.user.is_authenticated %} $dispatch('open-booking', 'Headquarters Dispatch'){% else %}null {% endif %}" 
+                            href="{% if request.user.is_authenticated %}#{% else %}{% url 'auth' %}?next=/dashboard/ {% endif %}"
+                            
                             class="inline-flex items-center justify-center rounded-full border-b-2 border-emerald-800 bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
                         >
                             Online Booking
@@ -787,7 +792,8 @@
 
                         <!-- Guest Booking -->
                         <a
-                            href="{% if request.user.is_authenticated %}'/booking/'{% else %}{% url 'auth' %}?next=/dashboard/ {% endif %}"
+                             @click="{% if request.user.is_authenticated %} $dispatch('open-booking', 'Headquarters Dispatch'){% else %}null {% endif %}" 
+                            href="{% if request.user.is_authenticated %}#{% else %}{% url 'auth' %}?next=/dashboard/ {% endif %}"
                             
                             class="inline-flex items-center justify-center rounded-full border-b-2 border-emerald-800 bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
                         >
@@ -1096,7 +1102,20 @@
                         Contact Us
                     </a>
                 </li>
+                
 
+                <li>
+                    <a
+                        href="/#subscribe"
+                        @click="activeSection = 'subscribe'"
+                        class="block rounded-xl px-4 py-3.5 text-sm font-medium transition"
+                        :class="activeSection === 'subscribe'
+                            ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400'
+                            : 'text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-white/5'"
+                    >
+                       Subscribe
+                    </a>
+                </li>
             </ul>
 
 
@@ -1128,7 +1147,9 @@
 
                     <!-- Booking -->
                     <a
-                        href="/booking/"
+                          @click="{% if request.user.is_authenticated %} $dispatch('open-booking', 'Headquarters Dispatch'){% else %}null {% endif %}" 
+                            href="{% if request.user.is_authenticated %}#{% else %}{% url 'auth' %}?next=/dashboard/ {% endif %}"
+                            
                         class="flex min-h-12 w-full items-center justify-center rounded-xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700"
                     >
                         Online Booking
@@ -1162,7 +1183,9 @@
 
                     <!-- Booking -->
                     <a
-                        href="{% url 'login' %}?next=/booking/"
+                          @click="{% if request.user.is_authenticated %} $dispatch('open-booking', 'Headquarters Dispatch'){% else %}null {% endif %}" 
+                            href="{% if request.user.is_authenticated %}#{% else %}{% url 'auth' %}?next=/dashboard/ {% endif %}"
+                            
                         class="flex min-h-12 w-full items-center justify-center rounded-xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700"
                     >
                         Online Booking

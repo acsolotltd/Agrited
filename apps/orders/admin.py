@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import BookingRequest
 from apps.accounts.admin import AgritedAdmin
+from django.utils.safestring import mark_safe 
+
 @admin.register(BookingRequest)
 class OrderAdmin(AgritedAdmin):
     # Assuming your Order model has fields like order_id, customer, product, quantity, status
@@ -11,13 +13,13 @@ class OrderAdmin(AgritedAdmin):
     
     fieldsets = (
         ('Customer Info', {
-            'fields': ('user', 'phone_number', 'email')
+            'fields': ('user', 'phone')
         }),
         ('Order Details', {
             'fields': ('product', 'quantity', 'notes')
         }),
         ('Processing', {
-            'fields': ('status', 'assigned_agent', 'created_at', 'updated_at')
+            'fields': ('status', 'agent', 'created_at', 'updated_at')
         }),
     )
 
@@ -31,7 +33,7 @@ class OrderAdmin(AgritedAdmin):
         }
         bg_color, text_color = colors.get(obj.status.lower(), ('#f3f4f6', '#374151'))
         
-        return format_html(
+        return mark_safe(
             f'<span style="background-color: {bg_color}; color: {text_color}; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: bold; text-transform: uppercase;">{obj.status}</span>'
         )
     payment_status_badge.short_description = 'Order Status'

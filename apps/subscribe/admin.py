@@ -1,7 +1,6 @@
 from django.contrib import admin
 from .models import NewsletterSubscriber
 from apps.accounts.admin import AgritedAdmin
-#from django.utils.html import format_html
 from django.utils.safestring import mark_safe 
 
 @admin.register(NewsletterSubscriber)
