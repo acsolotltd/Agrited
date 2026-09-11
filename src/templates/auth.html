@@ -1,170 +1,158 @@
-<!DOCTYPE html>
-<html lang="en" class="h-full bg-slate-950">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication - Portal</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+{% extends request.htmx|yesno:"_includes/base_ajax.html,_includes/base.html" %}
 
-    <style>
-        [x-cloak] { display: none !important; }
-        .htmx-indicator { display: none; }
-        .htmx-request .htmx-indicator { display: inline-flex; }
-    </style>
-</head>
-<body 
-    hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
-    class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8 text-slate-100 selection:bg-emerald-500 selection:text-white"
->
+{% load static %}
+{% block content %}
+<!-- Background Accent -->
+<div class="pointer-events-none fixed inset-0 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300" aria-hidden="true">
+    <div class="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-emerald-500/20 blur-3xl dark:bg-emerald-500/10 sm:h-96 sm:w-96"></div>
+    <div class="absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-emerald-600/10 blur-3xl dark:bg-emerald-900/20 sm:h-96 sm:w-96"></div>
+</div>]
 
-    <!-- Background Accent -->
-    <div class="pointer-events-none fixed inset-0 overflow-hidden" aria-hidden="true">
-        <div class="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-emerald-500/10 blur-3xl sm:h-96 sm:w-96"></div>
-        <div class="absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-emerald-900/20 blur-3xl sm:h-96 sm:w-96"></div>
+<!-- Main Container -->
+<div class=" mt-8 relative z-10 w-full max-w-md px-4 sm:mx-auto sm:px-0 py-12" 
+     x-data="{ activeTab: window.location.hash === '#register' ? 'register' : 'login' }"
+     x-init="$watch('activeTab', val => window.history.replaceState(null, null, '#' + val))"
+     @hashchange.window="activeTab = window.location.hash === '#register' ? 'register' : 'login'">
+    
+    <!-- Header -->
+    <div class="mb-8 text-center">
+        <!--div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-emerald-600 to-emerald-400 text-white shadow-lg shadow-emerald-500/30 dark:shadow-emerald-950/50">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 3v18m9-9H3" />
+            </svg>
+        </div-->
+        <h1 class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-3xl">Management Portal</h1>
+        <p class="mt-2 text-xs font-medium text-slate-500 dark:text-slate-400 sm:text-sm">Secure Authentication System</p>
     </div>
 
-    <!-- Main Container -->
-    <div class="relative sm:mx-auto sm:w-full sm:max-w-md px-4 sm:px-0" x-data="{ activeTab: 'login' }">
+    <!-- Glass Card -->
+    <div class="overflow-hidden rounded-3xl border border-white/40 bg-white/60 p-6 shadow-2xl shadow-slate-200/50 backdrop-blur-xl transition-colors duration-300 dark:border-white/10 dark:bg-slate-900/50 dark:shadow-2xl dark:shadow-slate-900/50 sm:p-8">
         
-        <!-- Header -->
-        <div class="text-center mb-8">
-            <div class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-emerald-600 to-emerald-400 text-white shadow-xl shadow-emerald-950/50 mb-3">
-                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 3v18m9-9H3" />
-                </svg>
-            </div>
-            <h1 class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">Management Portal</h1>
-            <p class="mt-1.5 text-xs text-slate-400 sm:text-sm">Secure Authentication System</p>
+        <!-- Segmented Switcher -->
+        <div class="mb-6 grid grid-cols-2 gap-1 rounded-xl border border-slate-200/50 bg-slate-100/80 p-1 dark:border-white/5 dark:bg-slate-900/80">
+            <button 
+                type="button"
+                @click="activeTab = 'login'"
+                :class="activeTab === 'login' ? 'bg-emerald-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'"
+                class="min-h-[44px] rounded-lg text-xs font-bold transition-all duration-200 sm:text-sm"
+            >
+                Sign In
+            </button>
+            <button 
+                type="button"
+                @click="activeTab = 'register'"
+                :class="activeTab === 'register' ? 'bg-emerald-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'"
+                class="min-h-[44px] rounded-lg text-xs font-bold transition-all duration-200 sm:text-sm"
+            >
+                Register
+            </button>
         </div>
 
-        <!-- Glass Card -->
-        <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-2xl sm:p-8">
-            
-            <!-- Segmented Switcher -->
-            <div class="grid grid-cols-2 gap-1 rounded-xl bg-slate-900/80 p-1 border border-white/5 mb-6">
-                <button 
-                    type="button"
-                    @click="activeTab = 'login'"
-                    :class="activeTab === 'login' ? 'bg-emerald-600 text-white shadow-md' : 'text-slate-400 hover:text-white'"
-                    class="min-h-[44px] rounded-lg text-xs font-bold transition-all duration-200 sm:text-sm"
-                >
-                    Sign In
-                </button>
-                <button 
-                    type="button"
-                    @click="activeTab = 'signup'"
-                    :class="activeTab === 'signup' ? 'bg-emerald-600 text-white shadow-md' : 'text-slate-400 hover:text-white'"
-                    class="min-h-[44px] rounded-lg text-xs font-bold transition-all duration-200 sm:text-sm"
-                >
-                    Register
-                </button>
-            </div>
-
-            <!-- Login Form -->
-            <div x-show="activeTab === 'login'" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100">
-                <form 
-                    id="login-form"
-                    hx-post="{% url 'login' %}"
-                    hx-target="#auth-toast-container"
-                    hx-swap="innerHTML"
-                    hx-indicator="#login-spinner"
-                    class="space-y-4"
-                >
-                    {% csrf_token %}
-                    <div>
-                        <label for="login-email" class="mb-1.5 block text-xs font-semibold text-slate-200 sm:text-sm">Email Address <span class="text-emerald-400">*</span></label>
-                        <div class="relative">
-                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
-                                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" /></svg>
-                            </div>
-                            <input id="login-email" name="email" type="email" required placeholder="name@company.com" class="block w-full rounded-xl border border-white/10 bg-slate-900/60 pl-11 pr-4 py-3 text-base text-white placeholder:text-slate-500 transition focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-500/20 sm:text-sm" />
+        <!-- Login Form -->
+        <div x-show="activeTab === 'login'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0">
+            <form 
+                id="login-form"
+                hx-post="{% url 'login' %}"
+                hx-target="#auth-toast-container"
+                hx-swap="innerHTML"
+                hx-indicator="#login-spinner"
+                class="space-y-4"
+            >
+                {% csrf_token %}
+                <div>
+                    <label for="login-email" class="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-200 sm:text-sm">Email Address <span class="text-emerald-500 dark:text-emerald-400">*</span></label>
+                    <div class="relative">
+                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400 dark:text-slate-500">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" /></svg>
                         </div>
+                        <input id="login-email" name="email" type="email" required placeholder="name@company.com" class="block w-full rounded-xl border border-slate-300 bg-white/50 py-3 pl-11 pr-4 text-base text-slate-900 placeholder:text-slate-400 transition focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-emerald-500/20 dark:border-white/10 dark:bg-slate-900/60 dark:text-white dark:placeholder:text-slate-500 dark:focus:bg-slate-900 sm:text-sm" />
                     </div>
-
-                    <div x-data="{ showPassword: false }">
-                        <label for="login-password" class="mb-1.5 block text-xs font-semibold text-slate-200 sm:text-sm">Password <span class="text-emerald-400">*</span></label>
-                        <div class="relative">
-                            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400">
-                                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-                            </div>
-                            <input id="login-password" name="password" :type="showPassword ? 'text' : 'password'" required placeholder="••••••••" class="block w-full rounded-xl border border-white/10 bg-slate-900/60 pl-11 pr-11 py-3 text-base text-white placeholder:text-slate-500 transition focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-500/20 sm:text-sm" />
-                            <button type="button" @click="showPassword = !showPassword" class="absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400 hover:text-white">
-                                <svg x-show="!showPassword" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-                                <svg x-show="showPassword" x-cloak class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858-5.908a10.018 10.018 0 013.682-.782c4.478 0 8.268 2.943 9.542 7a10.025 10.025 0 01-4.132 5.411m-1.74 1.738a1 1 0 00-1.414 0" /></svg>
-                            </button>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="group relative flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-900/30 transition-all hover:bg-emerald-500 active:scale-[0.98]">
-                        <span>Sign In</span>
-                        <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                        <span id="login-spinner" class="htmx-indicator absolute right-4">
-                            <svg class="h-5 w-5 animate-spin text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
-                        </span>
-                    </button>
-                </form>
-            </div>
-
-            <!-- Registration Form -->
-            <div x-show="activeTab === 'signup'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100">
-                <div class="mb-4 flex items-start gap-2.5 rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-3 text-xs text-emerald-200">
-                    <svg class="h-5 w-5 flex-shrink-0 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    <span>Accounts require admin approval before activation.</span>
                 </div>
 
-                <form 
-                    id="signup-form"
-                    hx-post="{% url 'signup' %}"
-                    hx-target="#auth-toast-container"
-                    hx-swap="innerHTML"
-                    hx-indicator="#signup-spinner"
-                    class="space-y-3.5"
-                >
-                    {% csrf_token %}
-                    <div>
-                        <label for="signup-name" class="mb-1 block text-xs font-semibold text-slate-200">Full Name <span class="text-emerald-400">*</span></label>
-                        <input id="signup-name" name="full_name" type="text" required placeholder="John Doe" class="block w-full rounded-xl border border-white/10 bg-slate-900/60 px-3.5 py-2.5 text-base text-white placeholder:text-slate-500 transition focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-500/20 sm:text-sm" />
-                    </div>
-
-                    <div>
-                        <label for="signup-email" class="mb-1 block text-xs font-semibold text-slate-200">Email Address <span class="text-emerald-400">*</span></label>
-                        <input id="signup-email" name="email" type="email" required placeholder="name@company.com" class="block w-full rounded-xl border border-white/10 bg-slate-900/60 px-3.5 py-2.5 text-base text-white placeholder:text-slate-500 transition focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-500/20 sm:text-sm" />
-                    </div>
-
-                    <div>
-                        <label for="signup-phone" class="mb-1 block text-xs font-semibold text-slate-200">Phone Number</label>
-                        <input id="signup-phone" name="phone_number" type="tel" placeholder="+234 800 000 0000" class="block w-full rounded-xl border border-white/10 bg-slate-900/60 px-3.5 py-2.5 text-base text-white placeholder:text-slate-500 transition focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-500/20 sm:text-sm" />
-                    </div>
-
-                    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                        <div>
-                            <label for="signup-password" class="mb-1 block text-xs font-semibold text-slate-200">Password <span class="text-emerald-400">*</span></label>
-                            <input id="signup-password" name="password" type="password" required placeholder="••••••••" class="block w-full rounded-xl border border-white/10 bg-slate-900/60 px-3.5 py-2.5 text-base text-white placeholder:text-slate-500 transition focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-500/20 sm:text-sm" />
+                <div x-data="{ showPassword: false }">
+                    <label for="login-password" class="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-200 sm:text-sm">Password <span class="text-emerald-500 dark:text-emerald-400">*</span></label>
+                    <div class="relative">
+                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400 dark:text-slate-500">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
                         </div>
-                        <div>
-                            <label for="signup-confirm-password" class="mb-1 block text-xs font-semibold text-slate-200">Confirm <span class="text-emerald-400">*</span></label>
-                            <input id="signup-confirm-password" name="confirm_password" type="password" required placeholder="••••••••" class="block w-full rounded-xl border border-white/10 bg-slate-900/60 px-3.5 py-2.5 text-base text-white placeholder:text-slate-500 transition focus:border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-500/20 sm:text-sm" />
-                        </div>
+                        <input id="login-password" name="password" :type="showPassword ? 'text' : 'password'" required placeholder="••••••••" class="block w-full rounded-xl border border-slate-300 bg-white/50 py-3 pl-11 pr-11 text-base text-slate-900 placeholder:text-slate-400 transition focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-emerald-500/20 dark:border-white/10 dark:bg-slate-900/60 dark:text-white dark:placeholder:text-slate-500 dark:focus:bg-slate-900 sm:text-sm" />
+                        <button type="button" @click="showPassword = !showPassword" class="absolute inset-y-0 right-0 flex items-center pr-3.5 text-slate-400 transition hover:text-slate-700 dark:text-slate-500 dark:hover:text-white">
+                            <svg x-show="!showPassword" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                            <svg x-show="showPassword" x-cloak class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858-5.908a10.018 10.018 0 013.682-.782c4.478 0 8.268 2.943 9.542 7a10.025 10.025 0 01-4.132 5.411m-1.74 1.738a1 1 0 00-1.414 0" /></svg>
+                        </button>
                     </div>
+                </div>
 
-                    <button type="submit" class="group relative flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-900/30 transition-all hover:bg-emerald-500 active:scale-[0.98] mt-2">
-                        <span>Submit Registration</span>
-                        <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                        <span id="signup-spinner" class="htmx-indicator absolute right-4">
-                            <svg class="h-5 w-5 animate-spin text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
-                        </span>
-                    </button>
-                </form>
+                <div class="flex items-center justify-end pb-2">
+                    <a href="#forgot" class="text-xs font-semibold text-emerald-600 transition hover:text-emerald-500 dark:text-emerald-400 dark:hover:text-emerald-300">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="group relative flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-600/20 transition-all hover:bg-emerald-500 active:scale-[0.98] dark:shadow-emerald-900/30">
+                    <span>Sign In</span>
+                    <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    <span id="login-spinner" class="htmx-indicator absolute right-4">
+                        <svg class="h-5 w-5 animate-spin text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                    </span>
+                </button>
+            </form>
+        </div>
+
+        <!-- Registration Form -->
+        <div x-show="activeTab === 'register'" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0">
+            <div class="mb-5 flex items-start gap-2.5 rounded-xl border border-emerald-200 bg-emerald-50 p-3.5 text-xs text-emerald-800 dark:border-emerald-500/20 dark:bg-emerald-500/10 dark:text-emerald-200">
+                <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span class="font-medium leading-relaxed">New accounts require administrative approval before activation.</span>
             </div>
 
+            <form 
+                id="register-form"
+                hx-post="{% url 'signup' %}"
+                hx-target="#auth-toast-container"
+                hx-swap="innerHTML"
+                hx-indicator="#register-spinner"
+                class="space-y-4"
+            >
+                {% csrf_token %}
+                <div>
+                    <label for="register-name" class="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-200 sm:text-sm">Full Name <span class="text-emerald-500 dark:text-emerald-400">*</span></label>
+                    <input id="register-name" name="full_name" type="text" required placeholder="John Doe" class="block w-full rounded-xl border border-slate-300 bg-white/50 px-3.5 py-2.5 text-base text-slate-900 placeholder:text-slate-400 transition focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-emerald-500/20 dark:border-white/10 dark:bg-slate-900/60 dark:text-white dark:placeholder:text-slate-500 dark:focus:bg-slate-900 sm:text-sm" />
+                </div>
+
+                <div>
+                    <label for="register-email" class="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-200 sm:text-sm">Email Address <span class="text-emerald-500 dark:text-emerald-400">*</span></label>
+                    <input id="register-email" name="email" type="email" required placeholder="name@company.com" class="block w-full rounded-xl border border-slate-300 bg-white/50 px-3.5 py-2.5 text-base text-slate-900 placeholder:text-slate-400 transition focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-emerald-500/20 dark:border-white/10 dark:bg-slate-900/60 dark:text-white dark:placeholder:text-slate-500 dark:focus:bg-slate-900 sm:text-sm" />
+                </div>
+
+                <div>
+                    <label for="register-phone" class="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-200 sm:text-sm">Phone Number</label>
+                    <input id="register-phone" name="phone_number" type="tel" placeholder="+234 800 000 0000" class="block w-full rounded-xl border border-slate-300 bg-white/50 px-3.5 py-2.5 text-base text-slate-900 placeholder:text-slate-400 transition focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-emerald-500/20 dark:border-white/10 dark:bg-slate-900/60 dark:text-white dark:placeholder:text-slate-500 dark:focus:bg-slate-900 sm:text-sm" />
+                </div>
+
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div>
+                        <label for="register-password" class="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-200 sm:text-sm">Password <span class="text-emerald-500 dark:text-emerald-400">*</span></label>
+                        <input id="register-password" name="password" type="password" required placeholder="••••••••" class="block w-full rounded-xl border border-slate-300 bg-white/50 px-3.5 py-2.5 text-base text-slate-900 placeholder:text-slate-400 transition focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-emerald-500/20 dark:border-white/10 dark:bg-slate-900/60 dark:text-white dark:placeholder:text-slate-500 dark:focus:bg-slate-900 sm:text-sm" />
+                    </div>
+                    <div>
+                        <label for="register-confirm" class="mb-1.5 block text-xs font-semibold text-slate-700 dark:text-slate-200 sm:text-sm">Confirm <span class="text-emerald-500 dark:text-emerald-400">*</span></label>
+                        <input id="register-confirm" name="confirm_password" type="password" required placeholder="••••••••" class="block w-full rounded-xl border border-slate-300 bg-white/50 px-3.5 py-2.5 text-base text-slate-900 placeholder:text-slate-400 transition focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-4 focus:ring-emerald-500/20 dark:border-white/10 dark:bg-slate-900/60 dark:text-white dark:placeholder:text-slate-500 dark:focus:bg-slate-900 sm:text-sm" />
+                    </div>
+                </div>
+
+                <button type="submit" class="group relative mt-6 flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-600/20 transition-all hover:bg-emerald-500 active:scale-[0.98] dark:shadow-emerald-900/30">
+                    <span>Submit Registration</span>
+                    <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                    <span id="register-spinner" class="htmx-indicator absolute right-4">
+                        <svg class="h-5 w-5 animate-spin text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                    </span>
+                </button>
+            </form>
         </div>
+
     </div>
+</div>
 
-    <!-- Toast Notification Container -->
-    <div id="auth-toast-container" aria-live="polite"></div>
-
-</body>
-</html>
+<!-- Toast Notification Container -->
+<div id="auth-toast-container" aria-live="polite"></div>
+{% endblock %}
