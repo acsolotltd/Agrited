@@ -7,14 +7,23 @@
 <div class="pointer-events-none fixed inset-0 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300" aria-hidden="true">
     <div class="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-emerald-500/20 blur-3xl dark:bg-emerald-500/10 sm:h-96 sm:w-96"></div>
     <div class="absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-emerald-600/10 blur-3xl dark:bg-emerald-900/20 sm:h-96 sm:w-96"></div>
-</div>]
+</div>
 
 <!-- Main Container -->
-<div class=" mt-8 relative z-10 w-full max-w-md px-4 sm:mx-auto sm:px-0 py-12" 
-     x-data="{ activeTab: window.location.hash === '#register' ? 'register' : 'login' }"
-     x-init="$watch('activeTab', val => window.history.replaceState(null, null, '#' + val))"
-     @hashchange.window="activeTab = window.location.hash === '#register' ? 'register' : 'login'">
-    
+<div class="relative z-10 w-full max-w-md px-4 py-12 sm:mx-auto sm:px-0" 
+     x-data="{ 
+        activeTab: 'login',
+        checkHash() {
+            // Explicitly check for both hashes, defaulting to login if neither matches
+            if (window.location.hash === '#register') this.activeTab = 'register';
+            else if (window.location.hash === '#login') this.activeTab = 'login';
+        }
+     }"
+     x-init="
+        checkHash(); // Run on initial page load
+        $watch('activeTab', val => window.history.replaceState(null, null, '#' + val));
+     "
+     @hashchange.window="checkHash()">
     <!-- Header -->
     <div class="mb-8 text-center">
         <!--div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-emerald-600 to-emerald-400 text-white shadow-lg shadow-emerald-500/30 dark:shadow-emerald-950/50">

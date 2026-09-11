@@ -783,17 +783,17 @@
                         ================================================== -->
 
                         <a
-                            href="{% url 'auth' %}?next=/dashboard/"
+                            href="{% url 'auth' %}#register?next=/dashboard/"
                             class="inline-flex items-center justify-center rounded-full border border-slate-200 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:border-slate-700 dark:text-slate-200 dark:hover:border-emerald-500/30 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-400"
                         >
-                            Login
+                            Sign Up
                         </a>
 
 
                         <!-- Guest Booking -->
                         <a
                              @click="{% if request.user.is_authenticated %} $dispatch('open-booking', 'Headquarters Dispatch'){% else %}null {% endif %}" 
-                            href="{% if request.user.is_authenticated %}#{% else %}{% url 'auth' %}?next=/dashboard/ {% endif %}"
+                            href="{% if request.user.is_authenticated %}#{% else %}{% url 'auth' %}#login?next=/dashboard/ {% endif %}"
                             
                             class="inline-flex items-center justify-center rounded-full border-b-2 border-emerald-800 bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
                         >
@@ -867,10 +867,10 @@
 
                         <!-- Mobile login -->
                         <a
-                            href="{% url 'login' %}?next=/booking/"
+                            href="{% url 'auth' %}#register"
                             class="hidden rounded-xl px-3 py-2 text-sm font-semibold text-emerald-600 sm:inline-flex dark:text-emerald-400"
                         >
-                            Login
+                            Sign Up
                         </a>
 
                     {% endif %}
@@ -1175,21 +1175,22 @@
 
                     <!-- Login -->
                     <a
-                        href="{% url 'login' %}?next=/booking/"
+                        href="{% url 'auth' %}#register"
                         class="flex min-h-12 w-full items-center justify-center rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-400"
                     >
-                        Login
+                        Sign Up
                     </a>
 
 
                     <!-- Booking -->
                     <a
                           @click="{% if request.user.is_authenticated %} $dispatch('open-booking', 'Headquarters Dispatch'){% else %}null {% endif %}" 
-                            href="{% if request.user.is_authenticated %}#{% else %}{% url 'auth' %}?next=/dashboard/ {% endif %}"
+                            href="{% if request.user.is_authenticated %}#{% else %}{% url 'auth' %}#login?next=/dashboard/ {% endif %}"
                             
                         class="flex min-h-12 w-full items-center justify-center rounded-xl bg-emerald-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-700"
                     >
                         Online Booking
+
                     </a>
 
                 {% endif %}
