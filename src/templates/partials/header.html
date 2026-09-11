@@ -400,6 +400,18 @@
                         </a>
                     </li>
 
+                     <!-- Newsletter Subscriber -->
+                    <li>
+                        <a
+                            href="/#subscribe"
+                            @click="activeSection = 'contact'; document.title = 'Contact Us'"
+                            class="transition-colors pb-1 text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2"
+                            :class="activeSection === 'subscribe' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'"
+                          
+                        >
+                            Subscribe
+                        </a>
+                    </li>
 
                     <!-- =================================================
                          SITE MAP
