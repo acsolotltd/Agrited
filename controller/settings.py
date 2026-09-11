@@ -11,9 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-332iif*t7o32u)!-cwjgf02f2c)+f434p0dnb_fwft)48-+h%k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = not True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*", "agrited.pythonanywhere.com"]
 
 
 # Application definition
@@ -141,7 +141,10 @@ MAILERS = {
 
 AUTH_USER_MODEL="accounts.EmailBasedUser"
 STATIC_URL="/static/"
-STATICFILES_DIRS = [BASE_DIR / "apps/css", BASE_DIR / "src/assets",]
+import os
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+#STATICFILES_DIRS = [BASE_DIR / "apps/css", BASE_DIR / "src/assets",]
 TAILWIND_APP_NAME = "theme"
 if DEBUG:
     INSTALLED_APPS += ["django_browser_reload"]
