@@ -321,7 +321,7 @@
                     <li>
                         <a
                             href="/#home"
-                            @click="activeSection = 'home'"
+                            @click="activeSection = 'home'; document.title = 'Agrited | Welcome'"
                             class="transition-colors pb-1 text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2"
                             :class="activeSection === 'home' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'"
                            
@@ -335,7 +335,7 @@
                     <li>
                         <a
                             href="/#about"
-                            @click="activeSection = 'about'"
+                            @click="activeSection = 'about'; document.title = 'About Us'"
                              class="transition-colors pb-1 text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2"
                             :class="activeSection === 'about' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'"
                          
@@ -349,7 +349,7 @@
                     <li>
                         <a
                             href="/#products"
-                            @click="activeSection = 'products'"
+                            @click="activeSection = 'products'; document.title = 'Agrited | Our Products & Solutions'"
                              class="transition-colors pb-1 text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2"
                             :class="activeSection === 'products' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'"
                           
@@ -363,7 +363,7 @@
                     <li>
                         <a
                             href="/#featured-farms"
-                            @click="activeSection = 'featured-farms'"
+                            @click="activeSection = 'featured-farms'; document.title = 'Agrited | Ultra Modern Farms'"
                               class="transition-colors pb-1 text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2"
                             :class="activeSection === 'featured-farms' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'"
                           
@@ -377,7 +377,7 @@
                     <li>
                         <a
                             href="/#booking"
-                            @click="activeSection = 'booking'"
+                            @click="activeSection = 'booking'; document.title = 'Order our Products'"
                              class="transition-colors pb-1 text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2"
                             :class="activeSection === 'booking' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'"
                           
@@ -391,7 +391,7 @@
                     <li>
                         <a
                             href="/#contact"
-                            @click="activeSection = 'contact'"
+                            @click="activeSection = 'contact'; document.title = 'Contact Us'"
                             class="transition-colors pb-1 text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2"
                             :class="activeSection === 'contact' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'"
                           
@@ -1037,7 +1037,7 @@
                 <li>
                     <a
                         href="/#about"
-                        @click="activeSection = 'about'"
+                        @click="activeSection = 'about'; document.title='Agrited | About Us'"
                         class="block rounded-xl px-4 py-3.5 text-sm font-medium transition"
                         :class="activeSection === 'about'
                             ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400'
