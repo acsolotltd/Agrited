@@ -53,7 +53,7 @@ def contact_submit(request):
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=['ibmabdulsalam@gmail.com'], # Ensure this is your receiving email
                 fail_silently= not False,
-                reply_to=[email], 
+                #reply_to=[email], 
             )
             
             response = render(request, 'partials/contact_form.html', {}, status=200)
