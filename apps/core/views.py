@@ -56,7 +56,7 @@ def contact_submit(request):
                 #reply_to=[email], 
             )
             
-            response = render(request, 'partials/contact_form.html', {}, status=200)
+            response = render(request, 'partials/contact_us.html', {}, status=200)
             response['HX-Trigger'] = json.dumps({
                 "show-toast": {"message": "Your message was sent successfully!", "type": "success"}
             })
