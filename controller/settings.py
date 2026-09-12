@@ -173,11 +173,13 @@ HUEY = {
     #'consumer_options': {'workers': 4,  'worker_type': 'thread'},
 }
 
+
+BREVO_API_KEY = os.environ.get('BREVO_API_KEY')
 MAILERS = {
     "default": {
         "BACKEND": "anymail.backends.brevo.EmailBackend",
         "OPTIONS": {
-            "api_key": "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",  # Must be a v3 API key, not an SMTP key
+            "api_key": BREVO_API_KEY,
         },
     }
 }
