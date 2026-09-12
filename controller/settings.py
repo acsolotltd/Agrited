@@ -183,5 +183,9 @@ MAILERS = {
         },
     }
 }
+ANYMAIL = {
+    "BREVO_API_KEY":  BREVO_API_KEY, 
+    
+}
 DEFAULT_FROM_EMAIL = "noreply@ylocalhost.com"
 SERVER_EMAIL = "errors@localhost.com"
