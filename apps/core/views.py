@@ -51,7 +51,7 @@ def contact_submit(request):
                 subject=f"Website Inquiry: {subject}",
                 message=full_message,
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=['ibmxxx@gmail.com'], # Ensure this is your receiving email
+                recipient_list=['ibmabdulsalam@gmail.com'], # Ensure this is your receiving email
                 fail_silently=False,
                 reply_to=[email], 
             )
