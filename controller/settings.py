@@ -175,6 +175,8 @@ HUEY = {
 
 
 BREVO_API_KEY = os.environ.get('BREVO_API_KEY')
+if not BREVO_KEY:
+    raise ImproperlyConfigured("CRITICAL: BREVO_API_KEY is completely missing from the environment!")
 MAILERS = {
     "default": {
         "BACKEND": "anymail.backends.brevo.EmailBackend",
