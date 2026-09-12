@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+     "anymail",
      "tailwind",
       "django_htmx",
       "theme",
@@ -33,6 +34,7 @@ INSTALLED_APPS = [
     "apps.accounts.apps.AccountsConfig",
     "apps.orders.apps.OrdersConfig",
     "apps.subscribe.apps.SubscribeConfig",
+     'huey.contrib.djhuey',
 ]
 
 MIDDLEWARE = [
@@ -142,15 +144,42 @@ MAILERS = {
 
 AUTH_USER_MODEL="accounts.EmailBasedUser"
 STATIC_URL="/static/"
-import os
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-#STATICFILES_DIRS = [BASE_DIR / "apps/css", BASE_DIR / "src/assets",]
-TAILWIND_APP_NAME = "theme"
-if DEBUG:
+import os
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+else:
+    STATICFILES_DIRS = [BASE_DIR / "apps/css", BASE_DIR / "src/assets",]
     INSTALLED_APPS += ["django_browser_reload"]
     MIDDLEWARE += [
         "django_browser_reload.middleware.BrowserReloadMiddleware",
     ]
 
+TAILWIND_APP_NAME = "theme"
+
+
 NPM_BIN_PATH = "npm.cmd"
+
+HUEY = {
+    'huey_class': 'huey.SqliteHuey',
+    #'backend': 'huey.backends.sqlite_backend',  # required.
+    'name': 'Agrited-BG-Task',
+     'results': True,
+    'store_none': False,
+    'immediate': False, 
+    #'connection': {'location': BASE_DIR/'tasks.db'},
+    #'always_eager': False, # Defaults to False when running via manage.py run_huey
+    # Options to pass into the consumer when running ``manage.py run_huey``
+    #'consumer_options': {'workers': 4,  'worker_type': 'thread'},
+}
+
+MAILERS = {
+    "default": {
+        "BACKEND": "anymail.backends.brevo.EmailBackend",
+        "OPTIONS": {
+            "api_key": "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",  # Must be a v3 API key, not an SMTP key
+        },
+    }
+}
+DEFAULT_FROM_EMAIL = "noreply@ylocalhost.com"
+SERVER_EMAIL = "errors@localhost.com"

@@ -16,42 +16,68 @@ def about(request):
 def products(request):
     return render(request, 'products.html')
 
+import json
+import logging
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.core.mail import send_mail
+from django.conf import settings
+
+logger = logging.getLogger(__name__)
 
 def contact_submit(request):
     """Handles the HTMX POST request for the contact form."""
     if request.method == 'POST' and request.headers.get('HX-Request'):
         name = request.POST.get('name', '').strip()
+        subject = request.POST.get('subject', '').strip()
         email = request.POST.get('email', '').strip()
         message = request.POST.get('message', '').strip()
 
-        # Basic manual validation
-        if not name or not email or not message:
-            return render(request, 'partials/contact.html', {
-                'error': 'All fields are required.',
-                'name': name,
-                'email': email,
-                'message': message
+        context = {
+            'name': name,
+            'subject': subject,
+            'email': email,
+            'message': message
+        }
+
+        # Basic validation
+        if not name or not email or not message or not subject:
+            response = render(request, 'partials/contact_form.html', context)
+            # Trigger error toast
+            response['HX-Trigger'] = json.dumps({
+                "showToast": {"message": "Please fill out all required fields.", "type": "error"}
             })
+            return response
 
         try:
-            # Send the email
+            full_message = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
+            
             send_mail(
-                subject=f"New Contact Inquiry from {name}",
-                message=message,
+                subject=f"Website Inquiry: {subject}",
+                message=full_message,
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=['support@yourdomain.com'], # Update with your destination email
+                recipient_list=['ibmabdulsalam@gmail.com'], 
                 fail_silently=False,
+                reply_to=[email], 
             )
-            # Return a success fragment
-            return render(request, 'partials/contact_success.html')
+            
+            # SUCCESS: Return an empty context {} to clear the form fields
+            response = render(request, 'partials/contact_form.html', {})
+            
+            # Trigger success toast
+            response['HX-Trigger'] = json.dumps({
+                "showToast": {"message": "Your message was sent successfully!", "type": "success"}
+            })
+            return response
             
         except Exception as e:
-            # Handle email server errors
-            return render(request, 'partials/contact_form.html', {
-                'error': 'An error occurred while sending the email. Please try again.',
-                'name': name,
-                'email': email,
-                'message': message
+            logger.error(f"Contact form email failed: {e}")
+            response = render(request, 'partials/contact_form.html', context)
+            
+            # Trigger error toast
+            response['HX-Trigger'] = json.dumps({
+                "showToast": {"message": "Server error. Please try again later.", "type": "error"}
             })
+            return response
 
     return HttpResponse("Invalid request method.", status=400)

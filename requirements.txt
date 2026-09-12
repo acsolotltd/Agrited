@@ -1,5 +1,8 @@
 django
 whitenoise
+django-tailwind
 django-htmx
 django-cors-headers
 django-browser-reload
+huey
+django-anymail[brevo]
