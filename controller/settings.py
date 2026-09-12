@@ -1,5 +1,5 @@
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-332iif*t7o32u)!-cwjgf02f2c)+f434p0dnb_fwft)48-+h%k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = not True
 
-ALLOWED_HOSTS = ["*", "agrited.pythonanywhere.com"]
+ALLOWED_HOSTS = ["*", "0.0.0.0", "agrited.pythonanywhere.com"]
 
 
 # Application definition
@@ -63,6 +63,7 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080", # Replace with your actual HTML host URL
     "http://127.0.0.1:8000",
+    "0.0.0.0",
     "https://itsupport1-agrited.netlify.app",            # Good to keep for local frontend testing
 ]
 ROOT_URLCONF = 'controller.urls'
@@ -145,7 +146,6 @@ MAILERS = {
 AUTH_USER_MODEL="accounts.EmailBasedUser"
 STATIC_URL="/static/"
 
-import os
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 else:
@@ -166,7 +166,7 @@ HUEY = {
     'name': 'Agrited-BG-Task',
      'results': True,
     'store_none': False,
-    'immediate': False, 
+    'immediate': False,
     #'connection': {'location': BASE_DIR/'tasks.db'},
     #'always_eager': False, # Defaults to False when running via manage.py run_huey
     # Options to pass into the consumer when running ``manage.py run_huey``
@@ -184,8 +184,8 @@ MAILERS = {
     }
 }
 ANYMAIL = {
-    "BREVO_API_KEY":  BREVO_API_KEY, 
-    
+    "BREVO_API_KEY":  BREVO_API_KEY,
+
 }
 DEFAULT_FROM_EMAIL = "noreply@ylocalhost.com"
 SERVER_EMAIL = "errors@localhost.com"

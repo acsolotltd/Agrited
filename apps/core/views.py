@@ -61,12 +61,12 @@ def contact_submit(request):
                 "show-toast": {"message": "Your message was sent successfully!", "type": "success"}
             })
             return response
-            
         except AnymailAPIError as e:
             error_details = e.response.json() if e.response else str(e)
             logger.error(f"Brevo API Error: Status {e.status_code} - Details: {error_details}")
             
-            response = render(request, 'partials/contact-us.html', context, status=200)
+            # Return an empty HttpResponse instead of trying to render a missing template
+            response = HttpResponse("", status=200) 
             response['HX-Trigger'] = json.dumps({
                 "show-toast": {"message": "Email server error. Please try again later.", "type": "error"}
             })
@@ -74,7 +74,7 @@ def contact_submit(request):
             
         except Exception as e:
             logger.error(f"General Email Dispatch Failed: {e}")
-            response = render(request, 'partials/contact-us.html', context, status=200)
+            response = HttpResponse("", status=200)
             response['HX-Trigger'] = json.dumps({
                 "show-toast": {"message": "An unexpected error occurred.", "type": "error"}
             })
