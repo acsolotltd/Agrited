@@ -172,7 +172,7 @@ HUEY = {
     # Options to pass into the consumer when running ``manage.py run_huey``
     #'consumer_options': {'workers': 4,  'worker_type': 'thread'},
 }
-
+from django.core.exceptions import ImproperlyConfigured
 
 BREVO_API_KEY = os.environ.get('BREVO_API_KEY')
 if not BREVO_API_KEY:
