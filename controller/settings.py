@@ -175,7 +175,7 @@ HUEY = {
 
 
 BREVO_API_KEY = os.environ.get('BREVO_API_KEY')
-if not BREVO_KEY:
+if not BREVO_API_KEY:
     raise ImproperlyConfigured("CRITICAL: BREVO_API_KEY is completely missing from the environment!")
 MAILERS = {
     "default": {
