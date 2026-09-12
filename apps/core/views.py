@@ -51,12 +51,12 @@ def contact_submit(request):
                 subject=f"Website Inquiry: {subject}",
                 body=full_message,
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                to=['ibmxxx@gmail.com'], # Ensure this is your receiving email
+                to=['ibmabdulsalam@gmail.com'], # Ensure this is your receiving email
                 reply_to=[email],        # EmailMessage accepts reply_to perfectly!
             )
             email_msg.send(fail_silently=False)
             
-            response = render(request, 'partials/contact-us.html', {}, status=200)
+            response = render(request, 'contact.html', {}, status=200)
             response['HX-Trigger'] = json.dumps({
                 "show-toast": {"message": "Your message was sent successfully!", "type": "success"}
             })
