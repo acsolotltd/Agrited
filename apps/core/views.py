@@ -45,8 +45,6 @@ def contact_submit(request):
 
         try:
             full_message = f"Name: {name}\nEmail: {email}\n\nMessage:\n{message}"
-            
-            # --> Use EmailMessage instead of send_mail <--
             email_msg = EmailMessage(
                 subject=f"Website Inquiry: {subject}",
                 body=full_message,
@@ -54,9 +52,9 @@ def contact_submit(request):
                 to=['ibmabdulsalam@gmail.com'], # Ensure this is your receiving email
                 reply_to=[email],        # EmailMessage accepts reply_to perfectly!
             )
-            email_msg.send(fail_silently=False)
+            email_msg.send(fail_silently = not False)
             
-            response = render(request, 'contact.html', {}, status=200)
+            response = render(request, 'partials/contact-form.html', {}, status=200)
             response['HX-Trigger'] = json.dumps({
                 "show-toast": {"message": "Your message was sent successfully!", "type": "success"}
             })

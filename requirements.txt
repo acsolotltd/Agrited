@@ -6,3 +6,4 @@ django-cors-headers
 django-browser-reload
 huey
 django-anymail[brevo]
+python-dotenv

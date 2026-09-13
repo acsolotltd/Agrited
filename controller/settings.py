@@ -1,9 +1,11 @@
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+env_path = os.path.join(BASE_DIR, '.env')
+load_dotenv(env_path)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
@@ -63,7 +65,6 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080", # Replace with your actual HTML host URL
     "http://127.0.0.1:8000",
-    "0.0.0.0",
     "https://itsupport1-agrited.netlify.app",            # Good to keep for local frontend testing
 ]
 ROOT_URLCONF = 'controller.urls'
@@ -191,5 +192,5 @@ ANYMAIL = {
 }
 
 ANYMAIL_BREVO_API_KEY=BREVO_API_KEY,
-DEFAULT_FROM_EMAIL="noreply@ylocalhost.com"
-SERVER_EMAIL = "errors@localhost.com"
+DEFAULT_FROM_EMAIL="agesxpat@gmail.com"
+SERVER_EMAIL = "errors@agrited.net"

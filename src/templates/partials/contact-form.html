@@ -1,0 +1,68 @@
+<div
+    class="bg-white dark:bg-slate-800 rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-200 dark:border-slate-700 p-8 sm:p-10">
+    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Send us a Message</h3>
+
+    <form hx-post="{% url 'submit_contact' %}" hx-target="#contact-form-wrapper" hx-swap="innerHTML"
+        x-data="{ isSubmitting: false }" @htmx:before-request="isSubmitting = true"
+        @htmx:after-request="isSubmitting = false" class="space-y-6">
+
+        {% csrf_token %}
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+                <label for="name" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Full
+                    Name</label>
+                <input type="text" id="name" name="name" required value="{{ name|default:'' }}"
+                    class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900/50 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                    placeholder="Abdulsalam Ibraheem">
+            </div>
+
+            <div>
+                <label for="email" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Email
+                    Address</label>
+                <input type="email" id="email" name="email" required value="{{ email|default:'' }}"
+                    class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900/50 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                    placeholder="itsupport1@agrited.net">
+            </div>
+        </div>
+
+        <div>
+            <label for="subject"
+                class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Subject</label>
+            <input type="text" id="subject" name="subject" required value="{{ subject|default:'' }}"
+                class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900/50 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all"
+                placeholder="How can we help you?">
+        </div>
+
+        <div>
+            <label for="message"
+                class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Message</label>
+            <textarea id="message" name="message" rows="4" required
+                class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900/50 text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all resize-none"
+                placeholder="Please provide as much detail as possible...">{{ message|default:'' }}</textarea>
+        </div>
+
+        <button type="submit" x-bind:disabled="isSubmitting"
+            class="w-full relative inline-flex items-center justify-center px-8 py-3.5 text-sm font-bold text-white transition-all duration-200 bg-emerald-600 rounded-xl hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-600 disabled:opacity-70 disabled:cursor-not-allowed overflow-hidden">
+
+            <span x-show="!isSubmitting" class="flex items-center gap-2">
+                Send Message
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                    </path>
+                </svg>
+            </span>
+
+            <span x-show="isSubmitting" x-cloak class="flex items-center gap-2">
+                <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                    </circle>
+                    <path class="opacity-75" fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                    </path>
+                </svg>
+                Sending...
+            </span>
+        </button>
+    </form>
+</div>
