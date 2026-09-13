@@ -12,10 +12,20 @@
     <meta name="description"
         content="Nigeria's trusted poultry & aquaculture partner since 1991. We supply premium day-old chicks, animal nutrition, veterinary vaccines, and turnkey farm solutions nationwide.">
     <meta name="robots" content="index, follow">
+   <meta property="og:type" content="website">
     <meta property="og:title" content="{{ title }}">
-    <meta property="og:description"  content="Nigeria's trusted poultry & aquaculture partner since 1991. We supply premium day-old chicks, animal nutrition, veterinary vaccines, and turnkey farm solutions nationwide.">
+    <meta property="og:description"
+        content="Nigeria's trusted poultry & aquaculture partner since 1991. We supply premium day-old chicks, animal nutrition, veterinary vaccines, and turnkey farm solutions nationwide.">
     <meta property="og:image" content="{% static 'favicon/favicon-96x96.png' %}">
     <meta property="og:url" content="https://agrited.net{{ page }}">
+
+    <meta name="twitter:card" content="{% static 'favicon/favicon-96x96.png' %}">
+    <meta name="twitter:site" content="Agrited">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description"
+        content="Nigeria's trusted poultry & aquaculture partner since 1991. We supply premium day-old chicks, animal nutrition, veterinary vaccines, and turnkey farm solutions nationwide.">
+    <meta name="twitter:image" content="{% static 'favicon/favicon-96x96.png' %}">
+
     <link rel="canonical" href="https://agrited.net{{ pageLoc }}">
     <link rel="icon" type="image/png" href="{% static 'favicon/favicon-96x96.png' %}" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="{% static 'favicon/favicon.svg' %}" />
@@ -58,16 +68,18 @@
 
     <!-- AOS -->
     <link href="{% static 'css/aos.css' %}" rel="stylesheet">
-     {% tailwind_css %}
+    {% tailwind_css %}
     {% htmx_script %}
 </head>
 
-<body class="bg-light text-slate-700 font-body" x-data="{ isBookingOpen: false }" @open-booking.window="isBookingOpen = true; console.log($event.detail)"  hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+<body class="bg-light text-slate-700 font-body" x-data="{ isBookingOpen: false }"
+    @open-booking.window="isBookingOpen = true; console.log($event.detail)"
+    hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
     <div id="progressBar"
         class="fixed left-0 top-0 z-[9999] h-1 bg-green-600 dark:bg-green-400 transition-colors duration-200"
         style="width:0%">
     </div>
-  
+
     {% include "partials/header.html" %}
     <!-- Content Injection Point -->
     <main id="appLayout">
@@ -75,7 +87,7 @@
     </main>
     <!-- Footer -->
     {% include "_includes/footer.html" %}
-      {% include "partials/booking-modal.html" %}
+    {% include "partials/booking-modal.html" %}
     {% include 'partials/toast.html' %}
     <script src="{% static 'js/aos.js' %}"></script>
     <script>
@@ -88,7 +100,7 @@
 
     <script src="{% static 'js/gallery.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-   
+
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
