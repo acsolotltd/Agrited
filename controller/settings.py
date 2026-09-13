@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+from django.core.exceptions import ImproperlyConfigured
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -9,10 +10,12 @@ load_dotenv(env_path)
 SECRET_KEY = 'django-insecure-332iif*t7o32u)!-cwjgf02f2c)+f434p0dnb_fwft)48-+h%k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-env= os.environ
-if not bool(env.get("DEBUG")):
-    raise ImproperlyConfigured("CRITICAL: BREVO_API_KEY is completely missing from the environment!")
-DEBUG = bool(env.get("DEBUG"))
+env = os.environ
+DEBUG = int(env.get('DEBUG'))
+
+if not DEBUG:
+    raise ImproperlyConfigured("CRITICAL: DEBUG is completely missing from the environment!")
+
 
 ALLOWED_HOSTS = ["*", "0.0.0.0", "agrited.pythonanywhere.com"]
 
@@ -171,7 +174,7 @@ HUEY = {
     # Options to pass into the consumer when running ``manage.py run_huey``
     #'consumer_options': {'workers': 4,  'worker_type': 'thread'},
 }
-from django.core.exceptions import ImproperlyConfigured
+
 
 BREVO_API_KEY = env.get('BREVO_API_KEY')
 if not BREVO_API_KEY:
