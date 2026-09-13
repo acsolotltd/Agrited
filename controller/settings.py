@@ -6,17 +6,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 env_path = os.path.join(BASE_DIR, '.env')
 load_dotenv(env_path)
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-332iif*t7o32u)!-cwjgf02f2c)+f434p0dnb_fwft)48-+h%k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = not True
+env= os.environ
+DEBUG = bool(env.get("DEBUG"))
 
 ALLOWED_HOSTS = ["*", "0.0.0.0", "agrited.pythonanywhere.com"]
-
 
 # Application definition
 
@@ -175,7 +171,7 @@ HUEY = {
 }
 from django.core.exceptions import ImproperlyConfigured
 
-BREVO_API_KEY = os.environ.get('BREVO_API_KEY')
+BREVO_API_KEY = env.get('BREVO_API_KEY')
 if not BREVO_API_KEY:
     raise ImproperlyConfigured("CRITICAL: BREVO_API_KEY is completely missing from the environment!")
 MAILERS = {

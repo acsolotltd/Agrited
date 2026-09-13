@@ -1,0 +1,99 @@
+<!-- templates/emails/contact_notification.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>New Website Inquiry - Agrited</title>
+    <!-- CSS in the head is for modern clients, but we inline critical styles below -->
+    <style>
+        /* Email client resets */
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; }
+        body { margin: 0; padding: 0; width: 100% !important; background-color: #f4f7f6; }
+        
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 600px) {
+            .email-container { width: 100% !important; margin: auto !important; }
+            .content-padding { padding: 20px !important; }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f7f6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; -webkit-font-smoothing: antialiased;">
+    
+    <!-- PREHEADER TEXT (Invisible in email body, visible in inbox preview) -->
+    <div style="display: none; font-size: 1px; color: #f4f7f6; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+        New message from {{ name }} regarding: {{ subject }}
+    </div>
+
+    <!-- MAIN EMAIL CONTAINER -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f4f7f6; padding: 40px 20px;">
+        <tr>
+            <td align="center">
+                <!-- WRAPPER (Max Width 600px) -->
+                <table border="0" cellpadding="0" cellspacing="0" class="email-container" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
+                    
+                    <!-- HEADER SECTOR (Agrited Green) -->
+                    <tr>
+                        <td style="background-color: #166534; padding: 30px 40px; text-align: left;">
+                            <h2 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 600;">Website Inquiry</h2>
+                            <p style="margin: 5px 0 0 0; color: #86efac; font-size: 14px;">Agrited Online Contact Form</p>
+                        </td>
+                    </tr>
+
+                    <!-- METADATA SECTOR -->
+                    <tr>
+                        <td class="content-padding" style="padding: 40px 40px 20px 40px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td style="padding-bottom: 12px; border-bottom: 1px solid #e2e8f0;">
+                                        <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; font-weight: 700; display: block; margin-bottom: 4px;">From</span>
+                                        <span style="font-size: 16px; color: #1e293b; font-weight: 600;">{{ name }}</span> 
+                                        <a href="mailto:{{ email }}" style="font-size: 14px; color: #2563eb; text-decoration: none;">({{ email }})</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-top: 12px; padding-bottom: 24px;">
+                                        <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; font-weight: 700; display: block; margin-bottom: 4px;">Subject</span>
+                                        <span style="font-size: 16px; color: #1e293b; font-weight: 500;">{{ subject }}</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- MESSAGE BODY SECTOR -->
+                    <tr>
+                        <td class="content-padding" style="padding: 0 40px 30px 40px;">
+                            <span style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #64748b; font-weight: 700; display: block; margin-bottom: 10px;">Message</span>
+                            <div style="background-color: #f8fafc; border-left: 4px solid #166534; padding: 20px; color: #334155; font-size: 15px; line-height: 1.6; border-radius: 0 4px 4px 0;">
+                                {{ message|linebreaksbr }}
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- ACTION SECTOR -->
+                    <tr>
+                        <td class="content-padding" style="padding: 0 40px 40px 40px;">
+                            <a href="mailto:{{ email }}?subject=Re: {{ subject|urlencode }}" style="background-color: #166534; color: #ffffff; padding: 12px 24px; text-decoration: none; font-size: 15px; font-weight: 600; border-radius: 6px; display: inline-block;">Reply to {{ name }}</a>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <!-- FOOTER SECTOR -->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                    <tr>
+                        <td style="padding: 20px 0; text-align: center; color: #94a3b8; font-size: 12px;">
+                            <p style="margin: 0;">This is an automated notification from the Agrited website system.</p>
+                            <p style="margin: 5px 0 0 0;">Please do not forward this email outside the organization.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
