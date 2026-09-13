@@ -10,6 +10,8 @@ SECRET_KEY = 'django-insecure-332iif*t7o32u)!-cwjgf02f2c)+f434p0dnb_fwft)48-+h%k
 
 # SECURITY WARNING: don't run with debug turned on in production!
 env= os.environ
+if not bool(env.get("DEBUG")):
+    raise ImproperlyConfigured("CRITICAL: BREVO_API_KEY is completely missing from the environment!")
 DEBUG = bool(env.get("DEBUG"))
 
 ALLOWED_HOSTS = ["*", "0.0.0.0", "agrited.pythonanywhere.com"]
