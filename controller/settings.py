@@ -11,11 +11,7 @@ SECRET_KEY = 'django-insecure-332iif*t7o32u)!-cwjgf02f2c)+f434p0dnb_fwft)48-+h%k
 
 # SECURITY WARNING: don't run with debug turned on in production!
 env = os.environ
-DEBUG = int(env.get('DEBUG'))
-
-if not DEBUG:
-    raise ImproperlyConfigured("CRITICAL: DEBUG is completely missing from the environment!")
-
+DEBUG = not True
 
 ALLOWED_HOSTS = ["*", "0.0.0.0", "agrited.pythonanywhere.com"]
 
@@ -195,3 +191,8 @@ ANYMAIL = {
 ANYMAIL_BREVO_API_KEY=BREVO_API_KEY,
 DEFAULT_FROM_EMAIL="agesxpat@gmail.com"
 SERVER_EMAIL = "errors@agrited.net"
+
+
+LOGIN_URL = '/auth/#login'
+ACCOUNT_SIGNUP_REDIRECT_URL = '/auth/#login'  # Where users go after signing up
+LOGIN_REDIRECT_URL = '/dashboard/'    

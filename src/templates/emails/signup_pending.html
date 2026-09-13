@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>Registration Received - Agrited</title>
+    <style>
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; }
+        body { margin: 0; padding: 0; width: 100% !important; background-color: #f4f7f6; }
+        
+        @media screen and (max-width: 600px) {
+            .email-container { width: 100% !important; margin: auto !important; }
+            .content-padding { padding: 20px !important; }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f7f6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+    
+    <!-- PREHEADER TEXT -->
+    <div style="display: none; font-size: 1px; color: #f4f7f6; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+        Your Agrited account registration has been received and is pending administrative approval.
+    </div>
+
+    <!-- MAIN EMAIL CONTAINER -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f4f7f6; padding: 40px 20px;">
+        <tr>
+            <td align="center">
+                <table border="0" cellpadding="0" cellspacing="0" class="email-container" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
+                    
+                    <!-- HEADER SECTOR -->
+                    <tr>
+                        <td style="background-color: #166534; padding: 30px 40px; text-align: center;">
+                            <h2 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 600;">Welcome to Agrited</h2>
+                        </td>
+                    </tr>
+
+                    <!-- MESSAGE BODY SECTOR -->
+                    <tr>
+                        <td class="content-padding" style="padding: 40px 40px 20px 40px;">
+                            <p style="margin: 0 0 20px 0; font-size: 16px; color: #334155; line-height: 1.6;">
+                                Hello {{ name|default:"there" }},
+                            </p>
+                            <p style="margin: 0 0 20px 0; font-size: 16px; color: #334155; line-height: 1.6;">
+                                Thank you for registering an account with Agrited. We have successfully received your information. 
+                            </p>
+                            
+                            <!-- HIGHLIGHT BOX FOR THE CORE MESSAGE -->
+                            <div style="background-color: #fef3c7; border-left: 4px solid #d97706; padding: 16px 20px; border-radius: 0 4px 4px 0; margin-bottom: 24px;">
+                                <p style="margin: 0; font-size: 15px; color: #92400e; line-height: 1.5; font-weight: 500;">
+                                    <strong>Status: Pending Approval</strong><br>
+                                    To maintain the security of our platform, all new accounts require administrative review before activation.
+                                </p>
+                            </div>
+
+                            <p style="margin: 0 0 20px 0; font-size: 16px; color: #334155; line-height: 1.6;">
+                                Our team will review your registration shortly. You will receive another email notifying you as soon as your account has been approved and is ready to use.
+                            </p>
+                            <p style="margin: 0; font-size: 16px; color: #334155; line-height: 1.6;">
+                                If you need immediate assistance, please reply directly to this email.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- SIGNATURE SECTOR -->
+                    <tr>
+                        <td class="content-padding" style="padding: 0 40px 40px 40px;">
+                            <p style="margin: 0; font-size: 16px; color: #64748b; line-height: 1.6;">
+                                Best regards,<br>
+                                <strong>The Agrited Team</strong>
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <!-- FOOTER SECTOR -->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                    <tr>
+                        <td style="padding: 20px 0; text-align: center; color: #94a3b8; font-size: 12px;">
+                            <p style="margin: 0;">&copy; {% now "Y" %} Agrited. All rights reserved.</p>
+                            <p style="margin: 5px 0 0 0;">This email was sent to {{ email }}.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

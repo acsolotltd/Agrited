@@ -2,8 +2,30 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.http import HttpResponse
 from django.views.decorators.http import require_POST, require_GET
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.conf import settings
 
 User = get_user_model()
+def send_pending_approval_email(user_name, user_email):
+    subject = "Account Pending Approval - Agrited"
+    context = {'name': user_name, 'email': user_email}
+    
+    # Fallback plain text
+    text_content = f"Hello {user_name},\n\nThank you for registering. Your account requires administrative approval before activation. We will notify you once you are approved."
+    
+    # Render the rich HTML
+    html_content = render_to_string('emails/signup_pending.html', context)
+    
+    email_msg = EmailMultiAlternatives(
+        subject=subject,
+        body=text_content,
+        from_email=settings.DEFAULT_FROM_EMAIL,
+        to=[user_email], 
+    )
+    email_msg.attach_alternative(html_content, "text/html")
+    email_msg.send(fail_silently=False)
+
 
 
 def _render_toast(request, message, level="error", form_id=""):
@@ -51,7 +73,7 @@ def htmx_signup(request):
         phone_number=phone_number,
         is_active=False
     )
-
+    send_pending_approval_email(full_name, email)
     return _render_toast(
         request,
         "Account created! Registration is pending administrator approval.",
