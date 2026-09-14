@@ -9,7 +9,7 @@ def submit_booking(request):
     full_name = request.POST.get('full_name', '').strip()
     product = request.POST.get('product', '').strip()
     quantity = request.POST.get('quantity', '').strip()
-    phonev= request.POST.get('phone', '').strip()
+    phone= request.POST.get('phone', '').strip()
     notes =  request.POST.get('notes', '').strip()
     email = request.POST.get('email', '').strip()
     phone = request.POST.get('phone', '').strip()

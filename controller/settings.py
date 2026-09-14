@@ -2,16 +2,14 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 from django.core.exceptions import ImproperlyConfigured
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env_path = os.path.join(BASE_DIR, '.env')
 load_dotenv(env_path)
 SECRET_KEY = 'django-insecure-332iif*t7o32u)!-cwjgf02f2c)+f434p0dnb_fwft)48-+h%k'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 env = os.environ
-DEBUG = not True
+DEBUG = True
 
 ALLOWED_HOSTS = ["*", "0.0.0.0", "agrited.pythonanywhere.com"]
 

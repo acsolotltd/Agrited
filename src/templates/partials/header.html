@@ -315,7 +315,10 @@
                     <!-- Home -->
                     <li>
                         <a
-                            href="/#home"
+                            hx-post="{% url 'home' %}"
+                            hx-target="#appLayout"
+                            hx-swap="innerHTML"
+                            hx-push-url="true"
                             @click="activeSection = 'home'; document.title = 'Agrited | Welcome'"
                             class="transition-colors pb-1 text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2"
                             :class="activeSection === 'home' ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 border-b-2' : 'hover:text-emerald-600 dark:hover:text-emerald-400 border-transparent'"
@@ -781,7 +784,10 @@
                         ================================================== -->
 
                         <a
-                            href="{% url 'auth' %}?next=/dashboard/#register"
+                            hx-post="{% url 'auth' %}?next=/dashboard/#register"
+                            hx-target="#appLayout"
+                            hx-swap="innerHTML"
+                            hx-push-url="true"
                             class="inline-flex items-center justify-center rounded-full border border-slate-200 px-5 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:border-slate-700 dark:text-slate-200 dark:hover:border-emerald-500/30 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-400"
                         >
                             Sign Up
@@ -1020,7 +1026,10 @@
 
                 <li>
                     <a
-                        href="/#home"
+                        hx-post="{% url 'home' %}"
+                        hx-swap="innerHTML"
+                        hx-target="#appLayout"
+                        hx-push-url="true"
                         @click="activeSection = 'home';document.title='Agrited | Welcome'"
                         class="block rounded-xl px-4 py-3.5 text-sm font-medium transition"
                         :class="activeSection === 'home'

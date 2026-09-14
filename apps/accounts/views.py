@@ -54,16 +54,32 @@ def htmx_signup(request):
 
     # Validations
     if not all([email, full_name, password, confirm_password]):
-        return _render_toast(request, "Please fill in all required fields.", "error")
+        response = HttpResponse("", status=200) 
+        response['HX-Trigger'] = json.dumps({
+                "show-toast": {"message": "Please fill in all required fields.", "type": "error"}
+        })
+        return response
 
     if password != confirm_password:
-        return _render_toast(request, "Passwords do not match.", "error")
+        response = HttpResponse("", status=200) 
+        response['HX-Trigger'] = json.dumps({
+                "show-toast": {"message": "Passwords do not match.", "type": "error"}
+        })
+        return response
 
     if len(password) < 8:
-        return _render_toast(request, "Password must be at least 8 characters long.", "error")
+        response = HttpResponse("", status=200) 
+        response['HX-Trigger'] = json.dumps({
+                "show-toast": {"message": "Password must be at least 8 characters long.", "type": "error"}
+        })
+        return response
 
     if User.objects.filter(email=email).exists():
-        return _render_toast(request, "An account with this email already exists.", "warning")
+        response = HttpResponse("", status=200) 
+        response['HX-Trigger'] = json.dumps({
+                "show-toast": {"message": "An account with this email already exists.", "type": "error"}
+        })
+        return response
 
     # Save user with pending status
     User.objects.create_user(
@@ -74,13 +90,13 @@ def htmx_signup(request):
         is_active=False
     )
     send_pending_approval_email(full_name, email)
-    return _render_toast(
-        request,
-        "Account created! Registration is pending administrator approval.",
-        level="success",
-        form_id="signup-form"
-    )
-
+    
+    response = HttpResponse("", status=200) 
+    response['HX-Trigger'] = json.dumps({
+                "show-toast": {"message": "Account created! Registration is pending administrator approval.", "type": "success"}
+        })
+    #response["HX-Redirect"] = "/auth/#login"
+    return response
 
 @require_POST
 def htmx_login(request):
