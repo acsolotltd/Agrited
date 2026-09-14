@@ -5,6 +5,7 @@ from django.views.decorators.http import require_POST, require_GET
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.conf import settings
+import json
 
 User = get_user_model()
 def send_pending_approval_email(user_name, user_email):
@@ -105,30 +106,45 @@ def htmx_login(request):
     password = request.POST.get("password", "")
 
     if not email or not password:
-        return _render_toast(request, "Please enter both email and password.", "error")
+        response = HttpResponse("", status=200) 
+        response['HX-Trigger'] = json.dumps({
+                "show-toast": {"message": "Please enter both email and password.", "type": "error"}
+            })
+        return response
 
     try:
         user_obj = User.objects.get(email=email)
         if not user_obj.is_active:
-            return _render_toast(
-                request, 
-                "Account pending approval. You will receive access once approved.", 
-                "warning"
-            )
+            
+            response = HttpResponse("", status=200) 
+            response['HX-Trigger'] = json.dumps({
+                "show-toast": {"message": "Please enter both email and password.", "type": "error"}
+            })
+            return response
+            
     except User.DoesNotExist:
-        return _render_toast(request, "Invalid credentials. Please check your email and password.", "error")
-
+        
+        response = HttpResponse("", status=200) 
+        response['HX-Trigger'] = json.dumps({
+                "show-toast": {"message": "User doesn'nt exists.", "type": "error"}
+            })
+        return response
     # Authenticate credentials
     user = authenticate(request, email=email, password=password)
 
     if user is not None:
         login(request, user)
-        response = _render_toast(request, "Login successful! Redirecting...", "success")
-        response["HX-Redirect"] = "/user/dashboard/"
+        response = HttpResponse("", status=200) 
+        response['HX-Trigger'] = json.dumps({
+                "show-toast": {"message": "Login successful! Redirecting...", "type":"success"}
+            })
+        #response["HX-Redirect"] = "/user/dashboard/"
         return response
-
-    return _render_toast(request, "Invalid credentials. Please check your email and password.", "error")
-
+    response = HttpResponse("", status=200) 
+    response['HX-Trigger'] = json.dumps({
+                "show-toast": {"message": "Invalid credentials. Please check your email and password.", "type":"success"}
+            })
+    return response
 
 @require_POST
 def htmx_logout(request):
