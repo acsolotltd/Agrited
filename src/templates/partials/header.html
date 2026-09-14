@@ -1185,7 +1185,6 @@
                         Sign Up
                     </a>
 
-
                     <!-- Booking -->
                     <a
                           @click="{% if request.user.is_authenticated %} $dispatch('open-booking', 'Headquarters Dispatch'){% else %}null {% endif %}" 
