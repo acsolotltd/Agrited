@@ -1,5 +1,22 @@
+
+@import url("https://googleapis.com");
+@layer base {
+  :root {
+    /* Safe fallback estimate based on a standard desktop header */
+    --header-height: 80px; 
+  };
+   html {
+    scroll-behavior: smooth;
+  }
+}
+
 @import "tailwindcss";
 @plugin "daisyui";
+@theme {
+  --font-montserrat-alt: "Montserrat Alternates", sans-serif;
+}
+
+
 
 /**
   * A catch-all path to Django template files, JavaScript, and Python files
@@ -11,24 +28,16 @@
 @source "../../../**/*.{html,py,js}";
 
 
-@import "tailwindcss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 @custom-variant dark (&:where(.dark, .dark *));
 /* Components */
 @import "./style.css";
 @import "./counts.css";
-@layer base {
-  :root {
-    /* Safe fallback estimate based on a standard desktop header */
-    --header-height: 80px; 
-  };
-   html {
-    scroll-behavior: smooth;
-  }
-}
+
 
 
 
