@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
+from django.core.mail import send_mail
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -39,3 +40,19 @@ class EmailBasedUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+    
+    def save(self, *args, **kwargs):
+        if self.pk:
+            old_instance =   EmailBasedUser.objects.get(pk=self.pk)
+            if old_instance.is_active != self.is_active: # and self.is_active == is_active:
+                self.send_status_email(self.email)
+        return super().save(*args, **kwargs)
+
+    def send_status_email(self, email):
+        send_mail(
+                subject="Registration approved",
+                message=f"The task has been marked as completed.",
+                from_email="agesxpat@gmail.com",
+                recipient_list=[email],
+                fail_silently=False,
+            )
