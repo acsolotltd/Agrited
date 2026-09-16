@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>Account Approved - Agrited</title>
+    <style>
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        body { margin: 0; padding: 0; width: 100% !important; background-color: #f4f7f6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        @media screen and (max-width: 600px) {
+            .email-container { width: 100% !important; margin: auto !important; }
+            .content-padding { padding: 20px !important; }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f7f6;">
+    
+    <!-- PREHEADER TEXT -->
+    <div style="display: none; font-size: 1px; color: #f4f7f6; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
+        Great news! Your Agrited account has been approved. You can now log in.
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f4f7f6; padding: 40px 20px;">
+        <tr>
+            <td align="center">
+                <table border="0" cellpadding="0" cellspacing="0" class="email-container" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
+                    
+                    <!-- HEADER -->
+                    <tr>
+                        <td style="background-color: #166534; padding: 30px 40px; text-align: center;">
+                            <h2 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 600;">Account Approved!</h2>
+                        </td>
+                    </tr>
+
+                    <!-- CONTENT -->
+                    <tr>
+                        <td class="content-padding" style="padding: 40px 40px 20px 40px;">
+                            <p style="margin: 0 0 20px 0; font-size: 16px; color: #334155; line-height: 1.6;">
+                                Hello {{ name|default:"there" }},
+                            </p>
+                            <p style="margin: 0 0 20px 0; font-size: 16px; color: #334155; line-height: 1.6;">
+                                Great news! An administrator has reviewed and approved your registration. Your account is now fully active.
+                            </p>
+                            
+                            <!-- SUCCESS HIGHLIGHT BOX -->
+                            <div style="background-color: #ecfdf5; border-left: 4px solid #059669; padding: 16px 20px; border-radius: 0 4px 4px 0; margin-bottom: 28px;">
+                                <p style="margin: 0; font-size: 15px; color: #065f46; line-height: 1.5; font-weight: 500;">
+                                    <strong>Status: Active</strong><br>
+                                    You can now access all portal features and tools.
+                                </p>
+                            </div>
+
+                            <!-- CTA BUTTON -->
+                            <div style="text-align: center; margin-bottom: 30px;">
+                                <a href="{{ login_url }}" style="background-color: #166534; color: #ffffff; padding: 14px 28px; text-decoration: none; font-size: 16px; font-weight: 600; border-radius: 6px; display: inline-block;">Log In to Your Account</a>
+                            </div>
+
+                            <p style="margin: 0; font-size: 14px; color: #64748b; line-height: 1.6;">
+                                If the button above doesn't work, copy and paste this link into your browser:<br>
+                                <a href="{{ login_url }}" style="color: #2563eb; text-decoration: underline; word-break: break-all;">{{ login_url }}</a>
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- SIGNATURE -->
+                    <tr>
+                        <td class="content-padding" style="padding: 0 40px 40px 40px;">
+                            <p style="margin: 0; font-size: 16px; color: #64748b; line-height: 1.6;">
+                                Welcome aboard,<br>
+                                <strong>The Agrited Team</strong>
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+
+                <!-- FOOTER -->
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px;">
+                    <tr>
+                        <td style="padding: 20px 0; text-align: center; color: #94a3b8; font-size: 12px;">
+                            <p style="margin: 0;">&copy; {% now "Y" %} Agrited. All rights reserved.</p>
+                            <p style="margin: 5px 0 0 0;">Sent to {{ email }}.</p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

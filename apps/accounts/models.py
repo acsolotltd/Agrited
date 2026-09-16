@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
+from apps.services.emails import send_account_approved_email
 from django.core.mail import send_mail
 
 class CustomUserManager(BaseUserManager):
@@ -45,7 +46,7 @@ class EmailBasedUser(AbstractBaseUser, PermissionsMixin):
         if self.pk:
             old_instance =   EmailBasedUser.objects.get(pk=self.pk)
             if old_instance.is_active != self.is_active: # and self.is_active == is_active:
-                self.send_status_email(self.email)
+                send_account_approved_email(self)
         return super().save(*args, **kwargs)
 
     def send_status_email(self, email):
