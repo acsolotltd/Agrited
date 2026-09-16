@@ -100,7 +100,12 @@
 
     <script src="{% static 'js/gallery.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-
+    <script> 
+    document.body.addEventListener('htmx:afterSwap', function(evt) {
+    // This forces HTMX to scan and activate links inside newly injected HTML
+    htmx.process(evt.detail.target);
+});
+</script>
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', () => {

@@ -203,7 +203,22 @@ def dashboard(request):
         'total_bookings': total_bookings,
         'active_bookings': active_bookings,
     }
-    return render(request, 'dashboard.html', context)
+    return render(request, 'dashboard/home.html', context)
+
+@login_required
+def booking_details(request):
+    bookings = request.user.bookingrequest_set.all().order_by('-created_at')
+    
+    total_bookings = bookings.count()
+    active_bookings = bookings.filter(status__in=['PENDING', 'CONFIRMED']).count()
+    
+    context = {
+        'bookings': bookings,
+        'total_bookings': total_bookings,
+        'active_bookings': active_bookings,
+    }
+    return render(request, 'dashboard/booking.html', context)
+
 
 @login_required
 @require_POST

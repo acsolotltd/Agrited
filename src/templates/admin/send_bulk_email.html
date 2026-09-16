@@ -1,0 +1,34 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<div style="max-width: 800px;">
+    <p>You are about to instantly send a bulk email to <strong>{{ subscribers.count }}</strong> active subscriber(s):</p>
+    
+    <ul style="max-height: 120px; overflow-y: auto; background: #f8f9fa; padding: 10px 25px; border: 1px solid #ccc; margin-bottom: 20px;">
+        {% for sub in subscribers %}
+            <li>{{ sub.email }}</li>
+        {% endfor %}
+    </ul>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        
+        <div class="form-row">
+            {{ form.as_p }}
+        </div>
+
+        {% for obj in queryset %}
+            <input type="hidden" name="{{ action_checkbox_name }}" value="{{ obj.pk }}" />
+        {% endfor %}
+
+        <input type="hidden" name="action" value="send_bulk_email_admin_action" />
+        <input type="hidden" name="apply" value="1" />
+
+        <div class="submit-row" style="margin-top: 20px;">
+            <!-- Changed button text here -->
+            <input type="submit" value="Send Email Blast Now" class="default" />
+            <a href="{{ cancel_url }}" class="button cancel-link">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
