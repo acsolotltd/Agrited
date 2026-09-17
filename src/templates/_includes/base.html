@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load static tailwind_tags django_htmx %}
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth [scrollbar-color:#009966_#fffff] light:[scrollbar-color:#009966_#fffff] dark:[scrollbar-color:#009966_#0f172a]" >
 
 <head>
     <meta charset="UTF-8">
@@ -38,38 +38,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <script>
-        document.addEventListener('alpine:init', () => {
-            Alpine.data('appLayout', () => ({
-                darkMode: document.documentElement.classList.contains('dark'),
-                toggleTheme() {
-                    this.darkMode = !this.darkMode;
-                    if (this.darkMode) {
-                        document.documentElement.classList.add('dark');
-                        localStorage.setItem('theme', 'dark');
-                        console.log("hinnnnn")
-                        document.getElementById('dynamic-theme-color').setAttribute('content', '#0f172a');
-                    } else {
-                        console.log("hinnnnn")
-                        document.documentElement.classList.remove('dark');
-                        localStorage.setItem('theme', 'light');
-                        document.getElementById('dynamic-theme-color').setAttribute('content', '#f8fafc');
-                    }
-                }
-            }));
-        });
-    </script>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/glightbox.min.css' %}">
     <!-- Alpine -->
     <script defer src="{% static 'js/alpine-cdn.min.js' %}"></script>
-
-    <!-- AOS -->
-    <link href="{% static 'css/aos.css' %}" rel="stylesheet">
     {% tailwind_css %}
     {% htmx_script %}
+    <script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('appLayout', () => ({
+            darkMode: document.documentElement.classList.contains('dark'),
+            
+            toggleTheme() {
+                this.darkMode = !this.darkMode;
+                
+                // Toggle html class & persist state
+                document.documentElement.classList.toggle('dark', this.darkMode);
+                localStorage.setItem('theme', this.darkMode ? 'dark' : 'light');
+                
+                // Safe update for meta theme color
+                const themeMeta = document.getElementById('dynamic-theme-color');
+                if (themeMeta) {
+                    themeMeta.setAttribute('content', this.darkMode ? '#0f172a' : '#f8fafc');
+                }
+            }
+        }));
+    });
+</script>
+    <!-- AOS -->
+    <link href="{% static 'css/aos.css' %}" rel="stylesheet">
 </head>
 
 <body class="bg-light text-slate-700 font-body" x-data="{ isBookingOpen: false }"

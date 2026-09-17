@@ -1,9 +1,3 @@
-/*
-==========================================
-Scroll Progress
-==========================================
-*/
-
 const progressBar = document.getElementById("progressBar");
 
 window.addEventListener("scroll", () => {
