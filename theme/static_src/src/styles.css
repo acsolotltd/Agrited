@@ -1,5 +1,4 @@
-
-@import url("https://googleapis.com");
+@import url("https://googleapis.com/css?family=Montserrat+Alternates&display=swap");
 @import "tailwindcss";
 @plugin "daisyui";
 
@@ -38,8 +37,6 @@
   --font-montserrat-alt: "Montserrat Alternates", sans-serif;
 }
 
-@import "tailwindcss";
-
 @utility scrollbar-custom {
   /* Standard styles */
   scrollbar-width: thin;
@@ -72,5 +69,46 @@
   }
   &::-webkit-scrollbar-thumb {
     background-color: #475569;
+  }
+}
+
+@layer base {
+  /* Scrollbar Theme Variables */
+  :root {
+    --sb-track: #f8fafc;
+    --sb-thumb: #94a3b8;
+    --sb-thumb-hover: #64748b;
+  }
+
+  .dark {
+    --sb-track: #0f172a;
+    --sb-thumb: #475569;
+    --sb-thumb-hover: #64748b;
+  }
+
+  /* Standard Firefox & modern syntax */
+  * {
+    scrollbar-color: var(--sb-thumb) var(--sb-track);
+    scrollbar-width: thin;
+  }
+
+  /* Webkit custom dimensions & border-radius */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--sb-track);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--sb-thumb-hover);
   }
 }

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 {% load static tailwind_tags django_htmx %}
-<html lang="en" class="scroll-smooth scrollbar-custom" >
+<html lang="en" class="scroll-smooth scrollbar-custom
+">
+  
 
 <head>
     <meta charset="UTF-8">
@@ -34,7 +36,7 @@
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}" />
     <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}" />
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Bebas-Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -81,7 +83,13 @@
 
     {% include "partials/header.html" %}
     <!-- Content Injection Point -->
-    <main id="appLayout">
+    <main id="appLayout" class="[scrollbar-width:thin]
+  [scrollbar-color:#009966_#f8fafc] dark:[scrollbar-color:##009966_#0f172a]
+  [*::-webkit-scrollbar]:w-2
+  [*::-webkit-scrollbar-track]:rounded-full
+  [*::-webkit-scrollbar-track]:bg-[#f8fafc] dark:[*::-webkit-scrollbar-track]:bg-[#0f172a]
+  [*::-webkit-scrollbar-thumb]:rounded-full
+  [*::-webkit-scrollbar-thumb]:bg-[#94a3b8] dark:[*::-webkit-scrollbar-thumb]:bg-[#475569]">
         {% block content %} {% endblock %}
     </main>
     <!-- Footer -->
