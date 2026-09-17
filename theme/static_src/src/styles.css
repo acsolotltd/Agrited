@@ -38,5 +38,39 @@
   --font-montserrat-alt: "Montserrat Alternates", sans-serif;
 }
 
+@import "tailwindcss";
 
+@utility scrollbar-custom {
+  /* Standard styles */
+  scrollbar-width: thin;
+  scrollbar-color: #009966 #f8fafc;
 
+  /* Webkit Sizing & Radius */
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #f8fafc;
+    border-radius: 9999px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #94a3b8;
+    border-radius: 9999px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #64748b;
+  }
+}
+
+/* Dark Mode Overrides */
+.dark .scrollbar-custom {
+  scrollbar-color: #009966 #0f172a;
+
+  &::-webkit-scrollbar-track {
+    background-color: #0f172a;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #475569;
+  }
+}
