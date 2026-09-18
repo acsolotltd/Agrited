@@ -203,26 +203,24 @@
                 <!-- =================================================
                      LOGO
                 ================================================== -->
-
                 <a href="/" class="group flex shrink-0 items-center gap-3 sm:gap-4" @click="activeSection = 'home'">
 
                     <img src="{% static 'img/logo_mini1.png' %}" alt="Agrited"
-                        class="h-9 w-9 object-contain sm:h-10 sm:w-10" onerror="this.style.display='none'">
+                        class="h-9 w-9 object-contain sm:h-10 sm:w-10 tracking-tight"
+                        onerror="this.style.display='none'">
 
                     <div>
                         <h1
-                            class="font-montserrat-alt text-[1.35rem] font-bold tracking-tight text-slate-900 transition lg:text-[1.75rem] dark:text-white">
+                            class="font-montserrat-alt text-[1.35rem] font-black tracking-tight text-slate-900 transition leading-none lg:text-[1.75rem] dark:text-white dark:text-white [-webkit-text-stroke:1.5px_#0f172a] dark:[-webkit-text-stroke:1.5px_#ffffff]">
                             AGRITED
                         </h1>
                         <p
-                            class="text-[9px] font-semibold uppercase tracking-[0.18em] text-emerald-600 sm:text-[10px] lg:text-xs dark:text-emerald-400">
+                            class="mt-0 pt-0 text-[9px] font-semibold uppercase tracking-[0.24em] text-emerald-600 sm:text-[10px] lg:text-xs dark:text-emerald-400">
                             Keep Breeding
                         </p>
 
                     </div>
-
                 </a>
-
 
                 <!-- =================================================
                      DESKTOP NAVIGATION
@@ -635,22 +633,23 @@
         class="fixed right-0 top-0 z-50 flex h-screen w-full max-w-sm translate-x-full flex-col overflow-y-auto bg-white shadow-2xl transition-transform duration-300 peer-checked:translate-x-0 dark:bg-slate-900 lg:hidden">
         <!-- Drawer Header -->
         <div class="flex items-center justify-between border-b border-slate-100 px-5 py-5 dark:border-slate-800">
-            <a href="/" class="flex items-center gap-3">
+       
+            <a href="/" class="group flex shrink-0 items-center gap-3 sm:gap-4" @click="activeSection = 'home'">
 
-                <img src="{% static 'img/logo_mini1.png' %}" alt="Agrited" class="h-10 w-10 object-contain">
+                <img src="{% static 'img/logo_mini1.png' %}" alt="Agrited"
+                    class="h-9 w-9 object-contain sm:h-10 sm:w-10 tracking-tight" onerror="this.style.display='none'">
 
                 <div>
-
-                    <h2 class="font-bebas text-lg font-bold text-slate-900 dark:text-white">
+                    <h1
+                        class="font-montserrat-alt text-[1.35rem] font-black tracking-tight text-slate-900 transition leading-none lg:text-[1.75rem] dark:text-white dark:text-white [-webkit-text-stroke:1.5px_#0f172a] dark:[-webkit-text-stroke:1.5px_#ffffff]">
                         AGRITED
-                    </h2>
-
-                    <p class="text-[9px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                    </h1>
+                    <p
+                        class="mt-0 pt-0 text-[9px] font-semibold uppercase tracking-[0.24em] text-emerald-600 sm:text-[10px] lg:text-xs dark:text-emerald-400">
                         Keep Breeding
                     </p>
 
                 </div>
-
             </a>
 
             <label for="mobile-menu-toggle"

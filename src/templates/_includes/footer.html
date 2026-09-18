@@ -15,12 +15,24 @@
             
             <!-- Brand & Newsletter Column (Spans 4 columns on large screens) -->
             <div class="lg:col-span-4 lg:pr-8">
-                <!-- Brand Logo (Replace SVG with actual Agrited Logo) -->
-                <a href="/" class="inline-flex items-center gap-2 mb-6 group">
-                     <img src="{% static 'img/logo_mini1.png' %}" alt="Agrited" class="w-8 h-8 object-contain" onerror="this.style.display='none'">
-                       
-                    <span class="font-montserrat-alt text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">AGRITED</span>
+                <a href="/" class="group flex shrink-0 items-center gap-3 sm:gap-4" @click="activeSection = 'home'">
+
+                    <img src="{% static 'img/logo_mini1.png' %}" alt="Agrited"
+                        class="h-9 w-9 object-contain sm:h-10 sm:w-10 tracking-tight" onerror="this.style.display='none'">
+
+                    <div>
+                        <h1
+                            class="font-montserrat-alt text-[1.35rem] font-black tracking-tight text-slate-900 transition leading-none lg:text-[1.75rem] dark:text-white dark:text-white [-webkit-text-stroke:1.5px_#0f172a] dark:[-webkit-text-stroke:1.5px_#ffffff]">
+                            AGRITED
+                        </h1>
+                        <p
+                            class="mt-0 pt-0 text-[9px] font-semibold uppercase tracking-[0.24em] text-emerald-600 sm:text-[10px] lg:text-xs dark:text-emerald-400">
+                            Keep Breeding
+                        </p>
+
+                    </div>
                 </a>
+
                 
                 <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
                     Pioneering excellence in Nigeria's agricultural sector. Delivering premium Day Old Chicks, high-quality premixes, and state-of-the-art farm equipment to empower farmers nationwide.
