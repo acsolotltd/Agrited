@@ -1,0 +1,54 @@
+<form id="job-application-form"
+      hx-post="{% url 'job_apply' job.pk %}"
+      hx-target="#application-container"
+      hx-swap="innerHTML"
+      hx-encoding="multipart/form-data"
+      class="space-y-4">
+    {% csrf_token %}
+
+    {% if form.errors %}
+        <div class="p-3 bg-red-100 text-red-700 rounded text-sm">
+            Please correct the errors below and submit again.
+        </div>
+    {% endif %}
+
+    <div>
+        <label class="block text-sm font-medium text-gray-700">First Name</label>
+        {{ form.first_name }}
+        {% if form.first_name.errors %}<p class="text-red-500 text-xs mt-1">{{ form.first_name.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div>
+        <label class="block text-sm font-medium text-gray-700">Last Name</label>
+        {{ form.last_name }}
+        {% if form.last_name.errors %}<p class="text-red-500 text-xs mt-1">{{ form.last_name.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div>
+        <label class="block text-sm font-medium text-gray-700">Email Address</label>
+        {{ form.email }}
+        {% if form.email.errors %}<p class="text-red-500 text-xs mt-1">{{ form.email.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div>
+        <label class="block text-sm font-medium text-gray-700">Phone Number</label>
+        {{ form.phone }}
+        {% if form.phone.errors %}<p class="text-red-500 text-xs mt-1">{{ form.phone.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div>
+        <label class="block text-sm font-medium text-gray-700">Upload CV (PDF/DOCX)</label>
+        {{ form.cv }}
+        {% if form.cv.errors %}<p class="text-red-500 text-xs mt-1">{{ form.cv.errors.0 }}</p>{% endif %}
+    </div>
+
+    <div>
+        <label class="block text-sm font-medium text-gray-700">Cover Letter (Optional)</label>
+        {{ form.cover_letter }}
+    </div>
+
+    <button type="submit" class="w-full py-2.5 bg-green-700 text-white rounded-md font-semibold hover:bg-green-800 transition-colors">
+        <span class="htmx-indicator hidden">Submitting...</span>
+        <span>Submit Application</span>
+    </button>
+</form>

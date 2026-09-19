@@ -1,0 +1,28 @@
+{% extends request.htmx|yesno:"_includes/base_ajax.html,_includes/base.html" %}
+
+{% block content %}
+{% include "_includes/page-header.html" with headerImage="/static/img/headers/about-page.jpg" title="Careers" pageLoc="about" headerHighlight="Diversity & Inclusion" headerSubtitle="From our headquarters in Lagos to our world-class facilities in Oyo and Ogun states, we are setting the gold standard for breeding and biosecurity in West Africa."  headerTitle="Diversity & Inclusion" %}
+<div class="max-w-4xl mx-auto py-8 px-4">
+    <div class="space-y-6">
+        {% for job in jobs %}
+            <div class="p-6 border rounded-lg shadow-sm bg-white hover:shadow-md transition-shadow">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h2 class="text-xl font-semibold text-gray-900">{{ job.title }}</h2>
+                        <span class="inline-block bg-green-100 text-green-800 text-xs px-2.5 py-0.5 rounded font-medium mt-1">
+                            {{ job.salary }}
+                        </span>
+                    </div>
+                    <a href="{% url 'job_apply' job.pk %}" 
+                       class="px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800 font-medium">
+                        Apply Now
+                    </a>
+                </div>
+                <p class="mt-4 text-gray-600 leading-relaxed">{{ job.description|truncatewords:40 }}</p>
+            </div>
+        {% empty %}
+            <p class="text-gray-500">No active job listings at the moment. Please check back later!</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

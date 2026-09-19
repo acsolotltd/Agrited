@@ -1,0 +1,12 @@
+<div class="text-center py-8">
+    <div class="inline-flex items-center justify-center w-12 h-12 bg-green-100 text-green-600 rounded-full mb-4">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+    </div>
+    <h3 class="text-xl font-semibold text-gray-900">Application Submitted!</h3>
+    <p class="text-gray-600 mt-2">Thank you for applying for <strong>{{ job.title }}</strong>. Our HR team has received your details and CV, and will reach out if your application is shortlisted.</p>
+    <div class="mt-6">
+        <a href="{% url 'job_list' %}" class="text-green-700 hover:underline text-sm font-medium">&larr; Return to Open Roles</a>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+{% extends request.htmx|yesno:"_includes/base_ajax.html,_includes/base.html" %}
+
+{% block content %}
+{% include "_includes/page-header.html" with headerImage="/static/img/headers/about-page.jpg" title="Careers" pageLoc="about" headerHighlight="Diversity & Inclusion" headerSubtitle="From our headquarters in Lagos to our world-class facilities in Oyo and Ogun states, we are setting the gold standard for breeding and biosecurity in West Africa."  headerTitle="Diversity & Inclusion" %}
+
+<div class="max-w-2xl mx-auto py-8 px-4">
+    <a href="{% url 'job_list' %}" class="text-green-700 hover:underline text-sm mb-4 inline-block">&larr; Back to all openings</a>
+    
+    <div class="bg-white border rounded-lg p-6 shadow-sm mb-6">
+        <h1 class="text-2xl font-bold text-gray-900">Apply for {{ job.title }}</h1>
+        <p class="text-gray-600 mt-1"><strong>Salary:</strong> {{ job.salary }}</p>
+        <div class="mt-4 text-sm text-gray-700 whitespace-pre-line border-t pt-4">
+            {{ job.description }}
+        </div>
+    </div>
+
+    <!-- Container swapped by HTMX upon submission -->
+    <div id="application-container" class="bg-white border rounded-lg p-6 shadow-sm">
+        {% include "careers/application_form_wrapper.html" %}
+    </div>
+</div>
+{% endblock %}

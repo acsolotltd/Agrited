@@ -31,7 +31,8 @@ INSTALLED_APPS = [
     "apps.accounts.apps.AccountsConfig",
     "apps.orders.apps.OrdersConfig",
     "apps.subscribe.apps.SubscribeConfig",
-     'huey.contrib.djhuey',
+    "apps.jobs.apps.JobsConfig",
+    # 'huey.contrib.djhuey',
 ]
 
 MIDDLEWARE = [
