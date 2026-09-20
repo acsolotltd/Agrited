@@ -363,7 +363,11 @@
                                 Booking
                             </a>
 
-                            <a href="/careers/"
+                            <a hx-get="{% url 'job_list' %}"
+                             hx-target="#appLayout"
+                            hx-push-url="true"
+                            hx-swap="innerHTML"
+                            href="#"
                                 class="block px-4 py-2.5 text-sm text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-600 dark:text-slate-200 dark:hover:bg-emerald-900/40 dark:hover:text-emerald-400">
                                 Careers
                             </a>

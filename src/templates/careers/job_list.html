@@ -1,73 +1,85 @@
 {% extends request.htmx|yesno:"_includes/base_ajax.html,_includes/base.html" %}
 
 {% block content %}
-{% include "_includes/page-header.html" with headerImage="/static/img/headers/about-page.jpg" title="Careers" pageLoc="careers" headerHighlight="Team" headerSubtitle="We're looking for passionate people to join us. Browse our open positions below and find your next big opportunity."  headerTitle="Join Our" %}
+{% include "_includes/page-header.html" with headerImage="/static/img/headers/about-page.jpg" title="Careers" pageLoc="careers" headerHighlight="Team" headerSubtitle="We're looking for passionate people to join us. Browse our open positions below and find your next big opportunity." headerTitle="Join Our" %}
 
 <main class="bg-slate-50 min-h-screen py-12 sm:py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <!-- Job Listings Container -->
         <div class="space-y-4 sm:space-y-6">
             {% for job in jobs %}
-                <article class="group relative bg-white border border-slate-200/80 rounded-xl p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-emerald-500/40 transition-all duration-200">
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                        
-                        <!-- Job Info & Metadata -->
-                        <div class="space-y-2">
-                            <div class="flex flex-wrap items-center gap-2.5">
-                                <h2 class="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors tracking-tight">
-                                    {{ job.title }}
-                                </h2>
-                                
-                                {% if job.salary %}
-                                <!-- Salary Badge -->
-                                <span class="inline-flex items-center gap-1 bg-emerald-50 text-emerald-800 text-xs font-semibold px-2.5 py-1 rounded-full border border-emerald-200/60">
-                                    <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                    {{ job.salary }}
-                                </span>
-                                {% endif %}
-                            </div>
+            <article
+                class="group relative bg-white border border-slate-200/80 rounded-xl p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-emerald-500/40 transition-all duration-200">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 
-                            <p class="text-xs text-slate-400 font-medium flex items-center gap-1">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <!-- Job Info & Metadata -->
+                    <div class="space-y-2">
+                        <div class="flex flex-wrap items-center gap-2.5">
+                            <h2
+                                class="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-emerald-700 transition-colors tracking-tight">
+                                {{ job.title }}
+                            </h2>
+
+                            {% if job.salary %}
+                            <!-- Salary Badge -->
+                            <span
+                                class="inline-flex items-center gap-1 bg-emerald-50 text-emerald-800 text-xs font-semibold px-2.5 py-1 rounded-full border border-emerald-200/60">
+                                <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                Posted {{ job.created_at|timesince }} ago
-                            </p>
+                                {{ job.salary }}
+                            </span>
+                            {% endif %}
                         </div>
 
-                        <!-- Apply Action Button -->
-                        <div class="shrink-0 pt-2 sm:pt-0">
-                            <a href="{% url 'job_apply' job.pk %}" 
-                               class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-5 py-2.5 bg-emerald-700 text-white text-sm font-semibold rounded-lg hover:bg-emerald-800 active:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 shadow-sm transition-all duration-150">
-                                <span>Apply Now</span>
-                                <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </a>
-                        </div>
+                        <p class="text-xs text-slate-400 font-medium flex items-center gap-1">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Posted {{ job.created_at|timesince }} ago
+                        </p>
                     </div>
 
-                    <!-- Job Description Snippet -->
-                    <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed">
-                        {{ job.description|truncatewords:35 }}
-                    </p>
-                </article>
-            {% empty %}
-                <!-- Empty State -->
-                <div class="text-center py-16 px-4 bg-white border border-dashed border-slate-300 rounded-2xl shadow-sm">
-                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-slate-100 text-slate-400 mb-4">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
+                    <!-- Apply Action Button -->
+                    <div class="shrink-0 pt-2 sm:pt-0">
+                        <a hx-get="{% url 'job_apply' job.pk %}" hx-target="#appLayout" hx-push-url="true"
+                            hx-swap="innerHTML" href="#"
+                            class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-5 py-2.5 bg-emerald-700 text-white text-sm font-semibold rounded-lg hover:bg-emerald-800 active:bg-emerald-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 shadow-sm transition-all duration-150">
+                            <span>Apply Now</span>
+                            <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
                     </div>
-                    <h3 class="text-lg font-semibold text-slate-900">No Open Positions</h3>
-                    <p class="text-slate-500 mt-2 max-w-sm mx-auto leading-relaxed">
-                        We don't have any active openings right now, but we are always looking for great talent. Check back soon!
-                    </p>
                 </div>
+
+                <!-- Job Description Snippet -->
+                <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed">
+                    {{ job.description|truncatewords:35 }}
+                </p>
+            </article>
+            {% empty %}
+            <!-- Empty State -->
+            <div class="text-center py-16 px-4 bg-white border border-dashed border-slate-300 rounded-2xl shadow-sm">
+                <div
+                    class="inline-flex items-center justify-center w-14 h-14 rounded-full bg-slate-100 text-slate-400 mb-4">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-slate-900">No Open Positions</h3>
+                <p class="text-slate-500 mt-2 max-w-sm mx-auto leading-relaxed">
+                    We don't have any active openings right now, but we are always looking for great talent. Check back
+                    soon!
+                </p>
+            </div>
             {% endfor %}
         </div>
     </div>

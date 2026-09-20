@@ -6,7 +6,13 @@
 
 <main class="max-w-3xl mx-auto py-10 px-4 sm:px-6">
     <!-- Back Navigation -->
-    <a href="{% url 'job_list' %}" class="group inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-emerald-700 transition-colors mb-8">
+    <a 
+    hx-get="{% url 'job_list' %}"
+    hx-target="#appLayout"
+    hx-push-url="true"
+    hx-swap="innerHTML"
+    href="#"
+    class="group inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-emerald-700 transition-colors mb-8">
         <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
