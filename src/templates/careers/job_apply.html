@@ -1,22 +1,43 @@
 {% extends request.htmx|yesno:"_includes/base_ajax.html,_includes/base.html" %}
 
 {% block content %}
-{% include "_includes/page-header.html" with headerImage="/static/img/headers/about-page.jpg" title="Careers" pageLoc="about" headerHighlight="Diversity & Inclusion" headerSubtitle="From our headquarters in Lagos to our world-class facilities in Oyo and Ogun states, we are setting the gold standard for breeding and biosecurity in West Africa."  headerTitle="Diversity & Inclusion" %}
+{% include "_includes/page-header.html" with headerImage="/static/img/headers/about-page.jpg" title="Careers" pageLoc="about" headerHighlight="Your Application" headerSubtitle="Please fill out the details below and attach your most recent CV."  headerTitle="Submit" %}
 
-<div class="max-w-2xl mx-auto py-8 px-4">
-    <a href="{% url 'job_list' %}" class="text-green-700 hover:underline text-sm mb-4 inline-block">&larr; Back to all openings</a>
-    
-    <div class="bg-white border rounded-lg p-6 shadow-sm mb-6">
-        <h1 class="text-2xl font-bold text-gray-900">Apply for {{ job.title }}</h1>
-        <p class="text-gray-600 mt-1"><strong>Salary:</strong> {{ job.salary }}</p>
-        <div class="mt-4 text-sm text-gray-700 whitespace-pre-line border-t pt-4">
-            {{ job.description }}
+
+<main class="max-w-3xl mx-auto py-10 px-4 sm:px-6">
+    <!-- Back Navigation -->
+    <a href="{% url 'job_list' %}" class="group inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-emerald-700 transition-colors mb-8">
+        <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Openings
+    </a>
+
+    <!-- Job Header -->
+    <header class="mb-10 border-b border-slate-200 pb-8">
+        <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">{{ job.title }}</h1>
+        <div class="mt-4 flex flex-wrap items-center gap-4 text-sm">
+            <span class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-800 font-semibold px-3 py-1 rounded-full border border-emerald-200/60">
+                <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                {{ job.salary }}
+            </span>
+            <span class="text-slate-500 flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Posted {{ job.created_at|timesince }} ago
+            </span>
         </div>
-    </div>
+    </header>
 
-    <!-- Container swapped by HTMX upon submission -->
-    <div id="application-container" class="bg-white border rounded-lg p-6 shadow-sm">
-        {% include "careers/application_form_wrapper.html" %}
+    <!-- HTMX Target Container -->
+    <div id="application-container" class="bg-white border border-slate-200/80 rounded-2xl shadow-sm overflow-hidden">
+        {% include "careers/application_form.html" %}
     </div>
-</div>
+</main>
+
+
+
 {% endblock %}

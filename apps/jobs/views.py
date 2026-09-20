@@ -33,7 +33,7 @@ def job_apply(request, pk):
                 subject=f"Job Application: {job.title} - {data['first_name']} {data['last_name']}",
                 body=email_body,
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                to=['hr@yourdomain.com'],
+                to=['agesxpat@gmail.com'],
                 reply_to=[data['email']]
             )
             msg.attach(cv_file.name, cv_file.read(), cv_file.content_type)
