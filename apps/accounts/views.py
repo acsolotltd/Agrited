@@ -11,7 +11,6 @@ User = get_user_model()
 def send_pending_approval_email(user_name, user_email):
     subject = "Account Pending Approval - Agrited"
     context = {'name': user_name, 'email': user_email}
-    
     # Fallback plain text
     text_content = f"Hello {user_name},\n\nThank you for registering. Your account requires administrative approval before activation. We will notify you once you are approved."
     
@@ -138,7 +137,7 @@ def htmx_login(request):
         response['HX-Trigger'] = json.dumps({
                 "show-toast": {"message": "Login successful! Redirecting...", "type":"success"}
             })
-        #response["HX-Redirect"] = "/user/dashboard/"
+        response["HX-Redirect"] = "/user/dashboard/"
         return response
     response = HttpResponse("", status=200) 
     response['HX-Trigger'] = json.dumps({

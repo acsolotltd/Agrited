@@ -54,21 +54,21 @@
 
                 <div id="mobile-status-container-{{ booking.id }}">
 
-                    {% if booking.status == 'CONFIRMED' %}
+                    {% if booking.status == 'confirmed' %}
 
                     <span
                         class="inline-flex rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-medium text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400">
                         Confirmed
                     </span>
 
-                    {% elif booking.status == 'PENDING' %}
+                    {% elif booking.status == 'pending' %}
 
                     <span
                         class="inline-flex rounded-full bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-700 dark:bg-amber-500/10 dark:text-amber-400">
                         Pending
                     </span>
 
-                    {% elif booking.status == 'COMPLETED' %}
+                    {% elif booking.status == 'completed' %}
 
                     <span
                         class="inline-flex rounded-full bg-blue-100 px-2.5 py-1 text-xs font-medium text-blue-700 dark:bg-blue-500/10 dark:text-blue-400">
